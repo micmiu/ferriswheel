@@ -1,0 +1,53 @@
+@charset "utf-8";
+BODY {
+	FONT-SIZE: 9pt;
+	COLOR: #842b00;
+	LINE-HEIGHT: 16pt;
+	FONT-FAMILY: "Tahoma", "宋体";
+	TEXT-DECORATION: none
+}
+
+TABLE {
+	FONT-SIZE: 9pt;
+	COLOR: #842b00;
+	LINE-HEIGHT: 16pt;
+	FONT-FAMILY: "Tahoma", "宋体";
+	TEXT-DECORATION: none
+}
+
+TD {
+	FONT-SIZE: 9pt;
+	COLOR: #842b00;
+	LINE-HEIGHT: 16pt;
+	FONT-FAMILY: "Tahoma", "宋体";
+	TEXT-DECORATION: none
+}
+
+BODY {
+	SCROLLBAR-HIGHLIGHT-COLOR: buttonface;
+	SCROLLBAR-SHADOW-COLOR: buttonface;
+	SCROLLBAR-3DLIGHT-COLOR: buttonhighlight;
+	SCROLLBAR-TRACK-COLOR: #eeeeee;
+	BACKGROUND-COLOR: #ffffff
+}
+
+A {
+	FONT-SIZE: 9pt;
+	COLOR: #842b00;
+	LINE-HEIGHT: 16pt;
+	FONT-FAMILY: "Tahoma", "宋体";
+	TEXT-DECORATION: none
+}
+
+A:hover {
+	FONT-SIZE: 9pt;
+	COLOR: #0188d2;
+	LINE-HEIGHT: 16pt;
+	FONT-FAMILY: "Tahoma", "宋体";
+	TEXT-DECORATION: underline
+}
+
+H1 {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: "Tahoma", "宋体"
+}

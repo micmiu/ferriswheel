@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+/* CSS Document */
+* {
+	font-family: Tahoma, Verdana, "Times New Roman";
+	font-size: 9pt;
+}
+
+body {
+	margin: 0px;
+	background-color: #fff;
+}
+
+/* general */
+table {
+    border: 1px solid #CCCCCC;
+}
+
+label.field {
+	width:98px;
+	display:inline-block;
+}
+
+/* header */
+#title div.title {
+	font-size:2em;
+	color:#111;
+	letter-spacing: .1em;
+	
+}
+
+#title span.subtitle {
+	font-size:1.5em;
+	color: #999;
+	letter-spacing: .1em;
+	margin-bottom:0.75em;
+
+}
+
+#menu ul {
+	margin:0 0 0 0;
+	padding: 0.5em;
+	font-weight: bold;
+	background: #8ED35A;
+	border-top: 2px solid #487B21;
+	border-bottom: 2px solid #487B21;
+}
+
+#menu li {display: inline;}
+
+#menu ul a {
+	padding: 0.5em;
+	text-decoration: none;
+	color: #fff;
+}
+
+#menu a:hover {background: #487B21;}
+
+/* footer */
+#footer {
+	position: absolute;
+ 	bottom: 0;
+ 	width:100%;
+	margin-top: 15px;
+	padding: 15px 0px 0px 0px;
+	font-size: 95%;
+	text-align: center;
+	border-top: 2px solid #487B21;
+}
+
+#footer a {color: #999;}
+
+.left {float:left !important;}
+.right {float:right !important;}
+a:focus, a:hover {color:#09f;}
+a {color:#06c;text-decoration:underline;}
+
+div.prepend-top,.prepend-top {margin-top: 1em;}
+fieldset legend {font-weight:bold;}
+div.field{margin-bottom:0.8em;}
+label.field {}
+
+.error ,.error-msg{background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
+.error-msg {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}

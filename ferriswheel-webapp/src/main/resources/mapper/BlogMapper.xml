@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.micmiu.mvc.ferriswheel.examples.mapper.BlogMapper">
+    <resultMap  id="resultMap" type="Blog">
+        <id property="id" column="ID"/>
+        <result property="title" column="TITLE"/>
+        <result property="author" column="AUTHOR"/>
+        <result property="category" column="CATEGORY"/>
+        <result property="url" column="URL"/>
+        <result property="publishDate" column="PUBLISH_DATE"/>
+    </resultMap>
+    <insert id="create" parameterType="Blog" useGeneratedKeys="true" keyProperty="id" >
+       insert into t_blog (title, author, category, url, publish_date)
+       values ( #{title}, #{author}, #{category}, #{url}, #{publishDate})
+     </insert>
+
+    <select id="read" parameterType="long" resultType="Blog" resultMap="resultMap">
+      select * from t_blog where id = #{id}
+    </select>
+
+    <update id="update" parameterType="Blog">
+       update t_blog set title = #{title}, author = #{author}, category = #{category}, publish_date=#{publishDate}
+       where id = #{id}
+     </update>
+
+    <delete id="delete" parameterType="long" >
+      delete from  t_blog where id = #{id}
+     </delete>
+
+    <select id="queryAll" resultMap="resultMap" >
+      select * from t_blog
+    </select>
+</mapper>
