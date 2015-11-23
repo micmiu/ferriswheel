@@ -10,7 +10,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>ls-utils</artifactId>
+    <artifactId>ferriswheel-utils</artifactId>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
