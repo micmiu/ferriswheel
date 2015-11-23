@@ -61,7 +61,7 @@
 			<div>
 				<label for="other" class="field"><fmt:message
 						key="demo.blog.gd.col.other" />:</label> <input type="text" id="other"
-					name="other" size="20" value="${blog.other}" class="required" />
+					name="other" size="20" value="${blog.other}"/>
 			</div>
 			<div>
 				<label for="publishDate" class="field"><fmt:message

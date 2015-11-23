@@ -47,7 +47,7 @@ MM_Ex.formWin = function(paras) {
 			text : '确认',
 			iconCls : 'icon-ok',
 			handler : function() {
-				
+
 				if(typeof beforeFormSubmit == 'function'){
 					if (!beforeFormSubmit()) {
 						return;

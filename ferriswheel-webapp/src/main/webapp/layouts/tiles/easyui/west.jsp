@@ -12,13 +12,9 @@
          style="overflow: auto; padding: 10px;">
 
         <h1><fmt:message key="global.text.summary"/></h1>
-        <ul>
-            <li>SpringMVC 3.2</li>
-            <li>Hibernate 4.19</li>
-            <li>Tiles 2.2,2</li>
-            <li>shiro 1.2.0</li>
-            <li>jQuery+easyui</li>
-        </ul>
+        <p>2015.11.07陪我媳妇hazel去苏州看了周杰伦摩天轮演唱会（基本上没几首歌是我听过的......）<br>
+            当时正好要准备一个web的基础开发框架，故给它命名为Ferriswheel。
+        </p>
         <p>
             <fmt:message key="global.text.more"/>:<a href="http://www.micmiu.com" target="_blank">micmiu.com</a>
         </p>
