@@ -1,10 +1,10 @@
 package com.micmiu.mvc.ferriswheel.examples.simple.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.micmiu.mvc.ferriswheel.support.hibernate.BaseJpaEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.codehaus.jackson.annotate.JsonBackReference;
-import org.codehaus.jackson.annotate.JsonManagedReference;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

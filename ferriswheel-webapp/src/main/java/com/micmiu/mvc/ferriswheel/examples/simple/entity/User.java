@@ -1,11 +1,11 @@
 package com.micmiu.mvc.ferriswheel.examples.simple.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.micmiu.mvc.ferriswheel.core.annotation.ShowParam;
 import com.micmiu.mvc.ferriswheel.support.hibernate.BaseJpaEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;

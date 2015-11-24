@@ -132,10 +132,12 @@
             <groupId>net.sf.spring-json</groupId>
             <artifactId>spring-json</artifactId>
         </dependency>
+        <!-- jackson1
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
         </dependency>
+        -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>

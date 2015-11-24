@@ -20,7 +20,7 @@ import java.util.List;
 @Table(name = "T_SYS_ROLE")
 public class Role extends BaseJpaEntity<Long> {
 
-	@ShowParam("system.role.roleNamee")
+	@ShowParam("system.role.roleName")
 	@Column(name = "ROLE_NAME")
 	private String roleName;
 
