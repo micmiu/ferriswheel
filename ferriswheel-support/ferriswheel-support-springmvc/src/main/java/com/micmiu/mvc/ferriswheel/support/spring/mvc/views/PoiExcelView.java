@@ -1,5 +1,6 @@
 package com.micmiu.mvc.ferriswheel.support.spring.mvc.views;
 
+import com.micmiu.mvc.ferriswheel.support.spring.mvc.ControllerConstant;
 import com.micmiu.mvc.ferriswheel.utils.ReflectionUtils;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -25,17 +26,18 @@ public class PoiExcelView extends AbstractExcelView {
 	protected void buildExcelDocument(Map<String, Object> model,
 									  HSSFWorkbook workbook, HttpServletRequest request,
 									  HttpServletResponse response) throws Exception {
-		String fileName = FileNameUtils.formatFileName(".xls", model.get(ViewConstant.EXPORT_KEY_FILENAME) + "", ViewConstant.DEFAULT_FILENAME);
+		String fileName = FileNameUtils.formatFileName(".xls", model.get(ControllerConstant.KEY_EXPORT_FILENAME) + "",
+				ControllerConstant.KEY_DEFAULT_FILENAME);
 		if (request.getHeader("User-Agent").toUpperCase().indexOf("MSIE") > 0) {
 			fileName = URLEncoder.encode(fileName, "UTF-8");
 		} else {
 			fileName = new String(fileName.getBytes("utf-8"), "ISO-8859-1");
 		}
 		response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
-		String sheetName = null == model.get(ViewConstant.EXPORT_KEY_SHEETNAME) ? "info"
-				: model.get(ViewConstant.EXPORT_KEY_SHEETNAME) + "";
+		String sheetName = null == model.get(ControllerConstant.KEY_EXPORT_SHEETNAME) ? "info"
+				: model.get(ControllerConstant.KEY_EXPORT_SHEETNAME) + "";
 		Map<String, String> showMap = (LinkedHashMap<String, String>) model
-				.get(ViewConstant.EXPORT_KEY_COLUMN_MAP);
+				.get(ControllerConstant.KEY_EXPORT_COLUMN_MAP);
 		// 产生Excel表头
 		HSSFSheet sheet = workbook.createSheet(sheetName);
 		int rowIndex = 0;
@@ -45,7 +47,7 @@ public class PoiExcelView extends AbstractExcelView {
 		for (Map.Entry<String, String> entry : showMap.entrySet()) {
 			header.createCell(columnIndex++).setCellValue(entry.getValue());
 		}
-		List<Object> dataList = (List<Object>) model.get(ViewConstant.EXPORT_KEY_ROW_DATA);
+		List<Object> dataList = (List<Object>) model.get(ControllerConstant.KEY_EXPORT_ROW_DATA);
 		// 填充数据
 		for (Object data : dataList) {
 			HSSFRow row = sheet.createRow(rowIndex++);

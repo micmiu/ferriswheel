@@ -9,41 +9,70 @@
         <div style="float: right;">
 			<span class="subtitle right"><fmt:message
                     key="global.msg.hello"/>, ${loninName} <shiro:principal
-                    property="name"/>!!【 <select id="locale" name="locale"
-                                                 onchange="changeLang(this.value)">
-                <option value="zh_CN">
-                    <fmt:message key="global.text.lang.zh_CN"/>
-                </option>
-                <option value="en">
-                    <fmt:message key="global.text.lang.en"/>
-                </option>
-            </select> <a href="${ctx}/logout.do"><fmt:message key="global.text.logout"/> </a> 】 </span>
+                    property="name"/>,【 <select id="locale" name="locale" style="width:80px"></select>|
+                <select id="theme" name="theme" class="easyui-combobox" style="width: 80px">
+                </select> | <a href="${ctx}/logout.do"><fmt:message key="global.text.logout"/> </a> 】 </span>
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
     <c:set var="LOCALE" value="${sessionScope['org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE']}"/>
-    <c:choose>
-    <c:when test="${ empty LOCALE}">
-    $("#locale").val("zh_CN");
-    </c:when>
-    <c:otherwise>
-    $("#locale").val("${LOCALE}");
-    </c:otherwise>
-    </c:choose>
-
+    <c:if test="${ empty LOCALE}"> <c:set var="LOCALE" value="zh-CN"/></c:if>
+    var langs = [{value: 'zh_CN', text: '<fmt:message key="global.text.lang.zh_CN"/>'},
+        {value: 'en', text: '<fmt:message key="global.text.lang.en"/>'}];
+    var themes = [{value: 'default', text: 'Default'}, {value: 'bootstrap', text: 'Bootstrap'},
+        {value: 'black', text: 'Black'}, {value: 'gray', text: 'Gray'}, {value: 'metro', text: 'Metro'}
+    ];
+    $('#locale').combobox({
+        data: langs,
+        editable: false,
+        panelHeight: 'auto',
+        onChange: changeLang,
+        onLoadSuccess: function () {
+            $(this).combobox('select', '${LOCALE}');
+        }
+    });
+    $('#theme').combobox({
+        data: themes,
+        editable: false,
+        panelHeight: 'auto',
+        onChange: changeTheme,
+        onLoadSuccess: function () {
+            $(this).combobox('select', '${THEME}');
+        }
+    });
     function setLangValue(val) {
         $("#locale").val(val);
     }
     function changeLang(lang) {
+        if (lang == '${LOCALE}') {
+            return;
+        }
         $.ajax({
             type: "post",
             url: '<c:url value="/demo/i18n/change.do"/>',
             data: "locale=" + lang,
             async: true,
             error: function (data, error) {
-                alert("change lang error!");
+                alert("<fmt:message key='global.msg.failed'/>");
+            },
+            success: function (data) {
+                window.location.reload();
+            }
+        });
+    }
+    function changeTheme(theme) {
+        if (theme == '${THEME}') {
+            return;
+        }
+        $.ajax({
+            type: "post",
+            url: '<c:url value="/system/setting/theme.do"/>',
+            data: "theme=" + theme,
+            async: true,
+            error: function (data, error) {
+                alert("<fmt:message key='global.msg.failed'/>");
             },
             success: function (data) {
                 window.location.reload();

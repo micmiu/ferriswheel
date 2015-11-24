@@ -7,6 +7,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.micmiu.mvc.ferriswheel.support.spring.mvc.ControllerConstant;
 import com.micmiu.mvc.ferriswheel.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +35,7 @@ public class PdfiText5View extends AbstractiText5View {
 									Document document, PdfWriter writer, HttpServletRequest request,
 									HttpServletResponse response) throws Exception {
 
-		String fileName = FileNameUtils.formatFileName(".pdf", model.get(ViewConstant.EXPORT_KEY_FILENAME) + "", ViewConstant.DEFAULT_FILENAME);
+		String fileName = FileNameUtils.formatFileName(".pdf", model.get(ControllerConstant.KEY_EXPORT_FILENAME) + "", ControllerConstant.KEY_DEFAULT_FILENAME);
 		if (request.getHeader("User-Agent").toUpperCase().indexOf("MSIE") > 0) {
 			fileName = URLEncoder.encode(fileName, "UTF-8");
 		} else {
@@ -42,9 +43,8 @@ public class PdfiText5View extends AbstractiText5View {
 		}
 		response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 		Map<String, String> showMap = (LinkedHashMap<String, String>) model
-				.get(ViewConstant.EXPORT_KEY_COLUMN_MAP);
-		List<Object> dataList = (List<Object>) model
-				.get(ViewConstant.EXPORT_KEY_ROW_DATA);
+				.get(ControllerConstant.KEY_EXPORT_COLUMN_MAP);
+		List<Object> dataList = (List<Object>) model.get(ControllerConstant.KEY_EXPORT_ROW_DATA);
 		// 创建PDF表格
 		PdfPTable table = new PdfPTable(showMap.size());
 		// 设置pdf表格的宽度

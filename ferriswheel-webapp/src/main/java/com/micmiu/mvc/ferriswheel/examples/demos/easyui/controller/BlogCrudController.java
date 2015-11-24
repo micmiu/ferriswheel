@@ -1,18 +1,24 @@
 package com.micmiu.mvc.ferriswheel.examples.demos.easyui.controller;
 
 
+import com.micmiu.mvc.ferriswheel.core.FerriswheelConstant;
+import com.micmiu.mvc.ferriswheel.core.model.OperationType;
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
 import com.micmiu.mvc.ferriswheel.examples.Constant;
 import com.micmiu.mvc.ferriswheel.examples.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.demos.model.BlogDatagridQuery;
 import com.micmiu.mvc.ferriswheel.examples.demos.service.BlogService;
 import com.micmiu.mvc.ferriswheel.support.easyui.controller.SimpleManageController;
+import com.micmiu.mvc.ferriswheel.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 博客演示基本的CRUD
@@ -56,6 +62,11 @@ public class BlogCrudController extends SimpleManageController<Blog, Long, BlogD
 					.toString());
 		}
 		return true;
+	}
+
+	@Override
+	protected Long[] parseDeleteIDS(HttpServletRequest request) {
+		return StringUtils.parseIdstr(request.getParameter("ids"));
 	}
 
 }

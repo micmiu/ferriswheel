@@ -9,7 +9,8 @@
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/css/default.css'/>"/>
 
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/jquery-validation/1.9.0/validate.css'/>"/>
-    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/easyui/1.3.2/themes/default/easyui.css'/>"/>
+    <c:if test="${empty THEME}"><c:set var="THEME" value="default" scope="application"/></c:if>
+    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/easyui/1.3.2/themes/${THEME}/easyui.css'/>"/>
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/easyui/1.3.2/themes/icon.css'/>"/>
 
     <script type="text/javascript" src="<c:url value='/static/plugins/jquery/jquery-1.8.0.min.js'/>"></script>

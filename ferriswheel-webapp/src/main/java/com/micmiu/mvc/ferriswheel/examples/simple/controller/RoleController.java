@@ -215,4 +215,9 @@ public class RoleController extends PropertyGridController<Role, RoleVo, Long, R
 		}
 		return vo;
 	}
+
+	@Override
+	protected Long[] parseDeleteIDS(HttpServletRequest request) {
+		return com.micmiu.mvc.ferriswheel.utils.StringUtils.parseIdstr(request.getParameter("ids"));
+	}
 }

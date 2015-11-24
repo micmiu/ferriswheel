@@ -7,6 +7,7 @@ import com.micmiu.mvc.ferriswheel.examples.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.demos.model.BlogTableQuery;
 import com.micmiu.mvc.ferriswheel.examples.demos.service.BlogService;
 import com.micmiu.mvc.ferriswheel.support.datatables.controller.SimpleManageController;
+import com.micmiu.mvc.ferriswheel.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -58,4 +59,8 @@ public class BlogDatatablesController extends SimpleManageController<Blog, Long,
 		return true;
 	}
 
+	@Override
+	protected Long[] parseDeleteIDS(HttpServletRequest request) {
+		return StringUtils.parseIdstr(request.getParameter("ids"));
+	}
 }

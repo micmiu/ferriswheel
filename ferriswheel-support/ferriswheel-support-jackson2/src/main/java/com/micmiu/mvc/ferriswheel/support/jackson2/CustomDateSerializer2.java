@@ -14,7 +14,7 @@ import java.util.Date;
  *
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
-public class CustomDateSerializer extends JsonSerializer<Date> {
+public class CustomDateSerializer2 extends JsonSerializer<Date> {
 	@Override
 	public void serialize(Date value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");

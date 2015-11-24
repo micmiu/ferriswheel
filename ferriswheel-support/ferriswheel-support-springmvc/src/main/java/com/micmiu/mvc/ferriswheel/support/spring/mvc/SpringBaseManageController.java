@@ -1,7 +1,6 @@
 package com.micmiu.mvc.ferriswheel.support.spring.mvc;
 
 
-import com.micmiu.mvc.ferriswheel.core.FerriswheelConstant;
 import com.micmiu.mvc.ferriswheel.core.annotation.AnnotationUtils;
 import com.micmiu.mvc.ferriswheel.core.entity.FerriswheelID;
 import com.micmiu.mvc.ferriswheel.core.model.AbstractQuery;
@@ -119,16 +118,16 @@ public abstract class SpringBaseManageController<E extends FerriswheelID, V, ID 
 
 	@Override
 	protected void handler4Export(HttpServletRequest request, Map<String, Object> model) {
-		model.put(FerriswheelConstant.EXPORT_FILENAME, messageSource.getMessage(
-				this.clazz.getSimpleName().toLowerCase() + "." + FerriswheelConstant.EXPORT_FILENAME, null,
-				RequestContextUtils.getLocale(request)));
-		model.put(FerriswheelConstant.EXPORT_SHEETNAME, messageSource.getMessage(
-				this.clazz.getSimpleName().toLowerCase() + "." + FerriswheelConstant.EXPORT_SHEETNAME, null,
-				RequestContextUtils.getLocale(request)));
-		model.put(FerriswheelConstant.EXPORT_TITLE, messageSource.getMessage(
-				this.clazz.getSimpleName().toLowerCase() + "." + FerriswheelConstant.EXPORT_TITLE, null,
-				RequestContextUtils.getLocale(request)));
-		model.put(FerriswheelConstant.EXPORT_COLUMN_MAP, AnnotationUtils.getBeanShwoParamMap(this.clazz, messageSource,
+		model.put(ControllerConstant.KEY_EXPORT_FILENAME, messageSource.getMessage(
+				this.clazz.getSimpleName().toLowerCase() + "." + ControllerConstant.KEY_EXPORT_FILENAME, null,
+				ControllerConstant.KEY_EXPORT_FILENAME, RequestContextUtils.getLocale(request)));
+		model.put(ControllerConstant.KEY_EXPORT_SHEETNAME, messageSource.getMessage(
+				this.clazz.getSimpleName().toLowerCase() + "." + ControllerConstant.KEY_EXPORT_SHEETNAME, null,
+				ControllerConstant.KEY_EXPORT_SHEETNAME, RequestContextUtils.getLocale(request)));
+		model.put(ControllerConstant.KEY_EXPORT_TITLE, messageSource.getMessage(
+				this.clazz.getSimpleName().toLowerCase() + "." + ControllerConstant.KEY_EXPORT_TITLE, null,
+				ControllerConstant.KEY_EXPORT_TITLE, RequestContextUtils.getLocale(request)));
+		model.put(ControllerConstant.KEY_EXPORT_COLUMN_MAP, AnnotationUtils.getBeanShwoParamMap(this.clazz, messageSource,
 				RequestContextUtils.getLocale(request)));
 	}
 

@@ -15,8 +15,10 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.Collection;
 import java.util.Map;
 
@@ -27,17 +29,22 @@ import java.util.Map;
  *
  * @author calvin
  */
-public class JsonMapper {
+public class Jackson2ExtMapper {
 
-	private static Logger logger = LoggerFactory.getLogger(JsonMapper.class);
+	private static Logger logger = LoggerFactory.getLogger(Jackson2ExtMapper.class);
 
 	private ObjectMapper mapper;
 
-	public JsonMapper() {
+	public Jackson2ExtMapper() {
 		this(null);
 	}
 
-	public JsonMapper(Include include) {
+	public Jackson2ExtMapper(Include include, DateFormat df) {
+		this(null);
+		mapper.setDateFormat(df);
+	}
+
+	public Jackson2ExtMapper(Include include) {
 		mapper = new ObjectMapper();
 		// 设置输出时包含属性的风格
 		if (include != null) {
@@ -47,18 +54,22 @@ public class JsonMapper {
 		mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 	}
 
+	public static Jackson2ExtMapper dateMapper() {
+		return new Jackson2ExtMapper(Include.NON_EMPTY);
+	}
+
 	/**
 	 * 创建只输出非Null且非Empty(如List.isEmpty)的属性到Json字符串的Mapper,建议在外部接口中使用.
 	 */
-	public static JsonMapper nonEmptyMapper() {
-		return new JsonMapper(Include.NON_EMPTY);
+	public static Jackson2ExtMapper nonEmptyMapper() {
+		return new Jackson2ExtMapper(Include.NON_EMPTY);
 	}
 
 	/**
 	 * 创建只输出初始值被改变的属性到Json字符串的Mapper, 最节约的存储方式，建议在内部接口中使用。
 	 */
-	public static JsonMapper nonDefaultMapper() {
-		return new JsonMapper(Include.NON_DEFAULT);
+	public static Jackson2ExtMapper nonDefaultMapper() {
+		return new Jackson2ExtMapper(Include.NON_DEFAULT);
 	}
 
 	/**

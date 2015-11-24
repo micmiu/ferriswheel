@@ -3,15 +3,15 @@ package com.micmiu.mvc.ferriswheel.support.easyui;
 import com.micmiu.mvc.ferriswheel.core.annotation.ShowParam;
 import com.micmiu.mvc.ferriswheel.support.easyui.vo.GridColumn;
 import com.micmiu.mvc.ferriswheel.support.easyui.vo.PropertyGridData;
+import com.micmiu.mvc.ferriswheel.support.jackson2.Jackson2ExtMapper;
 import net.sf.json.JSONObject;
-import net.sf.json.JsonConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.MessageSource;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -24,8 +24,6 @@ import java.util.Map;
  * Time: 15:48
  */
 public class EasyuiBeanUtils {
-
-
 	/**
 	 * 根据实体类中@showparam注释转化为griddata表头信息
 	 *
@@ -88,7 +86,34 @@ public class EasyuiBeanUtils {
 
 	public static List<PropertyGridData> convertPropertyGridData(Object bean, Map<String, String> showMap) {
 		List<PropertyGridData> volist = new ArrayList<PropertyGridData>();
+		try {
+			Jackson2ExtMapper mapper = new Jackson2ExtMapper(null, new SimpleDateFormat("yyyy-MM-dd"));
+			JSONObject obj = JSONObject.fromObject(mapper.serJson(bean));
+			Iterator it = obj.keys();
+			while (it.hasNext()) {
+				String key = (String) it.next();
+				Object valObj = obj.get(key);
+				String value = null;
+				if (null == valObj
+						|| (valObj instanceof JSONObject && ((JSONObject) valObj)
+						.isNullObject())) {
+					value = "";
+				} else {
+					value = valObj.toString();
+				}
 
+				if (null == showMap) {
+					volist.add(new PropertyGridData(key, value));
+				} else {
+					if (null != showMap.get(key)) {
+						volist.add(new PropertyGridData(showMap.get(key), value));
+					}
+				}
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return volist;
 	}
 

@@ -19,32 +19,32 @@ import java.util.Date;
 @Table(name = "T_BLOG")
 public class Blog extends BaseJpaEntity<Long> {
 
-	@ShowParam(value = "blog.gd.col.title")
+	@ShowParam(value = "demo.blog.gd.col.title")
 	@Column(name = "TITLE", length = 255)
 	private String title;
 
-	@ShowParam("blog.gd.col.author")
+	@ShowParam("demo.blog.gd.col.author")
 	@Column(name = "AUTHOR", length = 20)
 	private String author;
 
-	@ShowParam("blog.gd.col.category")
+	@ShowParam("demo.blog.gd.col.category")
 	@Column(name = "CATEGORY", length = 50)
 	private String category;
 
-	@ShowParam(value = "blog.gd.col.url", width = 200)
+	@ShowParam(value = "demo.blog.gd.col.url", width = 200)
 	@Column(name = "URL", length = 512)
 	private String url;
 
-	@ShowParam("blog.gd.col.other")
+	@ShowParam("demo.blog.gd.col.other")
 	@Column(name = "OTHER", length = 1024)
 	private String other;
 
-	@ShowParam("blog.gd.col.creater")
+	@ShowParam("demo.blog.gd.col.creater")
 	@Column(name = "CREATER", length = 20)
 	private String creater;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@ShowParam("blog.gd.col.publishDate")
+	@ShowParam("demo.blog.gd.col.publishDate")
 	@Column(name = "PUBLISH_DATE")
 	private Date publishDate;
 

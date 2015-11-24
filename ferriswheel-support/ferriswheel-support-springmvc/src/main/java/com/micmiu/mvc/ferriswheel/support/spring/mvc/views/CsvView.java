@@ -1,5 +1,6 @@
 package com.micmiu.mvc.ferriswheel.support.spring.mvc.views;
 
+import com.micmiu.mvc.ferriswheel.support.spring.mvc.ControllerConstant;
 import com.micmiu.mvc.ferriswheel.utils.ReflectionUtils;
 import org.springframework.web.servlet.view.AbstractView;
 
@@ -27,13 +28,13 @@ public class CsvView extends AbstractView {
 										   HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
-		String fileName = FileNameUtils.formatFileName(".csv", model.get(ViewConstant.EXPORT_KEY_FILENAME) + "", ViewConstant.DEFAULT_FILENAME);
+		String fileName = FileNameUtils.formatFileName(".csv", model.get(ControllerConstant.KEY_EXPORT_FILENAME) + "", ControllerConstant.KEY_DEFAULT_FILENAME);
 		response.setHeader("Content-Disposition", "attachment; filename=" + new String(fileName.getBytes("utf-8"), "ISO-8859-1"));
 		response.setContentType("text/csv");
 		response.setCharacterEncoding("UTF-8");
 
 		Map<String, String> showMap = (LinkedHashMap<String, String>) model
-				.get(ViewConstant.EXPORT_KEY_COLUMN_MAP);
+				.get(ControllerConstant.KEY_EXPORT_COLUMN_MAP);
 
 		OutputStream out;
 		out = response.getOutputStream();
@@ -44,8 +45,7 @@ public class CsvView extends AbstractView {
 		}
 		out.write(DEF_ENTER.getBytes());
 
-		List<Object> dataList = (List<Object>) model
-				.get(ViewConstant.EXPORT_KEY_ROW_DATA);
+		List<Object> dataList = (List<Object>) model.get(ControllerConstant.KEY_EXPORT_ROW_DATA);
 		for (Object data : dataList) {
 			for (Map.Entry<String, String> entry : showMap.entrySet()) {
 				out.write((ReflectionUtils.invokeGetter(data, entry.getKey()) + "").getBytes("UTF-8"));

@@ -29,6 +29,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -128,6 +129,14 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	 * @return true -> 可以删除 false->不能删除
 	 */
 	protected abstract boolean allowDeleteData(ID id, StringBuffer msgkey);
+
+	/**
+	 * 转化批量删除的主键
+	 *
+	 * @param request
+	 * @return ID[]
+	 */
+	protected abstract ID[] parseDeleteIDS(HttpServletRequest request);
 
 	/**
 	 * 判断数据是否可以删除
@@ -351,10 +360,11 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 
 	@RequestMapping(params = "method=deleteBatch")
 	@ResponseBody
-	public String deleteBatch(HttpServletRequest request, ID[] ids) {
+	public String deleteBatch(HttpServletRequest request) {
 		checkAuth(OperationType.DELETE.getValue());
 		String message = null;
 		try {
+			ID[] ids = this.parseDeleteIDS(request);
 			StringBuffer msgkey = new StringBuffer();
 			if (this.allowDeleteData(ids, msgkey)) {
 				getBaseService().delete(ids);
@@ -369,14 +379,13 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	}
 
 	@RequestMapping(params = {"method=export"}, method = RequestMethod.POST)
-	public ModelAndView export(HttpServletRequest request, Q pageQuery,
-							   String exportType) {
+	public ModelAndView export(HttpServletRequest request, Q pageQuery, String exportType) {
 		checkAuth(OperationType.EXPORT.getValue());
 		parseQuery(request, pageQuery);
 		List<E> list = getBaseService().query(pageQuery.getQueryProperties(), pageQuery.getSortProperties());
 		Map<String, Object> model = new HashMap<String, Object>();
 		this.handler4Export(request, model);
-		model.put(FerriswheelConstant.EXPORT_ROW_DATA, list);
+		model.put(ControllerConstant.KEY_EXPORT_ROW_DATA, list);
 		if ("POI".equals(exportType)) {
 			return new ModelAndView(new PoiExcelView(), model);
 		} else if ("JXL".equals(exportType)) {
@@ -404,6 +413,24 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 		page.setPageList(s.query(q.getQueryProperties(), q.getSortProperties(), (pg - 1) * rows, rows));
 		page.setTotalCount(s.count(q.getQueryProperties()));
 		return page;
+	}
+
+	/**
+	 * 把ids 转化为Long[]
+	 *
+	 * @param ids
+	 * @return
+	 */
+	protected static <ID> List<ID> parseEntityID(String ids) {
+		if (null == ids || "".equals(ids)) {
+			return null;
+		}
+		List<ID> list = new ArrayList<ID>();
+		String[] idstrArr = ids.split(",");
+		for (int i = 0; i < idstrArr.length; i++) {
+			list.add((ID) idstrArr[i]);
+		}
+		return list;
 	}
 
 }

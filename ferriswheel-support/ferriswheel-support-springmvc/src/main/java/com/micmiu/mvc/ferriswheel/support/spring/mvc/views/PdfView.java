@@ -7,7 +7,7 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.micmiu.mvc.ferriswheel.core.FerriswheelConstant;
+import com.micmiu.mvc.ferriswheel.support.spring.mvc.ControllerConstant;
 import com.micmiu.mvc.ferriswheel.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,11 +34,10 @@ public class PdfView extends AbstractPdfView {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	protected void buildPdfDocument(Map<String, Object> model,
-									Document document, PdfWriter writer, HttpServletRequest request,
+	protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer, HttpServletRequest request,
 									HttpServletResponse response) throws Exception {
 
-		String fileName = FileNameUtils.formatFileName(".pdf", model.get(ViewConstant.EXPORT_KEY_FILENAME) + "", ViewConstant.DEFAULT_FILENAME);
+		String fileName = FileNameUtils.formatFileName(".pdf", model.get(ControllerConstant.KEY_EXPORT_FILENAME) + "", ControllerConstant.KEY_DEFAULT_FILENAME);
 		if (request.getHeader("User-Agent").toUpperCase().indexOf("MSIE") > 0) {
 			fileName = URLEncoder.encode(fileName, "UTF-8");
 		} else {
@@ -47,9 +46,9 @@ public class PdfView extends AbstractPdfView {
 		response.setHeader("Content-Disposition", "attachment; filename="
 				+ fileName);
 		Map<String, String> showMap = (LinkedHashMap<String, String>) model
-				.get(FerriswheelConstant.EXPORT_COLUMN_MAP);
+				.get(ControllerConstant.KEY_EXPORT_COLUMN_MAP);
 		List<Object> dataList = (List<Object>) model
-				.get(FerriswheelConstant.EXPORT_ROW_DATA);
+				.get(ControllerConstant.KEY_EXPORT_ROW_DATA);
 		// 创建PDF表格
 		PdfPTable table = new PdfPTable(showMap.size());
 		// 设置pdf表格的宽度

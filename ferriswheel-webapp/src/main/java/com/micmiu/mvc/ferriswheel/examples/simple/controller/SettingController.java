@@ -23,8 +23,16 @@ public class SettingController {
 
 	@RequestMapping(value = "i18n.do")
 	@ResponseBody
-	public String change(HttpServletRequest request) {
+	public String changeLocale(HttpServletRequest request) {
 		logger.info("change to locale=:" + request.getParameter("locale"));
+		return "success";
+	}
+
+	@RequestMapping(value = "theme.do")
+	@ResponseBody
+	public String changeTheme(String theme, HttpServletRequest request) {
+		logger.info("change to theme=:" + theme);
+		request.getSession().setAttribute("THEME", theme);
 		return "success";
 	}
 

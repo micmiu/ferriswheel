@@ -14,6 +14,7 @@ import com.micmiu.mvc.ferriswheel.examples.simple.service.RoleService;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.UserService;
 import com.micmiu.mvc.ferriswheel.examples.simple.util.MenuPermUtils;
 import com.micmiu.mvc.ferriswheel.support.easyui.controller.SimpleManageController;
+import com.micmiu.mvc.ferriswheel.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -175,5 +176,10 @@ public class UserController extends SimpleManageController<User, Long, UserDataG
 		if (null != menu.getParent()) {
 			recParseMenuIds(menuIds, menu.getParent());
 		}
+	}
+
+	@Override
+	protected Long[] parseDeleteIDS(HttpServletRequest request) {
+		return StringUtils.parseIdstr(request.getParameter("ids"));
 	}
 }
