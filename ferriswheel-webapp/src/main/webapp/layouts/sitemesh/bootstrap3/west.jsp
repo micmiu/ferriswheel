@@ -7,7 +7,7 @@
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion"
                    href="#collapse1">
-                    quick
+                    Quick
                 </a>
             </h4>
         </div>
@@ -26,18 +26,18 @@
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion"
                    href="#collapse2">
-                    tech
+                    About
                 </a>
             </h4>
         </div>
-        <div id="collapse2" class="panel-collapse collapse in">
+        <div id="collapse2" class="panel-collapse collapse">
             <div class="panel-body">
                 <ul>
-                    <li>SpringMVC 3.2</li>
-                    <li>Mybatis 3.2.7</li>
+                    <li>SpringMVC 3.2.0.RELEASE</li>
+                    <li>Hibernae 4.1.9.Final</li>
                     <li>Sitemesh 2.4.2</li>
                     <li>shiro 1.2.0</li>
-                    <li>Bootstrap 3.0.2</li>
+                    <li>Bootstrap 3</li>
                 </ul>
             </div>
         </div>
@@ -47,7 +47,7 @@
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion"
                    href="#collapse3">
-                    help
+                    Help
                 </a>
             </h4>
         </div>
@@ -55,8 +55,8 @@
             <div class="panel-body">
                 <ul>
                     <li><a href="Mailto:sjsky007@gmail.com"><fmt:message key="global.text.mailto"/></a></li>
-                    <li><a href="<fmt:message key='global.org.url' />" target="_blank"><fmt:message
-                            key="global.org.name"/></a></li>
+                    <li><a href="<fmt:message key='global.org.info.url' />" target="_blank"><fmt:message
+                            key="global.org.info.name"/></a></li>
                 </ul>
             </div>
         </div>

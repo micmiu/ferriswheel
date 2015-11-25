@@ -7,10 +7,11 @@ package com.micmiu.mvc.ferriswheel.examples;
  */
 public class Constant {
 
-	public static final String UI_NAME = "easyui";
+	public static final String UI_NAME = "bootstrap";
 	//tiles -> "."  sitemesh -> "/"
- 	public static final String LAYOUT_SPLIT = ".";
-	public static final String VIEW_PAGE_SPLIT = ".";
+	public static final String LAYOUT_SPLIT = "/";
+	//tiles -> "."  sitemesh -> "_"
+	public static final String VIEW_PAGE_SPLIT = "_";
 	public static final String VIEW_PREFIX = UI_NAME + LAYOUT_SPLIT;
 
 }

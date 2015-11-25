@@ -3,14 +3,14 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-    <definition name="easyui.default" template="/layouts/tiles/easyui/layout.jsp">
+    <definition name="easyui.default.temp" template="/layouts/tiles/easyui/layout.jsp">
         <put-attribute name="title" value="global.project.name" type="string"/>
         <put-attribute name="position" value="global.text.workspace" type="string"/>
     </definition>
-    <definition name="easyui.login" template="/layouts/tiles/easyui/layout.login.jsp">
+    <definition name="easyui.login.temp" template="/layouts/tiles/easyui/layout.login.jsp">
         <put-attribute name="title" value="global.project.name" type="string"/>
         <put-attribute name="position" value="system.login.header" type="string"/>
     </definition>
-    <definition name="easyui.win" template="/layouts/tiles/easyui/layout.win.jsp"/>
-    <definition name="easyui.page" template="/layouts/tiles/easyui/layout.page.jsp"/>
+    <definition name="easyui.win.temp" template="/layouts/tiles/easyui/layout.win.jsp"/>
+    <definition name="easyui.page.temp" template="/layouts/tiles/easyui/layout.page.jsp"/>
 </tiles-definitions> 

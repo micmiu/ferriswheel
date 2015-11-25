@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ include file="/static/tags/taglibs.jsp" %>
 <head>
-    <title><fmt:message key="global.text.title"/>
-        <sitemesh:title/></title>
+    <title><fmt:message key="global.project.name"/> - <sitemesh:title/></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Cache-Control" content="no-store,no-cache,must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -19,6 +18,7 @@
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/jquery-ui/1.10.4/css/jquery-ui-1.10.4.custom.min.css'/>">
 
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/jqgrid/4.6.0/css/ui.jqgrid.css'/>">
+    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/jqgrid/4.6.0/css/bootstrap-jqgrid.css'/>">
 
     <!-- jQuery -->
     <script type="text/javascript" src="<c:url value='/static/plugins/jquery/jquery-1.8.0.min.js'/>"></script>

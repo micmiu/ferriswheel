@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<decorators defaultdir="/layouts/sitemesh/">
+<decorators defaultdir="/layouts/sitemesh/bootstrap3">
 	<excludes>
         <pattern>/static/*</pattern>
 		<pattern>/servlet/*</pattern>
+        <pattern>/anno/*</pattern>
 		<pattern>/api/*</pattern>
 	</excludes>
 

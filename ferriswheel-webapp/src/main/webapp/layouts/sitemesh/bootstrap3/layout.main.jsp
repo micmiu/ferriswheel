@@ -36,7 +36,6 @@
             <!-- content ends -->
 		</div>
 		<!--/fluid-row-->
-		<hr />
 		<jsp:include page="footer.jsp" />
 	</div>
 	<!--/.fluid-container-->

@@ -24,7 +24,7 @@ import java.util.Locale;
 @Controller
 public class LoginController {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "system" + Constant.LAYOUT_SPLIT;
+	private static final String PREFIX = Constant.VIEW_PREFIX;
 
 	@Autowired
 	private LocaleResolver localeResolver;

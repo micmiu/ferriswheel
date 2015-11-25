@@ -83,6 +83,7 @@
     <mvc:view-controller path="/" view-name="redirect:/index.do"/>
 
     <!-- tiles2 -->
+    <!--
     <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles2.TilesViewResolver">
     </bean>
 
@@ -93,6 +94,7 @@
             </list>
         </property>
     </bean>
+    -->
 
     <!-- view层定义 -->
     <bean

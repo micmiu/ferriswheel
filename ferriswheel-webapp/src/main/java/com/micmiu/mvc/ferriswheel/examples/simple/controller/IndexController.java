@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class IndexController {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "system" + Constant.LAYOUT_SPLIT;
+	private static final String PREFIX = Constant.VIEW_PREFIX;
 
 	@RequestMapping("/index.do")
 	public String index(HttpServletRequest req) {
