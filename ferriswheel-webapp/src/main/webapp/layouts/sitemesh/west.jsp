@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ include file="/static/taglibs/taglibs.jsp" %>
+<%@ include file="/static/tags/taglibs.jsp" %>
 <div class="panel-group" id="accordion">
     <div class="panel panel-success">
         <div class="panel-heading">
