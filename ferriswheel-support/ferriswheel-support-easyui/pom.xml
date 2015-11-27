@@ -37,14 +37,17 @@
             <version>${parent.version}</version>
         </dependency>
 
-        <!-- spring -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <type>jar</type>
         </dependency>
+        
+        <!-- json -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <classifier>jdk15</classifier>
         </dependency>
 
     </dependencies>

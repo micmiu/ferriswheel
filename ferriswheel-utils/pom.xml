@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>ferriswheel</artifactId>
         <groupId>com.micmiu.mvc</groupId>
+        <artifactId>ferriswheel-parent</artifactId>
         <version>1.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../ferriswheel-parent/</relativePath>
     </parent>
 
     <artifactId>ferriswheel-utils</artifactId>

@@ -17,6 +17,24 @@
 
     <dependencies>
 
+        <!-- shiro -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
             <artifactId>ferriswheel-core</artifactId>
@@ -26,12 +44,6 @@
             <groupId>com.micmiu.mvc</groupId>
             <artifactId>ferriswheel-utils</artifactId>
             <version>${parent.version}</version>
-        </dependency>
-
-        <!-- spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
         </dependency>
 
         <dependency>
@@ -61,7 +73,6 @@
             <groupId>com.itextpdf</groupId>
             <artifactId>itext-asian</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

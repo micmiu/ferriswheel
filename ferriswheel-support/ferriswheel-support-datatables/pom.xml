@@ -37,5 +37,11 @@
             <version>${parent.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <type>jar</type>
+        </dependency>
+
     </dependencies>
 </project>

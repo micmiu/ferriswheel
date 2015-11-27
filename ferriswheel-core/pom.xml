@@ -4,9 +4,9 @@
 
     <parent>
         <groupId>com.micmiu.mvc</groupId>
-        <artifactId>ferriswheel</artifactId>
+        <artifactId>ferriswheel-parent</artifactId>
         <version>1.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../ferriswheel-parent/</relativePath>
     </parent>
 
     <artifactId>ferriswheel-core</artifactId>
@@ -16,11 +16,10 @@
     <url>http://micmiu.com</url>
 
     <dependencies>
-
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
             <artifactId>ferriswheel-utils</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <!-- SPRING begin -->
         <!-- spring basic -->
@@ -46,7 +45,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

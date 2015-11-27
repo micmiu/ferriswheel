@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.micmiu.mvc</groupId>
+        <artifactId>ferriswheel-parent</artifactId>
+        <version>1.1-SNAPSHOT</version>
+        <relativePath>../ferriswheel-parent</relativePath>
+    </parent>
+
+    <artifactId>ferriswheel-demos</artifactId>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+    <url>http://micmiu.com</url>
+    <modules>
+        <module>ferriswheel-demo-web</module>
+        <module>ferriswheel-demo-web2</module>
+    </modules>
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <filters>
+            <filter>src/main/filters/filter-${env}.properties</filter>
+        </filters>
+        <resources>
+            <!-- 只过滤properties文件中得属性 -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.sql</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+</project>

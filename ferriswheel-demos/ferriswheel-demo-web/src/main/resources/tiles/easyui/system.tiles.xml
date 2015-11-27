@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="easyui.system.login" extends="easyui.login">
+        <put-attribute name="workspace" value="/WEB-INF/views/easyui/login.jsp"/>
+    </definition>
+    <definition name="easyui.system.index" extends="easyui.default">
+        <put-attribute name="position" value="global.text.index" type="string"/>
+        <put-attribute name="workspace" value="/WEB-INF/views/easyui/index.jsp"/>
+    </definition>
+
+    <!-- user page config -->
+    <definition name="easyui.system.user.list" extends="easyui.default">
+        <put-attribute name="workspace" value="/WEB-INF/views/easyui/system/user_list.jsp"/>
+    </definition>
+    <definition name="easyui.system.user.form" extends="easyui.win">
+        <put-attribute name="workspace" value="/WEB-INF/views/easyui/system/user_form.jsp"/>
+    </definition>
+    <definition name="easyui.system.user.view" extends="easyui.win">
+        <put-attribute name="workspace" value="/WEB-INF/views/easyui/system/user_view.jsp"/>
+    </definition>
+
+    <!-- role page config -->
+    <definition name="easyui.system.role.list" extends="easyui.default">
+        <put-attribute name="workspace" value="/WEB-INF/views/easyui/system/role_list.jsp"/>
+    </definition>
+    <definition name="easyui.system.role.form" extends="easyui.win">
+        <put-attribute name="workspace" value="/WEB-INF/views/easyui/system/role_form.jsp"/>
+    </definition>
+    <definition name="easyui.system.role.view" extends="easyui.win">
+        <put-attribute name="workspace" value="/WEB-INF/views/easyui/system/role_view.jsp"/>
+    </definition>
+</tiles-definitions> 

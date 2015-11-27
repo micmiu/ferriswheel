@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd  
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+    <context:component-scan base-package="com.micmiu.mvc.ferriswheel" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- i18n -->
+    <bean id="localeChangeInterceptor"
+          class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <property name="defaultLocale" value="zh_CN"></property>
+    </bean>
+
+    <!-- stopwatch  Interceptor-->
+    <bean id="stopWatchHandlerInterceptor"
+          class="com.micmiu.mvc.ferriswheel.support.spring.web.StopWatchHandlerInterceptor"/>
+
+    <!-- log  Interceptor-->
+    <bean id="logHandlerInterceptor" class="com.micmiu.mvc.ferriswheel.support.spring.web.LogHandlerInterceptor"/>
+
+    <!--Spring3.1 之后的注解 HandlerMapping -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <ref bean="localeChangeInterceptor"/>
+                <ref bean="stopWatchHandlerInterceptor"/>
+                <ref bean="logHandlerInterceptor"/>
+            </list>
+        </property>
+        <property name="order" value="1"></property>
+    </bean>
+
+    <!--Spring3.1 之后的自定义注解 HandlerAdapter -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="webBindingInitializer">
+            <bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+                <property name="conversionService">
+                    <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean"></bean>
+                </property>
+            </bean>
+        </property>
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name="writeAcceptCharset" value="false"/>
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>text/plain;charset=UTF-8</value>
+                            <value>text/html;charset=UTF-8</value>
+                            <value>*/*;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+                <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="objectMapper" ref="dateObjectMapper"></property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="dateObjectMapper" class="com.micmiu.mvc.ferriswheel.support.jackson2.DateObjectMapper2"/>
+
+    <mvc:default-servlet-handler/>
+
+    <!-- 静态资源映射 -->
+    <mvc:resources mapping="/static/**" location="/static/"/>
+
+    <!-- 定义首页 -->
+    <mvc:view-controller path="/" view-name="redirect:/index.do"/>
+
+    <!-- tiles2 -->
+    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles2.TilesViewResolver">
+    </bean>
+
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>classpath:tiles/easyui/*.tiles.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- view层定义 -->
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean id="defaultJsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+
+    <bean name="xmlViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+        <property name="location" value="classpath:spring-view.xml"/>
+    </bean>
+    <!-- end -->
+
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.apache.shiro.authz.UnauthorizedException">error/403</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 文件上传支持 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="100000000"/>
+        <property name="maxInMemorySize" value="1000000"/>
+    </bean>
+
+    <!-- 如果没有增加如下配置，shiro注解@RequiresRoles @RequiresPermissions不起作用-->
+    <!-- 支持 Shiro对Controller的AOP安全控制 begin  -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true"/>
+    </bean>
+
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    <!-- shiro end -->
+
+</beans>
