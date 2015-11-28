@@ -80,6 +80,19 @@ public class Page<T> {
 	 * @return long 总记录数
 	 */
 	public long getTotalCount() {
+		if (getTotalCount() % getRowsPerPage() == 0) {
+			return getTotalCount() / getRowsPerPage();
+		} else {
+			return getTotalCount() / getRowsPerPage() + 1;
+		}
+	}
+
+	/**
+	 * 获取总页数.
+	 *
+	 * @return long 总记录数
+	 */
+	public long getPageCount() {
 		return totalCount;
 	}
 
