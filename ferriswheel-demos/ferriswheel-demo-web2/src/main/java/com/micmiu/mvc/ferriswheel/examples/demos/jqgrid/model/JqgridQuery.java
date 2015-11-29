@@ -15,7 +15,7 @@ import java.util.Map;
  * Date: 11/28/2015
  * Time: 21:59
  */
-public class JqgridQuery extends AbstractQuery {
+public abstract class JqgridQuery extends AbstractQuery {
 
 	/**
 	 * 排序升序常量.

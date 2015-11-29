@@ -80,11 +80,7 @@ public class Page<T> {
 	 * @return long 总记录数
 	 */
 	public long getTotalCount() {
-		if (getTotalCount() % getRowsPerPage() == 0) {
-			return getTotalCount() / getRowsPerPage();
-		} else {
-			return getTotalCount() / getRowsPerPage() + 1;
-		}
+		return totalCount;
 	}
 
 	/**
@@ -93,7 +89,11 @@ public class Page<T> {
 	 * @return long 总记录数
 	 */
 	public long getPageCount() {
-		return totalCount;
+		if (getTotalCount() % getRowsPerPage() == 0) {
+			return getTotalCount() / getRowsPerPage();
+		} else {
+			return getTotalCount() / getRowsPerPage() + 1;
+		}
 	}
 
 	public int getsEcho() {
