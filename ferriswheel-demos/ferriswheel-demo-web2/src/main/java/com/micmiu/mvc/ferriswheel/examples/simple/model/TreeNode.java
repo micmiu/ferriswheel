@@ -3,13 +3,16 @@ package com.micmiu.mvc.ferriswheel.examples.simple.model;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
-public class TreeNode {
+public class TreeNode implements Serializable {
+
+	private static final long serialVersionUID = 1994029384398883145L;
 
 	private String id;
 

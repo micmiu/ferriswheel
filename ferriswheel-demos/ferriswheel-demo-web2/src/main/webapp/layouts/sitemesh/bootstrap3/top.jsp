@@ -18,8 +18,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#"><fmt:message key="menu.system"/></a></li>
-                <li><a href="<c:url value='/system/user.do?method=showList'/>"><fmt:message key="menu.system.user"/></a>
+                <li class="active">
+                    <a href="#"class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.system"/>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="<c:url value='/system/user.do?method=showList'/>"><fmt:message
+                                key="menu.system.user"/></a></li>
+                        <li><a href="<c:url value='/system/role.do?method=showList'/>"><fmt:message
+                                key="menu.system.role"/></a></li>
+                    </ul>
+
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.demo"/>
@@ -27,8 +35,8 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="<c:url value='/anon/demo/bootstrap.do'/>"><fmt:message
                                 key="menu.demo.common"/></a></li>
-                        <li><a href="<c:url value='/demo/jqgriddemo.do?method=showList4Base'/>"><fmt:message
-                                key="menu.demo.crud"/></a></li>
+                        <li><a href="<c:url value='/demo/jqgrid/blog.do?method=showList'/>"><fmt:message
+                                key="menu.demo.jqgrid"/></a></li>
                     </ul>
                 </li>
             </ul>

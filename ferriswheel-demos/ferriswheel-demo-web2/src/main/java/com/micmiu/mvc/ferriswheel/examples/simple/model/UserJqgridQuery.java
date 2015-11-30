@@ -2,14 +2,14 @@ package com.micmiu.mvc.ferriswheel.examples.simple.model;
 
 
 import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
-import com.micmiu.mvc.ferriswheel.support.easyui.vo.DatagridQuery;
+import com.micmiu.mvc.ferriswheel.support.jqgrid.model.JqgridQuery;
 
 /**
  * 用户查询条件.
  *
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
-public class UserDataGridQuery extends DatagridQuery {
+public class UserJqgridQuery extends JqgridQuery {
 
 	private String loginName;
 

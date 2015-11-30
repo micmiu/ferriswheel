@@ -13,15 +13,18 @@
 <script type="text/javascript">
     $("#user_list").jqGrid({
         ajaxGridOptions : {type:"POST"},
-        url:'<c:url value="/system/user.do?method=queryListData4json"/>',
+        url:'<c:url value="/system/user.do?method=pageQuery"/>',
         datatype: "json",
-        colNames:['No','userID', 'userName', 'role','createDate'],
+        width: 800,
+        autowidth: true,
+        colNames:['ID','<fmt:message key="system.user.loginName" />', '<fmt:message key="system.user.name" />', '<fmt:message key="system.user.email" />','<fmt:message key="system.user.other" />','<fmt:message key="system.role.roleName" />'],
         colModel:[
             {name:'id',index:'id', width:55},
-            {name:'userID',index:'userID', width:90},
-            {name:'userName',index:'userName', width:100},
-            {name:'role',index:'role', width:80},
-            {name:'createDate',index:'createDate', width:80,align:"right"}
+            {name:'loginName',index:'loginName', width:90},
+            {name:'name',index:'name', width:100},
+            {name:'email',index:'email', width:80},
+            {name:'other',index:'ohter', width:80},
+            {name:'roleName',index:'roleName', width:80}
         ],
         rowNum:10,
         rowList:[10,20,30],
@@ -29,7 +32,7 @@
         sortname: 'id',
         viewrecords: true,
         sortorder: "desc",
-        caption:"User List"
+        caption:"<fmt:message key='module.system.user' />"
     });
     $("#user_list").jqGrid('navGrid','#p_user_list',{edit:false,add:false,del:false});
 </script>

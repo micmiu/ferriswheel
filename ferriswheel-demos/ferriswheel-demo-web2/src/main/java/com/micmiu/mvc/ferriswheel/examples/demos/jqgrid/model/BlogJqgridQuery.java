@@ -1,6 +1,7 @@
 package com.micmiu.mvc.ferriswheel.examples.demos.jqgrid.model;
 
 import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
+import com.micmiu.mvc.ferriswheel.support.jqgrid.model.JqgridQuery;
 
 /**
  * Created

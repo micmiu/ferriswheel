@@ -8,12 +8,12 @@ import com.micmiu.mvc.ferriswheel.examples.simple.entity.Permission;
 import com.micmiu.mvc.ferriswheel.examples.simple.entity.Role;
 import com.micmiu.mvc.ferriswheel.examples.simple.entity.User;
 import com.micmiu.mvc.ferriswheel.examples.simple.model.TreeNode;
-import com.micmiu.mvc.ferriswheel.examples.simple.model.UserDataGridQuery;
+import com.micmiu.mvc.ferriswheel.examples.simple.model.UserJqgridQuery;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.MenuService;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.RoleService;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.UserService;
 import com.micmiu.mvc.ferriswheel.examples.simple.util.MenuPermUtils;
-import com.micmiu.mvc.ferriswheel.support.easyui.controller.SimpleManageController;
+import com.micmiu.mvc.ferriswheel.support.jqgrid.controller.JqgridSimpleController;
 import com.micmiu.mvc.ferriswheel.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ import java.util.Set;
  */
 @Controller
 @RequestMapping(value = "/system/user.do")
-public class UserController extends SimpleManageController<User, Long, UserDataGridQuery> {
+public class UserController extends JqgridSimpleController<User, Long, UserJqgridQuery> {
 
 	private static final String PREFIX = Constant.VIEW_PREFIX + "system" + Constant.LAYOUT_SPLIT + "user";
 

@@ -20,6 +20,6 @@ public class BootstrapDemoAction {
 
 	@RequestMapping("/index.do")
 	public String index(HttpServletRequest req) {
-		return PREFIX + "demo" + Constant.VIEW_PAGE_SPLIT + "index";
+		return PREFIX + "bootstrap" + Constant.VIEW_PAGE_SPLIT + "index";
 	}
 }

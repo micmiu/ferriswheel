@@ -8,13 +8,13 @@ import com.micmiu.mvc.ferriswheel.examples.Constant;
 import com.micmiu.mvc.ferriswheel.examples.simple.entity.Menu;
 import com.micmiu.mvc.ferriswheel.examples.simple.entity.Permission;
 import com.micmiu.mvc.ferriswheel.examples.simple.entity.Role;
-import com.micmiu.mvc.ferriswheel.examples.simple.model.RoleDataGridQuery;
+import com.micmiu.mvc.ferriswheel.examples.simple.model.RoleJqgridQuery;
 import com.micmiu.mvc.ferriswheel.examples.simple.model.RoleVo;
 import com.micmiu.mvc.ferriswheel.examples.simple.model.TreeNode;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.MenuService;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.PermissionService;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.RoleService;
-import com.micmiu.mvc.ferriswheel.support.easyui.controller.PropertyGridController;
+import com.micmiu.mvc.ferriswheel.support.jqgrid.controller.JqgridManageController;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +34,7 @@ import java.util.Set;
  */
 @Controller
 @RequestMapping(value = "/system/role.do")
-public class RoleController extends PropertyGridController<Role, RoleVo, Long, RoleDataGridQuery> {
+public class RoleController extends JqgridManageController<Role, RoleVo, Long, RoleJqgridQuery> {
 
 	private static final String PREFIX = Constant.VIEW_PREFIX + "system" + Constant.LAYOUT_SPLIT + "role";
 

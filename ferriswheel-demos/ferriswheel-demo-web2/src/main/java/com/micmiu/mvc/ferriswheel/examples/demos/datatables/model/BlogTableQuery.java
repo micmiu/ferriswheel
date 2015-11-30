@@ -1,4 +1,4 @@
-package com.micmiu.mvc.ferriswheel.examples.demos.model;
+package com.micmiu.mvc.ferriswheel.examples.demos.datatables.model;
 
 
 import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;

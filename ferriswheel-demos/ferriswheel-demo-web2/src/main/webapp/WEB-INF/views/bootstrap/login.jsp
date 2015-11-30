@@ -13,7 +13,7 @@
         <div class="col-xs-6 col-md-offset-3 well">
             <c:choose>
                 <c:when
-                        test="${shiroLoginFailure eq 'com.micmiu.mvc.support.shiro.CaptchaException'}">
+                        test="${shiroLoginFailure eq 'com.micmiu.mvc.ferriswheel.support.shiro.CaptchaException'}">
                     <div class="alert alert-danger">
                         <fmt:message key="system.login.error.captcha"/>
                     </div>

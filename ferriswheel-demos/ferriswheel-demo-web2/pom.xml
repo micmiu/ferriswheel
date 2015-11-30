@@ -37,7 +37,12 @@
         </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-support-easyui</artifactId>
+            <artifactId>ferriswheel-support-shiro</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.micmiu.mvc</groupId>
+            <artifactId>ferriswheel-support-jqgrid</artifactId>
             <version>${parent.version}</version>
         </dependency>
         <dependency>
@@ -47,7 +52,7 @@
         </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-support-shiro</artifactId>
+            <artifactId>ferriswheel-support-jackson2</artifactId>
             <version>${parent.version}</version>
         </dependency>
 

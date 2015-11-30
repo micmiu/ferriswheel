@@ -14,7 +14,9 @@
     <name>${project.artifactId}</name>
     <url>http://micmiu.com</url>
     <modules>
+        <!--
         <module>ferriswheel-demo-web</module>
+        -->
         <module>ferriswheel-demo-web2</module>
     </modules>
     <build>

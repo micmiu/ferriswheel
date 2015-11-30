@@ -13,7 +13,7 @@
 <script type="text/javascript">
     $("#base_list").jqGrid({
         ajaxGridOptions : {type:"POST"},
-        url:'<c:url value="/demo/jqgriddemo.do?method=queryListData4Json"/>',
+        url:'<c:url value="/demo/jqgrid/blog.do?method=pageQuery"/>',
         datatype: "json",
         height: 250,
         colNames:['ID', 'title', 'category', 'author', 'publishDate', 'url'],

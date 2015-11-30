@@ -5,6 +5,7 @@ import com.micmiu.mvc.ferriswheel.examples.Constant;
 import com.micmiu.mvc.ferriswheel.examples.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.demos.jqgrid.model.BlogJqgridQuery;
 import com.micmiu.mvc.ferriswheel.examples.demos.service.BlogService;
+import com.micmiu.mvc.ferriswheel.support.jqgrid.controller.JqgridSimpleController;
 import com.micmiu.mvc.ferriswheel.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping(value = "/demo/jqgrid/blog.do")
 public class BlogJqgridController extends JqgridSimpleController<Blog, Long, BlogJqgridQuery> {
-	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.LAYOUT_SPLIT + "jqgrid.blog";
+	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.LAYOUT_SPLIT + "jqgrid";
 
 	@Autowired
 	private BlogService blogService;

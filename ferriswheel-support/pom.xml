@@ -24,6 +24,7 @@
         <module>ferriswheel-support-springmvc</module>
         <module>ferriswheel-support-easyui</module>
         <module>ferriswheel-support-datatables</module>
+        <module>ferriswheel-support-jqgrid</module>
     </modules>
     <dependencies>
         <!-- spring -->

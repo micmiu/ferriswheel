@@ -4,7 +4,7 @@ package com.micmiu.mvc.ferriswheel.examples.demos.datatables.controller;
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
 import com.micmiu.mvc.ferriswheel.examples.Constant;
 import com.micmiu.mvc.ferriswheel.examples.demos.entity.Blog;
-import com.micmiu.mvc.ferriswheel.examples.demos.model.BlogTableQuery;
+import com.micmiu.mvc.ferriswheel.examples.demos.datatables.model.BlogTableQuery;
 import com.micmiu.mvc.ferriswheel.examples.demos.service.BlogService;
 import com.micmiu.mvc.ferriswheel.support.datatables.controller.SimpleManageController;
 import com.micmiu.mvc.ferriswheel.utils.StringUtils;
