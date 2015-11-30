@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.micmiu.mvc</groupId>
+        <artifactId>ferriswheel-support</artifactId>
+        <version>1.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>ferriswheel-support-jqgrid</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+    <url>http://micmiu.com</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.micmiu.mvc</groupId>
+            <artifactId>ferriswheel-core</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.micmiu.mvc</groupId>
+            <artifactId>ferriswheel-support-springmvc</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.micmiu.mvc</groupId>
+            <artifactId>ferriswheel-support-jackson</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.micmiu.mvc</groupId>
+            <artifactId>ferriswheel-utils</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <type>jar</type>
+        </dependency>
+
+    </dependencies>
+</project>
