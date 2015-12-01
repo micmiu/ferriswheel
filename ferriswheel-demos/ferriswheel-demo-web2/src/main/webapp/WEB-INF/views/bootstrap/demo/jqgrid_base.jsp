@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ include file="/static/tags/taglibs.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ include file="/static/tags/taglibs.jsp" %>
 <head>
-    <title><fmt:message key='module.menu.jqgrid'/></title>
+    <title><fmt:message key='module.jqgrid'/></title>
 </head>
 
 <div class="row">
@@ -12,25 +12,25 @@
 </div>
 <script type="text/javascript">
     $("#base_list").jqGrid({
-        ajaxGridOptions : {type:"POST"},
-        url:'<c:url value="/demo/jqgrid/blog.do?method=pageQuery"/>',
+        ajaxGridOptions: {type: "POST"},
+        url: '<c:url value="/demo/jqgrid/blog.do?method=pageQuery"/>',
         datatype: "json",
         height: 250,
-        colNames:['ID', 'title', 'category', 'author', 'publishDate', 'url'],
-        colModel:[
-            {name:'id',index:'id', width:40, align:'right'},
-            {name:'title',index:'title', width:200},
-            {name:'category',index:'category', width:100},
-            {name:'author',index:'author', width:80},
-            {name:'publishDate',index:'publishDate', width:100},
-            {name:'url',index:'url', width:300,sortable:false}
+        colNames: ['ID', 'title', 'category', 'author', 'publishDate', 'url'],
+        colModel: [
+            {name: 'id', index: 'id', width: 40, align: 'right'},
+            {name: 'title', index: 'title', width: 200},
+            {name: 'category', index: 'category', width: 100},
+            {name: 'author', index: 'author', width: 80},
+            {name: 'publishDate', index: 'publishDate', width: 100},
+            {name: 'url', index: 'url', width: 300, sortable: false}
         ],
-        rowNum:10,
-        rowList:[10,20,30],
+        rowNum: 10,
+        rowList: [10, 20, 30],
         pager: '#p_base_list',
         sortname: 'id',
         viewrecords: true,
         sortorder: "desc",
-        caption:"Demo List"
-    }).navGrid('#p_base_list',{edit:false,add:false,del:false});
+        caption: "Demo List"
+    }).navGrid('#p_base_list', {edit: false, add: false, del: false});
 </script>

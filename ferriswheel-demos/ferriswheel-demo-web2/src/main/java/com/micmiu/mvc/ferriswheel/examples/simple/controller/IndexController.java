@@ -1,7 +1,6 @@
 package com.micmiu.mvc.ferriswheel.examples.simple.controller;
 
 import com.micmiu.mvc.ferriswheel.examples.Constant;
-import org.springframework.cache.interceptor.CacheableOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

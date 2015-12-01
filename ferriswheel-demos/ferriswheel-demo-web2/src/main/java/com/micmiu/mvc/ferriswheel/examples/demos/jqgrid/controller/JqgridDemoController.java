@@ -1,4 +1,4 @@
-package com.micmiu.mvc.ferriswheel.examples.demos.bootstrap.controller;
+package com.micmiu.mvc.ferriswheel.examples.demos.jqgrid.controller;
 
 import com.micmiu.mvc.ferriswheel.examples.Constant;
 import org.springframework.stereotype.Controller;
@@ -9,17 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Created
  * User: <a href="http://micmiu.com">micmiu</a>
- * Date: 8/21/2014
- * Time: 18:54
+ * Date: 12/1/2015
+ * Time: 14:26
  */
 @Controller
-@RequestMapping("/demo/bootstrap")
-public class BootstrapDemoAction {
+@RequestMapping("/demo/jqgrid/")
+public class JqgridDemoController {
+
 
 	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.LAYOUT_SPLIT;
 
 	@RequestMapping("/index.do")
 	public String index(HttpServletRequest req) {
-		return PREFIX + "bootstrap" + Constant.VIEW_PAGE_SPLIT + "index";
+		return PREFIX + "jqgrid" + Constant.VIEW_PAGE_SPLIT + "index";
 	}
 }

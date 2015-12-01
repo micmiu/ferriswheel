@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="#"class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.system"/>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.system"/>
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="<c:url value='/system/user.do?method=showList'/>"><fmt:message
@@ -33,7 +33,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.demo"/>
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="<c:url value='/anon/demo/bootstrap.do'/>"><fmt:message
+                        <li><a href="<c:url value='/demo/bootstrap/index.do'/>"><fmt:message
                                 key="menu.demo.common"/></a></li>
                         <li><a href="<c:url value='/demo/jqgrid/blog.do?method=showList'/>"><fmt:message
                                 key="menu.demo.jqgrid"/></a></li>
@@ -54,6 +54,12 @@
                 </li>
                 <!-- lang selector starts -->
                 <li class="dropdown">
+                    <select id="lang" name="lang" class="form-control" onchange="changeLang(this.value)">
+                        <option value=""><fmt:message key="global.text.lang"/></option>
+                        <option value="zh_CN"><fmt:message key="global.text.lang.zh_CN"/></option>
+                        <option value="en"><fmt:message key="global.text.lang.en"/></option>
+                    </select>
+                    <!--
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <fmt:message key='global.text.lang'/> <span
                             class="caret"></span>
@@ -64,6 +70,7 @@
                         <li><a data-value="en" href="#">
                             <fmt:message key="global.text.lang.en"/></a></li>
                     </ul>
+                    -->
                 </li>
                 <!-- lang selector ends -->
                 <!-- theme selector starts -->
@@ -83,3 +90,43 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#lang").val('${LOCALE}');
+        function changeLang(lang) {
+            if (lang == '${LOCALE}') {
+                return;
+            }
+            $.ajax({
+                type: "post",
+                url: '<c:url value="/system/setting/i18n.do"/>',
+                data: "locale=" + lang,
+                async: true,
+                error: function (data, error) {
+                    alert("<fmt:message key='global.msg.failed'/>");
+                },
+                success: function (data) {
+                    window.location.reload();
+                }
+            });
+        }
+
+        function changeTheme(theme) {
+            if (theme == '${THEME}') {
+                return;
+            }
+            $.ajax({
+                type: "post",
+                url: '<c:url value="/system/setting/theme.do"/>',
+                data: "theme=" + theme,
+                async: true,
+                error: function (data, error) {
+                    alert("<fmt:message key='global.msg.failed'/>");
+                },
+                success: function (data) {
+                    window.location.reload();
+                }
+            });
+        }
+    });
+</script>

@@ -34,37 +34,18 @@
     <!-- jqGrid -->
     <script type="text/javascript" src="<c:url value='/static/plugins/jqgrid/4.6.0/js/jquery.jqGrid.min.js'/>"></script>
 
-
-    <c:set var="LOCALE" value="${sessionScope['org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE']}"/>
+    <c:set var="LOCALE" value="${sessionScope['org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE']}" scope="application"/>
     <c:if test="${empty LOCALE}">
-        <c:set var="LOCALE" value="zh_CN"/>
+        <c:set var="LOCALE" value="zh_CN" scope="application"/>
     </c:if>
     <script type="text/javascript" src="<c:url value='/static/plugins/jquery-validation/1.9.0/messages_${LOCALE}.js' />"></script>
     <script type="text/javascript" src="<c:url value='/static/plugins/jqgrid/4.6.0/js/i18n/grid.locale-${LOCALE}.js' />"></script>
 
-
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#lang a[data-value="${LOCALE}"]').find('i').addClass('icon-ok');
-            $('#lang a').click(function (e) {
-                e.preventDefault();
-                current_lang = $(this).attr('data-value');
-                //changeLang(current_lang);
-            });
-            function changeLang(lang) {
-                $.ajax({
-                    type: "post",
-                    url: '',
-                    data: "locale=" + lang,
-                    async: true,
-                    error: function (data, error) {
-                        alert("change lang error!");
-                    },
-                    success: function (data) {
-                        window.location.reload();
-                    }
-                });
-            }
+            $.jgrid.defaults.width = 780;
+            $.jgrid.defaults.responsive = true;
+            $.jgrid.defaults.styleUI = 'Bootstrap';
         });
     </script>
     <sitemesh:head/>

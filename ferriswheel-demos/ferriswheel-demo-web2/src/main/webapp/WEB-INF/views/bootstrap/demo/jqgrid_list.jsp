@@ -6,31 +6,75 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <table id="base_list"></table>
-        <div id="p_base_list"></div>
+        <table id="blog_list"></table>
+        <div id="blog_list_pager"></div>
     </div>
 </div>
 <script type="text/javascript">
-    $("#base_list").jqGrid({
-        ajaxGridOptions: {type: "POST"},
-        url: '<c:url value="/demo/jqgrid/blog.do?method=pageQuery"/>',
-        datatype: "json",
-        height: 250,
-        colNames: ['ID', 'title', 'category', 'author', 'publishDate', 'url'],
-        colModel: [
-            {name: 'id', index: 'id', width: 40, align: 'right'},
-            {name: 'title', index: 'title', width: 200},
-            {name: 'category', index: 'category', width: 100},
-            {name: 'author', index: 'author', width: 80},
-            {name: 'publishDate', index: 'publishDate', width: 100},
-            {name: 'url', index: 'url', width: 300, sortable: false}
-        ],
-        rowNum: 10,
-        rowList: [10, 20, 30],
-        pager: '#p_base_list',
-        sortname: 'id',
-        viewrecords: true,
-        sortorder: "desc",
-        caption: "Demo List"
-    }).navGrid('#p_base_list', {edit: false, add: false, del: false});
+    $(document).ready(function () {
+        var template = "<div style='margin-left:15px;'><div> <fmt:message key='demo.blog.col.title' /> <sup>*</sup>:</div><div> {title} </div>";
+        template += "<div> <fmt:message key='demo.blog.col.category' />: </div><div>{category} </div>";
+        template += "<div> <fmt:message key='demo.blog.col.author' />: </div><div>{author} </div>";
+        template += "<div> <fmt:message key='demo.blog.col.publishDate' />: </div><div>{pushlisDate} </div>";
+        template += "<div> <fmt:message key='demo.blog.col.url' />:</div><div> {url} </div>";
+        template += "<hr style='width:100%;'/>";
+        template += "<div> {sData} {cData}  </div></div>";
+        $("#blog_list").jqGrid({
+            url: '<c:url value="/demo/jqgrid/blog.do?method=pageQuery"/>',
+            editurl: '<c:url value="/demo/jqgrid/blog.do?method=update"/>',
+            mtype:  'POST',
+            datatype: "json",
+            height: 250,
+            colModel: [
+                {label: 'ID', name: 'id', width: 40, align: 'right'},
+                {
+                    label: '<fmt:message key="demo.blog.col.title" />',
+                    name: 'title', width: 200, editable: true, editrules: {required: true}
+                },
+                {
+                    label: '<fmt:message key="demo.blog.col.category" />',
+                    name: 'category', width: 100, editable: true
+                },
+                {
+                    label: '<fmt:message key="demo.blog.col.author" />',
+                    name: 'author', width: 80, editable: true
+                },
+                {
+                    label: '<fmt:message key="demo.blog.col.publishDate" />',
+                    name: 'publishDate', width: 100, editable: true
+                },
+                {
+                    label: '<fmt:message key="demo.blog.col.url" />',
+                    name: 'url', width: 300, sortable: false, editable: true, editrules: {required: true}
+                }
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            pager: '#blog_list_pager',
+            sortname: 'id',
+            sortorder: "asc",
+            viewrecords: true,
+            caption: "<fmt:message key='demo.blog' />"
+        });
+        $("#blog_list").navGrid('#blog_list_pager',
+                { edit: true, add: true, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
+                {
+                    template: template,
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                },
+                {
+                    template: template,
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                },
+                {
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                });
+
+    });
 </script>
