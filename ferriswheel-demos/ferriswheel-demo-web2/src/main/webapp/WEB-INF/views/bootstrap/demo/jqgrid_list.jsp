@@ -66,6 +66,9 @@
                 },
                 {
                     template: template,
+                    serializeEditData: function(data) {
+                        return $.param($.extend({}, data, {id: ''}));
+                    },
                     errorTextFormat: function (data) {
                         return 'Error: ' + data.responseText
                     }
