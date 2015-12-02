@@ -15,25 +15,26 @@
         var template = "<div style='margin-left:15px;'><div> <fmt:message key='demo.blog.col.title' /> <sup>*</sup>:</div><div> {title} </div>";
         template += "<div> <fmt:message key='demo.blog.col.category' />: </div><div>{category} </div>";
         template += "<div> <fmt:message key='demo.blog.col.author' />: </div><div>{author} </div>";
-        template += "<div> <fmt:message key='demo.blog.col.publishDate' />: </div><div>{pushlisDate} </div>";
+        template += "<div> <fmt:message key='demo.blog.col.publishDate' />: </div><div>{publishDate} </div>";
         template += "<div> <fmt:message key='demo.blog.col.url' />:</div><div> {url} </div>";
         template += "<hr style='width:100%;'/>";
         template += "<div> {sData} {cData}  </div></div>";
         $("#blog_list").jqGrid({
             url: '<c:url value="/demo/jqgrid/blog.do?method=pageQuery"/>',
-            editurl: '<c:url value="/demo/jqgrid/blog.do?method=update"/>',
+            editurl: '<c:url value="/demo/jqgrid/blog.do"/>',
             mtype:  'POST',
+            styleUI: 'Bootstrap',
             datatype: "json",
             height: 250,
             colModel: [
-                {label: 'ID', name: 'id', width: 40, align: 'right'},
+                {label: 'ID', name: 'id', width: 50, align: 'right'},
                 {
                     label: '<fmt:message key="demo.blog.col.title" />',
-                    name: 'title', width: 200, editable: true, editrules: {required: true}
+                    name: 'title', width: 100, editable: true, editrules: {required: true}
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.category" />',
-                    name: 'category', width: 100, editable: true
+                    name: 'category', width: 50, editable: true
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.author" />',
@@ -41,11 +42,19 @@
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.publishDate" />',
-                    name: 'publishDate', width: 100, editable: true
+                    name: 'publishDate', width: 100, editable: true,
+                    editoptions: {
+                        dataInit: function (element) {
+                            $(element).datepicker({
+                                autoclose: true,
+                                format: 'yyyy-mm-dd'
+                            });
+                        }
+                    }
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.url" />',
-                    name: 'url', width: 300, sortable: false, editable: true, editrules: {required: true}
+                    name: 'url', width: 400, sortable: false, editable: true, editrules: {required: true}
                 }
             ],
             rowNum: 10,

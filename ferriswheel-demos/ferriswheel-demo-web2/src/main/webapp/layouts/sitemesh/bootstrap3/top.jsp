@@ -93,40 +93,40 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#lang").val('${LOCALE}');
-        function changeLang(lang) {
-            if (lang == '${LOCALE}') {
-                return;
-            }
-            $.ajax({
-                type: "post",
-                url: '<c:url value="/system/setting/i18n.do"/>',
-                data: "locale=" + lang,
-                async: true,
-                error: function (data, error) {
-                    alert("<fmt:message key='global.msg.failed'/>");
-                },
-                success: function (data) {
-                    window.location.reload();
-                }
-            });
-        }
-
-        function changeTheme(theme) {
-            if (theme == '${THEME}') {
-                return;
-            }
-            $.ajax({
-                type: "post",
-                url: '<c:url value="/system/setting/theme.do"/>',
-                data: "theme=" + theme,
-                async: true,
-                error: function (data, error) {
-                    alert("<fmt:message key='global.msg.failed'/>");
-                },
-                success: function (data) {
-                    window.location.reload();
-                }
-            });
-        }
     });
+    function changeLang(lang) {
+        if (lang == '${LOCALE}') {
+            return;
+        }
+        $.ajax({
+            type: "post",
+            url: '<c:url value="/system/setting/i18n.do"/>',
+            data: "locale=" + lang,
+            async: true,
+            error: function (data, error) {
+                alert("<fmt:message key='global.msg.failed'/>");
+            },
+            success: function (data) {
+                window.location.reload();
+            }
+        });
+    }
+
+    function changeTheme(theme) {
+        if (theme == '${THEME}') {
+            return;
+        }
+        $.ajax({
+            type: "post",
+            url: '<c:url value="/system/setting/theme.do"/>',
+            data: "theme=" + theme,
+            async: true,
+            error: function (data, error) {
+                alert("<fmt:message key='global.msg.failed'/>");
+            },
+            success: function (data) {
+                window.location.reload();
+            }
+        });
+    }
 </script>

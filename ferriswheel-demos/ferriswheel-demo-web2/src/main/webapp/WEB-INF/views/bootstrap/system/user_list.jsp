@@ -12,8 +12,8 @@
 </div>
 <script type="text/javascript">
     $("#user_list").jqGrid({
-        ajaxGridOptions : {type:"POST"},
         url:'<c:url value="/system/user.do?method=pageQuery"/>',
+        mtype:  'POST',
         datatype: "json",
         width: 800,
         autowidth: true,
