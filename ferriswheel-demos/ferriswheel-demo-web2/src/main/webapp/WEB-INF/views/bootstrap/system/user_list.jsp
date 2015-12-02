@@ -69,12 +69,14 @@
             { edit: true, add: true, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
             {
                 template: template,
+                closeAfterEdit: true,
                 errorTextFormat: function (data) {
                     return '<fmt:message key="global.msg.error" />: ' + data.responseText
                 }
             },
             {
                 template: template,
+                closeAfterAdd: true,
                 serializeEditData: function(data) {
                     return $.param($.extend({}, data, {id: ''}));
                 },
