@@ -29,6 +29,10 @@
     templateEdit += "<div> <fmt:message key='system.role.roleName' /> <sup>*</sup>:</div><div>{roleId} </div>";
     templateEdit += "<hr style='width:100%;'/>";
     templateEdit += "<div> {sData} {cData}  </div></div>";
+    <c:set var="roleIdValue" value=":"/>
+    <c:forEach var="rolevo" items="${roleList}">
+    <c:set var="roleIdValue" value="${roleIdValue};${rolevo.id}:${rolevo.roleName}"/>
+    </c:forEach>
     $("#user_list").jqGrid({
         url: '<c:url value="/system/user.do?method=pageQuery"/>',
         editurl: '<c:url value="/system/user.do"/>',
@@ -57,13 +61,8 @@
                 editrules: {required: true},
                 edittype: "select",
                 editoptions: {
-                    value: ":",//不设置value会导致bug：select元素生成后id name等属性没有值
-                    dataInit:function (element) {
-                        <c:forEach var="rolevo" items="${roleList}">
-                        $(element).append("<option value='${rolevo.id}'>${rolevo.roleName}</option>");
-                        </c:forEach>
-                    }
-
+                    //不设置value,用dataInit会导致bug：select元素生成后id name等属性没有值
+                    value: "${roleIdValue}"
                 }
             }
         ],
