@@ -37,6 +37,8 @@
                                 key="menu.demo.common"/></a></li>
                         <li><a href="<c:url value='/demo/jqgrid/blog.do?method=showList'/>"><fmt:message
                                 key="menu.demo.jqgrid"/></a></li>
+                        <li><a href="<c:url value='/demo/bootstrap/treeview.do'/>"><fmt:message
+                                key="menu.demo.treeview"/></a></li>
                     </ul>
                 </li>
             </ul>
@@ -79,8 +81,9 @@
                             key='global.text.theme'/> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" id="themes">
-                        <li><a data-value="classic" href="#">classic</a></li>
-                        <li><a data-value="united" href="#">simple</a></li>
+                        <li><a data-value="classic" href="#"><span class="whitespace"></span>Classic</a></li>
+                        <li><a data-value="metro" href="#"><span class="whitespace"></span>Metro</a></li>
+                        <li><a data-value="black" href="#"><span class="whitespace"></span>Black</a></li>
                     </ul>
                 </li>
                 <!-- theme selector ends -->
@@ -93,6 +96,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#lang").val('${LOCALE}');
+        $('#themes a[data-value="classic"]').find('span').removeClass('whitespace').addClass('glyphicon glyphicon-ok');
     });
     function changeLang(lang) {
         if (lang == '${LOCALE}') {

@@ -14,6 +14,7 @@
         <c:set var="LOCALE" value="zh_CN" scope="application"/>
     </c:if>
 
+    <link type="text/css" rel="stylesheet" href="<c:url value='/static/css/ferriswheel.css'/>">
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/bootstrap/3.2.0/css/bootstrap.css'/>">
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/bootstrap/3.2.0/css/bootstrap-theme.css'/>" >
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/jquery-validation/1.9.0/validate.css'/>">
@@ -33,6 +34,10 @@
     <script type="text/css" rel="stylesheet" src="<c:url value='/static/plugins/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css'/>"></script>
     <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-datepicker/1.5.0/locales/bootstrap-datepicker.${LOCALE}.min.js' />"></script>
+
+    <!-- treeviewer-->
+    <script type="text/css" rel="stylesheet" src="<c:url value='/static/plugins/bootstrap-treeview/1.2.0/css/bootstrap-treeview.css'/>"></script>
+    <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-treeview/1.2.0/js/bootstrap-treeview.js'/>"></script>
 
     <script type="text/javascript">
         $.jgrid.defaults.width = 780;
