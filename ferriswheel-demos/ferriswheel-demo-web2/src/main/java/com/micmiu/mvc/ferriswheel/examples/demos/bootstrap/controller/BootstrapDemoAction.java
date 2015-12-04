@@ -22,4 +22,9 @@ public class BootstrapDemoAction {
 	public String index(HttpServletRequest req) {
 		return PREFIX + "bootstrap" + Constant.VIEW_PAGE_SPLIT + "index";
 	}
+
+	@RequestMapping("/treeview.do")
+	public String showTree(HttpServletRequest req) {
+		return PREFIX + "bootstrap" + Constant.VIEW_PAGE_SPLIT + "treeview";
+	}
 }
