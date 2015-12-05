@@ -35,10 +35,6 @@
     <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-datepicker/1.5.0/locales/bootstrap-datepicker.${LOCALE}.min.js' />"></script>
 
-    <!-- treeviewer-->
-    <script type="text/css" rel="stylesheet" src="<c:url value='/static/plugins/bootstrap-treeview/1.2.0/css/bootstrap-treeview.css'/>"></script>
-    <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-treeview/1.2.0/js/bootstrap-treeview.js'/>"></script>
-
     <script type="text/javascript">
         $.jgrid.defaults.width = 780;
         $.jgrid.defaults.responsive = true;

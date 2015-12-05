@@ -2,14 +2,24 @@
 <%@ include file="/static/tags/taglibs.jsp" %>
 <head>
     <title>Bootstrap-treeview Demo</title>
+
+    <!-- treeviewer-->
+    <script type="text/css" rel="stylesheet" src="<c:url value='/static/plugins/bootstrap-treeview/1.2.0/css/bootstrap-treeview.css'/>"></script>
+    <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-treeview/1.2.0/js/bootstrap-treeview.js'/>"></script>
 </head>
 
 <div id="tree"></div>
 <script type="text/javascript">
     function getTree() {
-        var data=[
+        var data = [
             {
                 text: "Parent 1",
+                selectable: true,
+                state: {
+                    checked: true,
+                    disabled: false,
+                    expanded: true
+                },
                 nodes: [
                     {
                         text: "Child 1",

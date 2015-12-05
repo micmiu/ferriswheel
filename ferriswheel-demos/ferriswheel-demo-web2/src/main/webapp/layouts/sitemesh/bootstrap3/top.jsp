@@ -39,6 +39,7 @@
                                 key="menu.demo.jqgrid"/></a></li>
                         <li><a href="<c:url value='/demo/bootstrap/treeview.do'/>"><fmt:message
                                 key="menu.demo.treeview"/></a></li>
+                        <li><a href="<c:url value='/demo/bootstrap/ztree.do'/>">ztree</a></li>
                     </ul>
                 </li>
             </ul>
