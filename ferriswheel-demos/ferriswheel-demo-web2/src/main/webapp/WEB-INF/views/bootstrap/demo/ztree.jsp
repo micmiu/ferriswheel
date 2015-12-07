@@ -9,7 +9,7 @@
 </head>
 
 <div>
-    <ul id="treeDemo" class="ztree"></ul>
+    <ul id="ztree_demo1" class="ztree"></ul>
 </div>
 <SCRIPT LANGUAGE="JavaScript">
     var zTreeObj;
@@ -27,6 +27,6 @@
         }
     ];
     $(document).ready(function () {
-        zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        zTreeObj = $.fn.zTree.init($("#ztree_demo1"), setting, zNodes);
     });
 </SCRIPT>

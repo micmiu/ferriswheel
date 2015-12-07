@@ -105,20 +105,33 @@ public class RoleController extends JqgridManageController<Role, RoleVo, Long, R
 		vo.setRoleName(e.getRoleName());
 
 		List<String> list = Lists.newArrayList();
+		String lastName = null, resName = null, oper = null;
+		List<String> operList = Lists.newArrayList();
 		for (Permission permssion : e.getPermissions()) {
 			try {
-				String resName = messageSource.getMessage(
-						permssion.getResCnName(), null,
+				resName = messageSource.getMessage(permssion.getResCnName(), null,
 						RequestContextUtils.getLocale(request));
-				String oper = messageSource.getMessage(
-						OperationType.parse(permssion.getOperation())
-								.getDisplay(), null, RequestContextUtils
-								.getLocale(request));
-				list.add(resName + ":" + oper);
+
+				oper = messageSource.getMessage(OperationType.parse(permssion.getOperation()).getDisplay(), null,
+						RequestContextUtils.getLocale(request));
 			} catch (Exception ex) {
+				resName = permssion.getResCnName();
+				oper = permssion.getOperation();
 			}
+			if (null != lastName && !lastName.equals(resName)) {
+				if (!operList.isEmpty()) {
+					list.add(lastName + ":" + (StringUtils.join(operList, ",")));
+				}
+				operList = Lists.newArrayList();
+
+			}
+			lastName = resName;
+			operList.add(oper);
 		}
-		vo.setPermissionNames(StringUtils.join(list, ","));
+		if (!operList.isEmpty()) {
+			list.add(lastName + ":" + (StringUtils.join(operList, ",")));
+		}
+		vo.setPermissionNames(StringUtils.join(list, ";"));
 		return vo;
 	}
 
