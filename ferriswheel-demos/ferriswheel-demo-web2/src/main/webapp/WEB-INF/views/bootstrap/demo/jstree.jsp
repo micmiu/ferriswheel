@@ -4,7 +4,7 @@
     <title>jstree Demo</title>
 
     <!-- jstree-->
-    <script type="text/css" rel="stylesheet"src="<c:url value='/static/plugins/jstree/3.2.1/css/default/style.min.css'/>"></script>
+    <link type="text/css" rel="stylesheet"href="<c:url value='/static/plugins/jstree/3.2.1/css/default/style.min.css'/>">
     <script type="text/javascript" src="<c:url value='/static/plugins/jstree/3.2.1/js/jstree.min.js'/>"></script>
 </head>
 

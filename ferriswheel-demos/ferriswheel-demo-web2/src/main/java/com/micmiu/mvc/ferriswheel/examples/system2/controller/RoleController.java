@@ -14,6 +14,7 @@ import com.micmiu.mvc.ferriswheel.examples.simple.model.TreeNode;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.MenuService;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.PermissionService;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.RoleService;
+import com.micmiu.mvc.ferriswheel.examples.system2.model.ZtreeNode;
 import com.micmiu.mvc.ferriswheel.support.jqgrid.controller.JqgridManageController;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -151,8 +152,8 @@ public class RoleController extends JqgridManageController<Role, RoleVo, Long, R
 
 	@RequestMapping(params = {"method=getPermTree"})
 	@ResponseBody
-	public List<TreeNode> getPermTree(Long id, HttpServletRequest request) {
-		List<TreeNode> permTree = new ArrayList<TreeNode>();
+	public List<ZtreeNode> getPermTree(Long id, HttpServletRequest request) {
+		List<ZtreeNode> permTree = new ArrayList<ZtreeNode>();
 		Set<String> hasPerm = new HashSet<String>();
 		if (null != id) {
 			Role role = roleService.find(id);
@@ -185,7 +186,7 @@ public class RoleController extends JqgridManageController<Role, RoleVo, Long, R
 	 * @param permTree
 	 * @param hasPerms
 	 */
-	private void parseMenuPermTree(List<Menu> allMenus, List<TreeNode> permTree, Set<String> hasPerms,
+	private void parseMenuPermTree(List<Menu> allMenus, List<ZtreeNode> permTree, Set<String> hasPerms,
 								   HttpServletRequest request) {
 		for (Menu menu : allMenus) {
 			permTree.add(recMenuPermTree(menu, hasPerms, request));
@@ -200,11 +201,11 @@ public class RoleController extends JqgridManageController<Role, RoleVo, Long, R
 	 * @param hasPerms
 	 * @return
 	 */
-	private TreeNode recMenuPermTree(Menu menu, Set<String> hasPerms,
+	private ZtreeNode recMenuPermTree(Menu menu, Set<String> hasPerms,
 									 HttpServletRequest request) {
-		TreeNode vo = new TreeNode();
+		ZtreeNode vo = new ZtreeNode();
 		vo.setId("menu:" + menu.getId());
-		vo.setText(messageSource.getMessage(menu.getMenuName(), null,
+		vo.setName(messageSource.getMessage(menu.getMenuName(), null,
 				RequestContextUtils.getLocale(request)));
 		if (!menu.getChildren().isEmpty()) {
 			for (Menu childMenu : menu.getChildren()) {
@@ -213,13 +214,13 @@ public class RoleController extends JqgridManageController<Role, RoleVo, Long, R
 			}
 		} else {
 			for (Permission perm : menu.getPermssionList()) {
-				TreeNode permNode = new TreeNode();
+				ZtreeNode permNode = new ZtreeNode();
 				String nodeId = "perm:" + perm.getId();
 				permNode.setId(nodeId);
 				if (null != hasPerms && hasPerms.contains(nodeId)) {
 					permNode.setChecked(true);
 				}
-				permNode.setText(messageSource.getMessage(
+				permNode.setName(messageSource.getMessage(
 						OperationType.parse(perm.getOperation()).getDisplay(),
 						null, RequestContextUtils.getLocale(request)));
 

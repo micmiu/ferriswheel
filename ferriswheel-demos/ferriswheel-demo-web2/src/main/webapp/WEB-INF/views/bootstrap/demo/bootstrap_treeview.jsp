@@ -4,7 +4,7 @@
     <title>Bootstrap-treeview Demo</title>
 
     <!-- treeviewer-->
-    <script type="text/css" rel="stylesheet" src="<c:url value='/static/plugins/bootstrap-treeview/1.2.0/css/bootstrap-treeview.css'/>"></script>
+    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/bootstrap-treeview/1.2.0/css/bootstrap-treeview.css'/>">
     <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-treeview/1.2.0/js/bootstrap-treeview.js'/>"></script>
 </head>
 
