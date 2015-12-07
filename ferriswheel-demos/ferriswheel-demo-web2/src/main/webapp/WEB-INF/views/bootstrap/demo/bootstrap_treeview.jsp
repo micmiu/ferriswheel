@@ -14,12 +14,18 @@
         var data = [
             {
                 text: "Parent 1",
+                icon: "glyphicon glyphicon-unchecked",
+                selectedIcon: "glyphicon glyphicon-check",
+                color: "#000000",
+                backColor: "#FFFFFF",
+                href: "#node-1",
                 selectable: true,
                 state: {
                     checked: true,
                     disabled: false,
                     expanded: true
                 },
+                tags: ['available'],
                 nodes: [
                     {
                         text: "Child 1",

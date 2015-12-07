@@ -26,19 +26,14 @@
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion"
                    href="#collapse2">
-                    About
+                    <fmt:message key="global.text.about"/>
                 </a>
             </h4>
         </div>
         <div id="collapse2" class="panel-collapse collapse">
             <div class="panel-body">
-                <ul>
-                    <li>SpringMVC 3.2.0.RELEASE</li>
-                    <li>Hibernae 4.1.9.Final</li>
-                    <li>Sitemesh 2.4.2</li>
-                    <li>shiro 1.2.0</li>
-                    <li>Bootstrap 3</li>
-                </ul>
+                <p>取名源于11.07陪媳妇hazel去苏州看了周杰伦摩天轮《Ferriswheel》演唱会（基本上没几首歌是我听过的......）
+                </p>
             </div>
         </div>
     </div>
@@ -47,7 +42,7 @@
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion"
                    href="#collapse3">
-                    Help
+                    <fmt:message key="global.text.help"/>
                 </a>
             </h4>
         </div>
