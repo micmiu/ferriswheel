@@ -53,8 +53,7 @@
                     dataInit: function (element) {
                         $(element).hide();
                         var ele_div = $('<div style="height:auto;scroll:auto"></div>');
-                        var ele_tree= $('<ul id="ztree_nodes" class="ztree"></ul>')
-                        //console.log(ele_tree);
+                        var ele_tree= $('<ul id="ztree_nodes" class="ztree"></ul>');
                         $(element).after(ele_div.append(ele_tree));
                         var rowid = $(element).attr('rowid');
                         if(rowid == '_empty'){
@@ -67,8 +66,8 @@
                             type: 'POST',
                             dataType: "json",
                             url: "<c:url value='/system/role.do?method=getPermTree'/>"+'&id=' + rowid,
-                            error: function () {//请求失败处理函数
-                                alert('请求失败');
+                            error: function () {
+                                alert("<fmt:message key='global.msg.failed' />");
                             },
                             success: function (data) {
                                 //console.log(data);
@@ -76,11 +75,6 @@
                             }
                         });
                         zTreeObj = $.fn.zTree.init(ele_tree, setting, zNodes);
-                        //$('#test_demo').append(' <ul id="ztree_demo3" class="ztree"></ul>');
-                        //zTreeObj3 = $.fn.zTree.init($("#ztree_demo3"), setting, zNodes);
-
-                        //console.log(zTreeObj3);
-                        //console.log(zTreeObj);
                     }
                 }
             }
@@ -106,7 +100,6 @@
             }
         });
         $('#nodes').attr('value',nodestr);
-        //console.log("oncheck:"+$('#nodes').val());
     }
 
     function checkPermNodes(cellvalue, cellname) {
@@ -119,33 +112,6 @@
         }
         return [true, ''];
     }
-
-    function createPermNodeElement(value, editOptions) {
-
-        var div =$("<div style='margin-bottom:5px;margin-top:-10px;'></div>");
-        var label = $("<label>nodes</label>");
-        var nodes = $("input",{type: "hidden",value:"",name:"nodes", id: "nodes"});
-        var ulztree = $("<ul id='ztree_nodes' class='ztree'></ul>");
-        div.append(label).append(nodes).append(ulztree);
-
-        return div;
-    }
-
-    // The javascript executed specified by JQGridColumn.EditTypeCustomGetValue when EditType = EditType.Custom
-    // One parameter passed - the custom element created in JQGridColumn.EditTypeCustomCreateElement
-    function getPermNodeValue(elem, oper, value) {
-        if (oper === "set") {
-            var radioButton = $(elem).find("input:radio[value='" + value + "']");
-            if (radioButton.length > 0) {
-                radioButton.prop("checked", true);
-            }
-        }
-
-        if (oper === "get") {
-            return $(elem).find("input:radio:checked").val();
-        }
-    }
-
 
     //$("#role_list").jqGrid('navGrid', '#p_role_list', {edit: false, add: false, del: false});
     $("#role_list").navGrid('#role_list_pager',
