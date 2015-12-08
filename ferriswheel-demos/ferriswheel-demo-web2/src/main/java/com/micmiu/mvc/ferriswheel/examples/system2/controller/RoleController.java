@@ -207,6 +207,7 @@ public class RoleController extends JqgridManageController<Role, RoleVo, Long, R
 		vo.setId("menu:" + menu.getId());
 		vo.setName(messageSource.getMessage(menu.getMenuName(), null,
 				RequestContextUtils.getLocale(request)));
+		vo.setOpen(true);
 		if (!menu.getChildren().isEmpty()) {
 			for (Menu childMenu : menu.getChildren()) {
 				vo.getChildren().add(

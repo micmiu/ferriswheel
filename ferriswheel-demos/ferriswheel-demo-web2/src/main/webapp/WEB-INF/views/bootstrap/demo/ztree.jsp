@@ -89,10 +89,10 @@
                 alert('请求失败');
             },
             success:function(data){
-                console.log(data);
                 zNodes3 = data;
             }
         });
         zTreeObj3 = $.fn.zTree.init($("#ztree_demo3"), setting3, zNodes3);
+        //console.log(zTreeObj3);
     });
 </SCRIPT>

@@ -17,21 +17,21 @@
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/css/ferriswheel.css'/>">
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/bootstrap/3.2.0/css/bootstrap.css'/>">
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/bootstrap/3.2.0/css/bootstrap-theme.css'/>" >
-    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/jquery-validation/1.9.0/validate.css'/>">
 
-    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/jqgrid/5.0.1/css/ui.jqgrid-bootstrap.css'/>">
     <!-- jQuery -->
     <script type="text/javascript" src="<c:url value='/static/plugins/jquery/jquery-1.8.0.min.js'/>"></script>
     <!-- bootstrap -->
     <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap/3.2.0/js/bootstrap.js'/>"></script>
 
+    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/jquery-validation/1.9.0/validate.css'/>">
     <script type="text/javascript" src="<c:url value='/static/plugins/jquery-validation/1.9.0/jquery.validate.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/static/plugins/jquery-validation/1.9.0/messages_${LOCALE}.js' />"></script>
     <!-- jqGrid -->
+    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/jqgrid/5.0.1/css/ui.jqgrid-bootstrap.css'/>">
     <script type="text/javascript" src="<c:url value='/static/plugins/jqgrid/5.0.1/js/i18n/grid.locale-${LOCALE}.js' />"></script>
     <script type="text/javascript" src="<c:url value='/static/plugins/jqgrid/5.0.1/js/jquery.jqGrid.min.js'/>"></script>
 
-    <script type="text/css" rel="stylesheet" src="<c:url value='/static/plugins/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css'/>"></script>
+    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css'/>">
     <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js'/>"></script>
     <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-datepicker/1.5.0/locales/bootstrap-datepicker.${LOCALE}.min.js' />"></script>
 
