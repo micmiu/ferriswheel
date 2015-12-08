@@ -69,8 +69,6 @@ public class UserServiceImpl extends HibernateBaseService<User, Long> implements
 
 	@Override
 	public String[] findLoginUser(String username) {
-		List<User> list = this.queryAll();
-		System.out.print(list.size());
 		User user = this.getUserByLoginName(username);
 		if (null == user) {
 			return null;
