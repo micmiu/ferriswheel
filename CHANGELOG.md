@@ -1,10 +1,10 @@
 # ferriswheel
 
 ---
-## v1.1-SNAPSHOT
+## v1.1
 #### New Feature :
       * 布局 sitemesh 2.4.2
-      * 前端jQuery + Bootstrap3 + jqGrid + datatables
+      * 前端jQuery + Bootstrap3 + jqGrid
 
 ---
 ## v1.0
