@@ -42,4 +42,12 @@ public abstract class AbstractBaseController implements FerriswheelController {
 	 * @param operation
 	 */
 	protected abstract void checkAuth(String operation);
+
+
+	/**
+	 * view moudles
+	 *
+	 * @return
+	 */
+	protected abstract String getViewModules();
 }

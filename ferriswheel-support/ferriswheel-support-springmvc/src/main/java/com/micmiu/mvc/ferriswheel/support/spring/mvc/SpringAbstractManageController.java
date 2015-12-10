@@ -3,6 +3,7 @@ package com.micmiu.mvc.ferriswheel.support.spring.mvc;
 
 import com.micmiu.mvc.ferriswheel.core.FerriswheelConstant;
 import com.micmiu.mvc.ferriswheel.core.controller.BaseManageController;
+import com.micmiu.mvc.ferriswheel.core.controller.ViewHandler;
 import com.micmiu.mvc.ferriswheel.core.entity.FerriswheelID;
 import com.micmiu.mvc.ferriswheel.core.model.AbstractQuery;
 import com.micmiu.mvc.ferriswheel.core.model.OperationType;
@@ -65,12 +66,17 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	@Autowired
 	protected MessageSource messageSource;
 
+	@Autowired
+	protected ViewHandler viewHandler;
+
 	/**
 	 * 实体Class.
 	 */
 	protected final Class<E> clazz;
 
 	private String urlPrefix;
+
+	private String[] viewModules;
 
 	@SuppressWarnings("unchecked")
 	public SpringAbstractManageController() {
@@ -85,7 +91,6 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	 */
 	public abstract BaseService<E, ID> getBaseService();
 
-
 	/**
 	 * 获取模块的权限名称
 	 *
@@ -94,10 +99,18 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	protected abstract String getPermssionName();
 
 	/**
+	 * forwar view page
+	 *
+	 * @return
+	 */
+	protected abstract String getViewPage(String operation);
+
+	/**
 	 * showList page
 	 *
 	 * @return
 	 */
+	@Deprecated
 	protected abstract String getShowListPage();
 
 	/**
@@ -105,6 +118,7 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	 *
 	 * @return
 	 */
+	@Deprecated
 	protected abstract String getShowFormPage();
 
 	/**
@@ -112,6 +126,7 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	 *
 	 * @return
 	 */
+	@Deprecated
 	protected abstract String getReadPage();
 
 	/**
@@ -232,11 +247,36 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	}
 
 	public void setUrlPrefix(String urlPrefix) {
+		if (null == urlPrefix) {
+			return;
+		}
 		this.urlPrefix = urlPrefix;
+		String url = urlPrefix;
+		if (urlPrefix.startsWith("/")) {
+			url = urlPrefix.substring(1);
+		}
+		if (url.endsWith(".do")) {
+			url = url.substring(0, url.lastIndexOf('.'));
+		}
+		this.viewModules = url.split("/");
 	}
 
 	@Override
-	protected String getRedirectView() {
+	public String getViewModules() {
+		return StringUtils.join(viewModules, viewHandler.getViewLayout());
+	}
+
+	@Override
+	protected String getViewPrefix() {
+		return viewHandler.getViewStyle()+viewHandler.getViewLayout()+getViewModules();
+	}
+
+	public String getViewDelimiter() {
+		return viewHandler.getViewDelimiter();
+	}
+
+	@Override
+	public String getRedirectView() {
 		return "redirect:" + this.getUrlPrefix() + "?" + RP_PARAM_SHOWLIST;
 	}
 
@@ -283,7 +323,7 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	public String read(ID id, Model model) {
 		checkAuth(OperationType.READ.getValue());
 		model.addAttribute(getModelAttr(), getBaseService().find(id));
-		return getReadPage();
+		return getViewPage("read");
 	}
 
 	@RequestMapping(params = {RP_PARAM_UPDATE})
@@ -325,7 +365,7 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	public String showList(Model model, HttpServletRequest request) {
 		checkAuth(OperationType.READ.getValue());
 		this.handler4ListShow(request, model);
-		return getShowListPage();
+		return getViewPage("showList");
 	}
 
 	@RequestMapping(params = {"method=pageQuery"})
@@ -354,7 +394,7 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 			model.addAttribute("showFormType", "create");
 		}
 		model.addAttribute(this.getModelAttr(), entity);
-		return getShowFormPage();
+		return getViewPage("showForm");
 	}
 
 
@@ -405,8 +445,7 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	 * @param rows 每页记录数
 	 * @return Page<E> 页对象
 	 */
-	protected Page<E> doPagedQuery(AbstractQuery q, BaseService<E, ID> s,
-								   int pg, int rows) {
+	protected Page<E> doPagedQuery(AbstractQuery q, BaseService<E, ID> s, int pg, int rows) {
 		Page<E> page = new Page<E>();
 		page.setCurrentPage(pg);
 		page.setRowsPerPage(rows);

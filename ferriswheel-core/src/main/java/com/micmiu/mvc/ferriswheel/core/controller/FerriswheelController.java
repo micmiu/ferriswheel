@@ -7,4 +7,39 @@ package com.micmiu.mvc.ferriswheel.core.controller;
  * Time: 16:25
  */
 public interface FerriswheelController {
+
+//	/**
+//	 * url前缀
+//	 *
+//	 * @return
+//	 */
+//	String getUrlPrefix();
+//
+//	/**
+//	 * view 前缀
+//	 *
+//	 * @return
+//	 */
+//	String getViewPrefix();
+//
+//	/**
+//	 * view 前缀
+//	 *
+//	 * @return
+//	 */
+//	String getViewDelimiter();
+//
+//	/**
+//	 * 返回重定向view
+//	 *
+//	 * @return
+//	 */
+//	String getRedirectView();
+//
+//	/**
+//	 * 权限检查
+//	 *
+//	 * @param operation
+//	 */
+//	void checkAuth(String operation);
 }

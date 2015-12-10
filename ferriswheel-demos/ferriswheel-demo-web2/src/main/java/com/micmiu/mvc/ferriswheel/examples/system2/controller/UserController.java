@@ -40,8 +40,6 @@ import java.util.Set;
 @RequestMapping(value = "/system/user.do")
 public class UserController extends JqgridSimpleController<User, Long, UserJqgridQuery> {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "system" + Constant.LAYOUT_SPLIT + "user";
-
 	@Autowired
 	private UserService userService;
 
@@ -54,16 +52,6 @@ public class UserController extends JqgridSimpleController<User, Long, UserJqgri
 	@Override
 	public BaseService<User, Long> getBaseService() {
 		return userService;
-	}
-
-	@Override
-	public String getViewPrefix() {
-		return PREFIX;
-	}
-
-	@Override
-	protected String getViewDelimiter() {
-		return Constant.VIEW_PAGE_SPLIT;
 	}
 
 	@Override

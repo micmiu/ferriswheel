@@ -1,6 +1,13 @@
 # ferriswheel
 
 ---
+## v1.2
+#### New Feature :
+      * 
+#### Improvement :
+      * 自动根据requestmapping配置匹配view
+
+---
 ## v1.1
 #### New Feature :
       * 布局 sitemesh 2.4.2

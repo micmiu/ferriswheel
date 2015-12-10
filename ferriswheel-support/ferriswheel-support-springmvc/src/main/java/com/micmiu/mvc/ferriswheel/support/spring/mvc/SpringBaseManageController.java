@@ -59,6 +59,18 @@ public abstract class SpringBaseManageController<E extends FerriswheelID, V, ID 
 	}
 
 	@Override
+	protected String getViewPage(String operation) {
+		if ("read".equals(operation)) {
+			return this.getViewPrefix() + this.getViewDelimiter() + READ_PAGE;
+		} else if ("showForm".endsWith(operation)) {
+			return this.getViewPrefix() + this.getViewDelimiter() + SHOWFORM_PAGE;
+		} else if ("showList".equals(operation)) {
+			return this.getViewPrefix() + this.getViewDelimiter() + SHOWLIST_PAGE;
+		}
+		return getRedirectView();
+	}
+
+	@Override
 	protected String getShowListPage() {
 		return this.getViewPrefix() + this.getViewDelimiter() + SHOWLIST_PAGE;
 	}

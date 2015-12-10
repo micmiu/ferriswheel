@@ -4,16 +4,14 @@ package com.micmiu.mvc.ferriswheel.examples.system2.controller;
 import com.google.common.collect.Lists;
 import com.micmiu.mvc.ferriswheel.core.model.OperationType;
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
-import com.micmiu.mvc.ferriswheel.examples.Constant;
 import com.micmiu.mvc.ferriswheel.examples.simple.entity.Menu;
 import com.micmiu.mvc.ferriswheel.examples.simple.entity.Permission;
 import com.micmiu.mvc.ferriswheel.examples.simple.entity.Role;
-import com.micmiu.mvc.ferriswheel.examples.system2.model.RoleJqgridQuery;
 import com.micmiu.mvc.ferriswheel.examples.simple.model.RoleVo;
-import com.micmiu.mvc.ferriswheel.examples.simple.model.TreeNode;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.MenuService;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.PermissionService;
 import com.micmiu.mvc.ferriswheel.examples.simple.service.RoleService;
+import com.micmiu.mvc.ferriswheel.examples.system2.model.RoleJqgridQuery;
 import com.micmiu.mvc.ferriswheel.examples.system2.model.ZtreeNode;
 import com.micmiu.mvc.ferriswheel.support.jqgrid.controller.JqgridManageController;
 import org.apache.commons.lang3.StringUtils;
@@ -37,8 +35,6 @@ import java.util.Set;
 @RequestMapping(value = "/system/role.do")
 public class RoleController extends JqgridManageController<Role, RoleVo, Long, RoleJqgridQuery> {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "system" + Constant.LAYOUT_SPLIT + "role";
-
 	@Autowired
 	private RoleService roleService;
 
@@ -51,16 +47,6 @@ public class RoleController extends JqgridManageController<Role, RoleVo, Long, R
 	@Override
 	public BaseService<Role, Long> getBaseService() {
 		return roleService;
-	}
-
-	@Override
-	public String getViewPrefix() {
-		return PREFIX;
-	}
-
-	@Override
-	protected String getViewDelimiter() {
-		return Constant.VIEW_PAGE_SPLIT;
 	}
 
 	@Override

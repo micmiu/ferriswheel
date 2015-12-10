@@ -40,11 +40,6 @@ public class BlogDatatablesController extends SimpleManageController<Blog, Long,
 	}
 
 	@Override
-	protected String getViewDelimiter() {
-		return Constant.VIEW_PAGE_SPLIT;
-	}
-
-	@Override
 	protected void checkAuth(String operation) {
 		// no check
 	}

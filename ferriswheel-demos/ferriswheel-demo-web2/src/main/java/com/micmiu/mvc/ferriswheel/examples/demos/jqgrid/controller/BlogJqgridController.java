@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferriswheel.examples.demos.jqgrid.controller;
 
+import com.micmiu.mvc.ferriswheel.core.controller.ViewHandler;
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
-import com.micmiu.mvc.ferriswheel.examples.Constant;
 import com.micmiu.mvc.ferriswheel.examples.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.demos.jqgrid.model.BlogJqgridQuery;
 import com.micmiu.mvc.ferriswheel.examples.demos.service.BlogService;
@@ -23,7 +23,6 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping(value = "/demo/jqgrid/blog.do")
 public class BlogJqgridController extends JqgridSimpleController<Blog, Long, BlogJqgridQuery> {
-	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.LAYOUT_SPLIT + "jqgrid";
 
 	@Autowired
 	private BlogService blogService;
@@ -34,17 +33,7 @@ public class BlogJqgridController extends JqgridSimpleController<Blog, Long, Blo
 	}
 
 	@Override
-	public String getViewPrefix() {
-		return PREFIX;
-	}
-
-	@Override
-	protected String getViewDelimiter() {
-		return Constant.VIEW_PAGE_SPLIT;
-	}
-
-	@Override
-	protected void checkAuth(String operation) {
+	public void checkAuth(String operation) {
 		// no check
 	}
 
