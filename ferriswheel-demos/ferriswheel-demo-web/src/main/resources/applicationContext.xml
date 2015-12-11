@@ -42,6 +42,13 @@
         <property name="cacheSeconds" value="60"/>
     </bean>
 
+    <bean id="viewHandler" class="com.micmiu.mvc.ferriswheel.core.controller.ViewDefaultHandler">
+        <property name="viewStyle" value="easyui"/>
+        <property name="viewPrefix" value="easyui"/>
+        <property name="viewDelimiter" value="."/>
+        <property name="viewLayout" value="."/>
+    </bean>
+
     <!-- datasource druid -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           destroy-method="close">
