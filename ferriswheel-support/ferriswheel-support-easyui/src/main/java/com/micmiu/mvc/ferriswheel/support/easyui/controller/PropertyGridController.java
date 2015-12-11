@@ -6,7 +6,6 @@ import com.micmiu.mvc.ferriswheel.core.model.OperationType;
 import com.micmiu.mvc.ferriswheel.support.easyui.EasyuiBeanUtils;
 import com.micmiu.mvc.ferriswheel.support.easyui.vo.DatagridQuery;
 import com.micmiu.mvc.ferriswheel.support.easyui.vo.PropertyGridData;
-import com.micmiu.mvc.ferriswheel.support.spring.mvc.SimpleManageController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.support.RequestContextUtils;
