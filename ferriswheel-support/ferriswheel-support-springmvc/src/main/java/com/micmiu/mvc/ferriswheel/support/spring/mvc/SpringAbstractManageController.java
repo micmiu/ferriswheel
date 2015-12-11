@@ -268,10 +268,10 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 
 	@Override
 	protected String getViewPrefix() {
-		return viewHandler.getViewStyle()+viewHandler.getViewLayout()+getViewModules();
+		return viewHandler.getViewStyle() + viewHandler.getViewLayout() + getViewModules();
 	}
 
-	public String getViewDelimiter() {
+	protected String getViewDelimiter() {
 		return viewHandler.getViewDelimiter();
 	}
 
