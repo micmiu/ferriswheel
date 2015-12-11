@@ -9,7 +9,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 /**
- * 
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
 @Service
@@ -18,9 +17,21 @@ public class BlogServiceImpl extends HibernateBaseService<Blog, Long> implements
 
 	@Override
 	protected Criteria handleProperty(Criteria currentCriteria,
-			String propertyName, Object value) {
+									  String propertyName, Object value) {
+		if ("id".equals(propertyName)) {
+			currentCriteria.add(Restrictions.idEq(Long.parseLong(value.toString())));
+		}
 		if ("title".equals(propertyName)) {
 			currentCriteria.add(Restrictions.like("title", "%" + value + "%"));
+		}
+		if ("category".equals(propertyName)) {
+			currentCriteria.add(Restrictions.like("category", "%" + value + "%"));
+		}
+		if ("author".equals(propertyName)) {
+			currentCriteria.add(Restrictions.like("author", "%" + value + "%"));
+		}
+		if ("url".equals(propertyName)) {
+			currentCriteria.add(Restrictions.like("url", "%" + value + "%"));
 		}
 		return currentCriteria;
 	}

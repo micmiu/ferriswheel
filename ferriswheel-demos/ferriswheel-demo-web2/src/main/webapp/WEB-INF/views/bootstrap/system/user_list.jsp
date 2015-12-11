@@ -41,23 +41,35 @@
         autowidth: true,
         height: 250,
         colModel: [
-            {label: 'ID', name: 'id', width: 50,editable: false},
+            {label: 'ID', name: 'id', width: 50,editable: false, search: false},
             {
-                label: '<fmt:message key="system.user.loginName" />',
-                name: 'loginName',
-                width: 100,
-                editable: true,
-                editrules: {required: true}
+                label: '<fmt:message key="system.user.loginName" />', name: 'loginName', width: 100,
+                editable: true, editrules: {required: true},
+                searchoptions:{
+                    sopt:["cn"]
+                }
             },
-            {label: '<fmt:message key="system.user.name" />', name: 'name', width: 100, editable: true},
-            {label: '<fmt:message key="system.user.password" />', name: 'password', width: 100,hidden:true,
-                editable: true,editrules: {required: true}, edittype: "password"},
+            {label: '<fmt:message key="system.user.name" />', name: 'name', width: 100, editable: true,
+                searchoptions:{
+                    sopt:["cn"]
+                }},
+            {
+                label: '<fmt:message key="system.user.password" />', name: 'password', width: 100, hidden: true,
+                editable: true, editrules: {required: true}, edittype: "password"
+            },
             {label: '<fmt:message key="system.user.passwordConfirm" />', name: 'passwordConfirm', width: 100,hidden:true,
                 editable: true,editrules: {edithidden: true, custom:true,  custom_func: customPassCheck}, edittype: "password"},
-            {label: '<fmt:message key="system.user.email" />', name: 'email', width: 150, editable: true, editrules: {required:false,email: true}},
-            {label: '<fmt:message key="system.user.other" />', name: 'other', width: 200, editable: true},
-            {label: '<fmt:message key="system.role.roleName" />',name: 'roleName', width: 100},
-            {label: '<fmt:message key="system.role.roleName" />', name: 'roleId',editable: true,hidden:true,
+            {
+                label: '<fmt:message key="system.user.email" />',
+                name: 'email', width: 150, editable: true, search: false,
+                editrules: {required: false, email: true},
+                searchoptions: {
+                    sopt: ["cn"]
+                }
+            },
+            {label: '<fmt:message key="system.user.other" />', name: 'other', width: 200, editable: true, search: false},
+            {label: '<fmt:message key="system.role.roleName" />',name: 'roleName', width: 100, search: false},
+            {label: '<fmt:message key="system.role.roleName" />', name: 'roleId',editable: true, hidden: true,
                 editrules: {required: true},
                 edittype: "select",
                 editoptions: {
@@ -75,7 +87,7 @@
         caption: "<fmt:message key='module.system.user' />"
     });
     $("#user_list").navGrid('#user_list_pager',
-            { edit: true, add: true, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
+            { edit: true, add: true, del: true, search: true, refresh: false, view: false, position: "left", cloneToTop: false },
             {
                 template: templateEdit,
                 closeAfterEdit: true,

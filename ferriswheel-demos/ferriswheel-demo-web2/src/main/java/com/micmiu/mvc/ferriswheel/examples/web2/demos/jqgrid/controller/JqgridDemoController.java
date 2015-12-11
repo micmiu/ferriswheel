@@ -1,6 +1,6 @@
 package com.micmiu.mvc.ferriswheel.examples.web2.demos.jqgrid.controller;
 
-import com.micmiu.mvc.ferriswheel.examples.web2.Constant;
+import com.micmiu.mvc.ferriswheel.support.spring.mvc.SpringAbstractController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,13 +14,11 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping("/demo/jqgrid/")
-public class JqgridDemoController {
+public class JqgridDemoController extends SpringAbstractController {
 
-
-	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.LAYOUT_SPLIT;
 
 	@RequestMapping("/index.do")
 	public String index(HttpServletRequest req) {
-		return PREFIX + "jqgrid" + Constant.VIEW_PAGE_SPLIT + "index";
+		return getViewPrefix() + viewHandler.getViewLayout() + "index";
 	}
 }

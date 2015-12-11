@@ -27,22 +27,35 @@
             datatype: "json",
             height: 250,
             colModel: [
-                {label: 'ID', name: 'id', width: 50, align: 'right'},
+                {label: 'ID', name: 'id', width: 50, align: 'right',
+                    searchoptions:{
+                        sopt:["eq"]
+                    }
+                },
                 {
                     label: '<fmt:message key="demo.blog.col.title" />',
-                    name: 'title', width: 100, editable: true, editrules: {required: true}
+                    name: 'title', width: 100, editable: true, editrules: {required: true},
+                    searchoptions:{
+                        sopt:["cn"]
+                    }
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.category" />',
-                    name: 'category', width: 50, editable: true
+                    name: 'category', width: 50, editable: true,
+                    searchoptions:{
+                        sopt:["cn"]
+                    }
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.author" />',
-                    name: 'author', width: 80, editable: true
+                    name: 'author', width: 80, editable: true,
+                    searchoptions:{
+                        sopt:["cn"]
+                    }
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.publishDate" />',
-                    name: 'publishDate', width: 100, editable: true,
+                    name: 'publishDate', width: 100, editable: true,search:false,
                     editoptions: {
                         dataInit: function (element) {
                             $(element).datepicker({
@@ -54,7 +67,10 @@
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.url" />',
-                    name: 'url', width: 400, sortable: false, editable: true, editrules: {required: true}
+                    name: 'url', width: 400, sortable: false, editable: true, editrules: {required: true},
+                    searchoptions:{
+                        sopt:["cn"]
+                    }
                 }
             ],
             rowNum: 10,
@@ -66,7 +82,7 @@
             caption: "<fmt:message key='demo.blog' />"
         });
         $("#blog_list").navGrid('#blog_list_pager',
-                { edit: true, add: true, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
+                { edit: true, add: true, del: true, search: true, refresh: true, view: false, position: "left", cloneToTop: false },
                 {
                     template: template,
                     closeAfterEdit: true,
@@ -88,6 +104,9 @@
                     errorTextFormat: function (data) {
                         return '<fmt:message key="global.msg.error" />: ' + data.responseText
                     }
+                },
+                {
+                    //multipleSearch: true
                 });
 
     });

@@ -13,6 +13,14 @@ public class BlogJqgridQuery extends JqgridQuery {
 
 	private String title;
 
+	private Long id;
+
+	private String author;
+
+	private String category;
+
+	private String url;
+
 	@QueryPropery
 	public String getTitle() {
 		return title;
@@ -20,5 +28,41 @@ public class BlogJqgridQuery extends JqgridQuery {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	@QueryPropery
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	@QueryPropery
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	@QueryPropery
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@QueryPropery
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }

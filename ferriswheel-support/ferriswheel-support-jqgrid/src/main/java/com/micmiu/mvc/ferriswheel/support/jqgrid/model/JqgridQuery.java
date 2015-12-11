@@ -1,10 +1,13 @@
 package com.micmiu.mvc.ferriswheel.support.jqgrid.model;
 
+import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
 import com.micmiu.mvc.ferriswheel.core.model.AbstractQuery;
 import com.micmiu.mvc.ferriswheel.core.model.SortType;
 import com.micmiu.mvc.ferriswheel.utils.RefAnnotationUtil;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +42,12 @@ public abstract class JqgridQuery extends AbstractQuery {
 	 * 排序字段
 	 */
 	private String sidx;
+
+	private String searchField;
+
+	private String searchOper;
+
+	private String searchString;
 
 
 	/**
@@ -93,6 +102,30 @@ public abstract class JqgridQuery extends AbstractQuery {
 		this.sord = sord;
 	}
 
+	public String getSearchField() {
+		return searchField;
+	}
+
+	public void setSearchField(String searchField) {
+		this.searchField = searchField;
+	}
+
+	public String getSearchOper() {
+		return searchOper;
+	}
+
+	public void setSearchOper(String searchOper) {
+		this.searchOper = searchOper;
+	}
+
+	public String getSearchString() {
+		return searchString;
+	}
+
+	public void setSearchString(String searchString) {
+		this.searchString = searchString;
+	}
+
 	/**
 	 * 获取子类所有排序字段及排序顺序Map. 需要生成的字段值可用@SortProperty标示.
 	 *
@@ -118,6 +151,18 @@ public abstract class JqgridQuery extends AbstractQuery {
 		}
 		easyuiSortProperties.putAll(super.getSortProperties());
 		return easyuiSortProperties;
+	}
+
+	@Override
+	public Map<String, Object> getQueryProperties() {
+		Map<String, Object> propertyValues = new HashMap<String, Object>();
+		List<Field> properties = RefAnnotationUtil.getAllPublicFields(getClass(), QueryPropery.class);
+		for (Field p : properties) {
+			if (p.getName().equals(searchField) && StringUtils.isNotEmpty(searchString)) {
+				propertyValues.put(getQueryPropertyName(p.getName()),searchString);
+			}
+		}
+		return propertyValues;
 	}
 
 	@Override
