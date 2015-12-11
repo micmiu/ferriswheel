@@ -2,9 +2,8 @@ package com.micmiu.mvc.ferriswheel.examples.web2.demos.datatables.controller;
 
 
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
-import com.micmiu.mvc.ferriswheel.examples.Constant;
-import com.micmiu.mvc.ferriswheel.examples.web2.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.web2.demos.datatables.model.BlogTableQuery;
+import com.micmiu.mvc.ferriswheel.examples.web2.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.web2.demos.service.BlogService;
 import com.micmiu.mvc.ferriswheel.support.datatables.controller.SimpleManageController;
 import com.micmiu.mvc.ferriswheel.utils.StringUtils;
@@ -24,19 +23,12 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "/demo/datatables/blog.do")
 public class BlogDatatablesController extends SimpleManageController<Blog, Long, BlogTableQuery> {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.LAYOUT_SPLIT + "datatables.blog";
-
 	@Autowired
 	private BlogService blogService;
 
 	@Override
 	public BaseService<Blog, Long> getBaseService() {
 		return blogService;
-	}
-
-	@Override
-	public String getViewPrefix() {
-		return PREFIX;
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package com.micmiu.mvc.ferriswheel.examples.web2.simple.controller;
 
-import com.micmiu.mvc.ferriswheel.examples.Constant;
+import com.micmiu.mvc.ferriswheel.core.controller.ViewHandler;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
@@ -24,7 +24,9 @@ import java.util.Locale;
 @Controller
 public class LoginController {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX;
+
+	@Autowired
+	private ViewHandler viewHandler;
 
 	@Autowired
 	private LocaleResolver localeResolver;
@@ -38,16 +40,18 @@ public class LoginController {
 		}
 		Locale loc = localeResolver.resolveLocale(req);
 		localeResolver.setLocale(req, resp, loc);
-		return PREFIX + "login";
+		return getViewPrefix() + "login";
 	}
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public String login(
-			@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String userName,
-			Model model, HttpServletRequest req) {
-		model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM,
-				userName);
-		return PREFIX + "login";
+	public String login(@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String userName,
+						Model model, HttpServletRequest req) {
+		model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, userName);
+		return getViewPrefix() + "login";
+	}
+
+	private String getViewPrefix() {
+		return viewHandler.getViewStyle() + viewHandler.getViewLayout();
 	}
 
 }

@@ -1,6 +1,5 @@
 package com.micmiu.mvc.ferriswheel.examples.web2.simple.controller;
 
-import com.micmiu.mvc.ferriswheel.examples.Constant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,8 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "/system/setting")
 public class SettingController {
 	private static final Logger logger = LoggerFactory.getLogger(SettingController.class);
-
-	private static final String PREFIX = Constant.VIEW_PREFIX + ".system.config";
 
 	@RequestMapping(value = "i18n.do")
 	@ResponseBody

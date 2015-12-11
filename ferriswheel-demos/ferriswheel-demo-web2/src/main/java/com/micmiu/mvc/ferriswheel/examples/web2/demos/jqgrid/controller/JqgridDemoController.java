@@ -1,6 +1,6 @@
 package com.micmiu.mvc.ferriswheel.examples.web2.demos.jqgrid.controller;
 
-import com.micmiu.mvc.ferriswheel.examples.Constant;
+import com.micmiu.mvc.ferriswheel.examples.web2.Constant;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

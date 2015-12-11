@@ -104,6 +104,10 @@
         if (lang == '${LOCALE}') {
             return;
         }
+        if(lang==''){
+            $("#lang").val('${LOCALE}');
+            return;
+        }
         $.ajax({
             type: "post",
             url: '<c:url value="/system/setting/i18n.do"/>',

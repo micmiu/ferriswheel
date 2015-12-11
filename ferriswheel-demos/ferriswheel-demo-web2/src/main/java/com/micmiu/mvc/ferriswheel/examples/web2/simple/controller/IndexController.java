@@ -1,10 +1,9 @@
 package com.micmiu.mvc.ferriswheel.examples.web2.simple.controller;
 
-import com.micmiu.mvc.ferriswheel.examples.Constant;
+import com.micmiu.mvc.ferriswheel.core.controller.ViewHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 首页
@@ -14,11 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class IndexController {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX;
+	@Autowired
+	private ViewHandler viewHandler;
 
 	@RequestMapping("/index.do")
-	public String index(HttpServletRequest req) {
-		return PREFIX + "index";
+	public String index() {
+		return viewHandler.getViewStyle() + viewHandler.getViewLayout() + "index";
 	}
 
 }

@@ -9,6 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="micmiu.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Bookmark"  type="image/x-icon" href="<c:url value='/static/images/favicon.ico'/>"/>
+    <link rel="icon"  type="image/x-icon" href="<c:url value='/static/images/favicon.ico'/>" />
+    <link rel="shortcut icon" type="image/x-icon" href="<c:url value='/static/images/favicon.ico'/>" />
+
     <c:set var="LOCALE" value="${sessionScope['org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE']}" scope="application"/>
     <c:if test="${empty LOCALE}">
         <c:set var="LOCALE" value="zh_CN" scope="application"/>
