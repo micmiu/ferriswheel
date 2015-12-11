@@ -6,13 +6,24 @@ package com.micmiu.mvc.ferriswheel.support.spring.mvc;
  * Date: 11/18/2015
  * Time: 14:25
  */
-public class ControllerConstant {
+public interface ControllerConstant {
 
-	public static final String KEY_DEFAULT_FILENAME = "export-data";
-	public static final String KEY_EXPORT_FILENAME = "export.filename";
-	public static final String KEY_EXPORT_SHEETNAME = "export.sheetname";
-	public static final String KEY_EXPORT_TITLE = "export.title";
-	public static final String KEY_EXPORT_COLUMN_MAP = "export.columnMap";
-	public static final String KEY_EXPORT_ROW_DATA = "export.rowData";
-	public static final String KEY_EXPORT_EXCEL_TOTAL = "export.excel.total";
+	String KEY_DEFAULT_FILENAME = "export-data";
+	String KEY_EXPORT_FILENAME = "export.filename";
+	String KEY_EXPORT_SHEETNAME = "export.sheetname";
+	String KEY_EXPORT_TITLE = "export.title";
+	String KEY_EXPORT_COLUMN_MAP = "export.columnMap";
+	String KEY_EXPORT_ROW_DATA = "export.rowData";
+	String KEY_EXPORT_EXCEL_TOTAL = "export.excel.total";
+
+	String RP_PARAM_CREATE = "method=create";
+	String RP_PARAM_READ = "method=read";
+	String RP_PARAM_UPDATE = "method=update";
+	String RP_PARAM_DELETE = "method=delete";
+	String RP_PARAM_SHOWLIST = "method=showList";
+
+	String SHOWLIST_PAGE = "list";
+	String SHOWFORM_PAGE = "form";
+	String READ_PAGE = "view";
+
 }

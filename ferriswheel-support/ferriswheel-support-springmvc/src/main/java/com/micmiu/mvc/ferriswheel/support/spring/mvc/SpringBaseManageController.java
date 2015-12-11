@@ -27,10 +27,7 @@ import java.util.Map;
  */
 
 public abstract class SpringBaseManageController<E extends FerriswheelID, V, ID extends Serializable, Q extends AbstractQuery>
-		extends SpringAbstractManageController<E, V, ID, Q> {
-	protected static final String SHOWLIST_PAGE = "list";
-	protected static final String SHOWFORM_PAGE = "form";
-	protected static final String READ_PAGE = "view";
+		extends SpringManageController<E, V, ID, Q> {
 
 	public SpringBaseManageController() {
 		super();
@@ -130,16 +127,16 @@ public abstract class SpringBaseManageController<E extends FerriswheelID, V, ID 
 
 	@Override
 	protected void handler4Export(HttpServletRequest request, Map<String, Object> model) {
-		model.put(ControllerConstant.KEY_EXPORT_FILENAME, messageSource.getMessage(
+		model.put(KEY_EXPORT_FILENAME, messageSource.getMessage(
 				this.clazz.getSimpleName().toLowerCase() + "." + ControllerConstant.KEY_EXPORT_FILENAME, null,
-				ControllerConstant.KEY_EXPORT_FILENAME, RequestContextUtils.getLocale(request)));
+				KEY_EXPORT_FILENAME, RequestContextUtils.getLocale(request)));
 		model.put(ControllerConstant.KEY_EXPORT_SHEETNAME, messageSource.getMessage(
 				this.clazz.getSimpleName().toLowerCase() + "." + ControllerConstant.KEY_EXPORT_SHEETNAME, null,
-				ControllerConstant.KEY_EXPORT_SHEETNAME, RequestContextUtils.getLocale(request)));
+				KEY_EXPORT_SHEETNAME, RequestContextUtils.getLocale(request)));
 		model.put(ControllerConstant.KEY_EXPORT_TITLE, messageSource.getMessage(
 				this.clazz.getSimpleName().toLowerCase() + "." + ControllerConstant.KEY_EXPORT_TITLE, null,
-				ControllerConstant.KEY_EXPORT_TITLE, RequestContextUtils.getLocale(request)));
-		model.put(ControllerConstant.KEY_EXPORT_COLUMN_MAP, AnnotationUtils.getBeanShwoParamMap(this.clazz, messageSource,
+				KEY_EXPORT_TITLE, RequestContextUtils.getLocale(request)));
+		model.put(KEY_EXPORT_COLUMN_MAP, AnnotationUtils.getBeanShwoParamMap(this.clazz, messageSource,
 				RequestContextUtils.getLocale(request)));
 	}
 

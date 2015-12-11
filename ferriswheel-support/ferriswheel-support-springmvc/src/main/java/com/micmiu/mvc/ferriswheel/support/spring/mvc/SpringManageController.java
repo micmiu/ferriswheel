@@ -55,17 +55,6 @@ public abstract class SpringManageController<E extends FerriswheelID, V, ID exte
 
 	protected static Logger logger = LoggerFactory.getLogger(SpringManageController.class);
 
-	protected static final String RP_PARAM_CREATE = "method=create";
-	protected static final String RP_PARAM_READ = "method=read";
-	protected static final String RP_PARAM_UPDATE = "method=update";
-	protected static final String RP_PARAM_DELETE = "method=delete";
-	protected static final String RP_PARAM_SHOWLIST = "method=showList";
-
-	@Autowired
-	protected MessageSource messageSource;
-
-	@Autowired
-	protected ViewHandler viewHandler;
 
 	/**
 	 * 实体Class.

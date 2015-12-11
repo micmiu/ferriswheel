@@ -24,8 +24,7 @@ public class CsvView extends AbstractView {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	protected void renderMergedOutputModel(Map<String, Object> model,
-										   HttpServletRequest request, HttpServletResponse response)
+	protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
 		String fileName = FileNameUtils.formatFileName(".csv", model.get(ControllerConstant.KEY_EXPORT_FILENAME) + "", ControllerConstant.KEY_DEFAULT_FILENAME);
