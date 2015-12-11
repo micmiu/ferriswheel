@@ -5,9 +5,11 @@
     <meta http-equiv="Cache-Control" content="no-store,no-cache,must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="-1">
+    <link rel="Bookmark"  type="image/x-icon" href="<c:url value='/static/images/favicon.ico'/>"/>
+    <link rel="icon"  type="image/x-icon" href="<c:url value='/static/images/favicon.ico'/>" />
+    <link rel="shortcut icon" type="image/x-icon" href="<c:url value='/static/images/favicon.ico'/>" />
 
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/css/default.css'/>"/>
-
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/jquery-validation/1.9.0/validate.css'/>"/>
 
     <script type="text/javascript" src="<c:url value='/static/plugins/jquery/jquery-1.8.0.min.js'/>"></script>

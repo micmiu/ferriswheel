@@ -88,7 +88,7 @@ public class MenuPermUtils {
 	 * @return
 	 */
 	public static String parseMenuHTML(List<TreeNode> treeNodeList) {
-		StringBuffer menuHTML = new StringBuffer("<ul id='hx-m'>");
+		StringBuffer menuHTML = new StringBuffer("<ul id='menu_tree'>");
 		for (TreeNode node : treeNodeList) {
 			MenuPermUtils.parseMenuHTML(menuHTML, node);
 		}

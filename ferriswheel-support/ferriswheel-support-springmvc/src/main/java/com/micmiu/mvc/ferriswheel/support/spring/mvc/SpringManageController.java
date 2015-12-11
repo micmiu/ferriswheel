@@ -2,7 +2,6 @@ package com.micmiu.mvc.ferriswheel.support.spring.mvc;
 
 
 import com.micmiu.mvc.ferriswheel.core.FerriswheelConstant;
-import com.micmiu.mvc.ferriswheel.core.controller.BaseManageController;
 import com.micmiu.mvc.ferriswheel.core.controller.ViewHandler;
 import com.micmiu.mvc.ferriswheel.core.entity.FerriswheelID;
 import com.micmiu.mvc.ferriswheel.core.model.AbstractQuery;
@@ -19,7 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,9 +51,9 @@ import java.util.Map;
  * @param <Q>  查询vo
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
-public abstract class SpringAbstractManageController<E extends FerriswheelID, V, ID extends Serializable, Q extends AbstractQuery> extends BaseManageController {
+public abstract class SpringManageController<E extends FerriswheelID, V, ID extends Serializable, Q extends AbstractQuery> extends SpringAbstractController {
 
-	protected static Logger logger = LoggerFactory.getLogger(SpringAbstractManageController.class);
+	protected static Logger logger = LoggerFactory.getLogger(SpringManageController.class);
 
 	protected static final String RP_PARAM_CREATE = "method=create";
 	protected static final String RP_PARAM_READ = "method=read";
@@ -74,14 +72,11 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	 */
 	protected final Class<E> clazz;
 
-	private String urlPrefix;
-
-	private String[] viewModules;
 
 	@SuppressWarnings("unchecked")
-	public SpringAbstractManageController() {
+	public SpringManageController() {
+		super();
 		this.clazz = ReflectionUtils.findParameterizedType(getClass(), 0);
-		setUrlPrefix(getDefaultUrlPrefix());
 	}
 
 	/**
@@ -242,38 +237,6 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	 */
 	protected abstract Page<V> convertPageE2V(Page<E> pageE, HttpServletRequest request);
 
-	public String getUrlPrefix() {
-		return urlPrefix;
-	}
-
-	public void setUrlPrefix(String urlPrefix) {
-		if (null == urlPrefix) {
-			return;
-		}
-		this.urlPrefix = urlPrefix;
-		String url = urlPrefix;
-		if (urlPrefix.startsWith("/")) {
-			url = urlPrefix.substring(1);
-		}
-		if (url.endsWith(".do")) {
-			url = url.substring(0, url.lastIndexOf('.'));
-		}
-		this.viewModules = url.split("/");
-	}
-
-	@Override
-	public String getViewModules() {
-		return StringUtils.join(viewModules, viewHandler.getViewLayout());
-	}
-
-	@Override
-	protected String getViewPrefix() {
-		return viewHandler.getViewStyle() + viewHandler.getViewLayout() + getViewModules();
-	}
-
-	protected String getViewDelimiter() {
-		return viewHandler.getViewDelimiter();
-	}
 
 	@Override
 	public String getRedirectView() {
@@ -295,11 +258,7 @@ public abstract class SpringAbstractManageController<E extends FerriswheelID, V,
 	}
 
 	protected String getDefaultUrlPrefix() {
-		String currentPrefix = "";
-		RequestMapping requestMapping = AnnotationUtils.findAnnotation(getClass(), RequestMapping.class);
-		if (requestMapping != null && requestMapping.value().length > 0) {
-			currentPrefix = requestMapping.value()[0];
-		}
+		String currentPrefix = super.getDefaultUrlPrefix();
 		if (StringUtils.isEmpty(currentPrefix)) {
 			currentPrefix = this.clazz.getSimpleName();
 		}

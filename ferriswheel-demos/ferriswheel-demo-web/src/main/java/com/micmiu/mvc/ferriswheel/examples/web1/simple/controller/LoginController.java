@@ -45,8 +45,7 @@ public class LoginController {
 	public String login(
 			@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String userName,
 			Model model, HttpServletRequest req) {
-		model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM,
-				userName);
+		model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, userName);
 		return PREFIX + "login";
 	}
 

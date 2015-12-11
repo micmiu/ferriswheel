@@ -16,10 +16,10 @@ import java.io.Serializable;
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
 
-public abstract class SimpleManageController<E extends FerriswheelID, ID extends Serializable, Q extends AbstractQuery>
+public abstract class SpringSimpleManageController<E extends FerriswheelID, ID extends Serializable, Q extends AbstractQuery>
 		extends SpringBaseManageController<E, E, ID, Q> {
 
-	public SimpleManageController() {
+	public SpringSimpleManageController() {
 		super();
 	}
 

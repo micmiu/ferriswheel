@@ -19,8 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 public class SettingController {
 	private static final Logger logger = LoggerFactory.getLogger(SettingController.class);
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + ".system.config";
-
 	@RequestMapping(value = "i18n.do")
 	@ResponseBody
 	public String changeLocale(HttpServletRequest request) {
