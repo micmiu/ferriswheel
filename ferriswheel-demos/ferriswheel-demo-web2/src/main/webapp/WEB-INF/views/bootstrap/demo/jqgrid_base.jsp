@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ include file="/static/tags/taglibs.jsp" %>
 <head>
-    <title><fmt:message key='module.jqgrid'/></title>
+    <title><fmt:message key='module.demo.crud'/></title>
 </head>
 
 <div class="row">

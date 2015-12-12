@@ -36,6 +36,8 @@
                         <li><a href="<c:url value='/demo/bootstrap/index.do'/>"><fmt:message
                                 key="menu.demo.common"/></a></li>
                         <li><a href="<c:url value='/demo/jqgrid/blog.do?method=showList'/>"><fmt:message
+                                key="menu.demo.crud"/></a></li>
+                        <li><a href="<c:url value='/demo/jqgrid/list.do'/>"><fmt:message
                                 key="menu.demo.jqgrid"/></a></li>
                         <li><a href="<c:url value='/demo/bootstrap/treeview.do'/>"><fmt:message
                                 key="menu.demo.treeview"/></a></li>
@@ -104,7 +106,7 @@
         if (lang == '${LOCALE}') {
             return;
         }
-        if(lang==''){
+        if (lang == '') {
             $("#lang").val('${LOCALE}');
             return;
         }

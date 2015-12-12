@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ include file="/static/tags/taglibs.jsp" %>
 <head>
-    <title><fmt:message key='module.demo.crud'/> - blog</title>
+    <title><fmt:message key='module.jqgrid'/> - list</title>
 </head>
 
 <div class="row">
@@ -27,35 +27,22 @@
             datatype: "json",
             height: 250,
             colModel: [
-                {label: 'ID', name: 'id', width: 50, align: 'right',
-                    searchoptions:{
-                        sopt:["eq"]
-                    }
-                },
+                {label: 'ID', name: 'id', width: 50, align: 'right'},
                 {
                     label: '<fmt:message key="demo.blog.col.title" />',
-                    name: 'title', width: 100, editable: true, editrules: {required: true},
-                    searchoptions:{
-                        sopt:["cn"]
-                    }
+                    name: 'title', width: 100, editable: true, editrules: {required: true}
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.category" />',
-                    name: 'category', width: 50, editable: true,
-                    searchoptions:{
-                        sopt:["cn"]
-                    }
+                    name: 'category', width: 50, editable: true
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.author" />',
-                    name: 'author', width: 80, editable: true,
-                    searchoptions:{
-                        sopt:["cn"]
-                    }
+                    name: 'author', width: 80, editable: true
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.publishDate" />',
-                    name: 'publishDate', width: 100, editable: true,search:false,
+                    name: 'publishDate', width: 100, editable: true,
                     editoptions: {
                         dataInit: function (element) {
                             $(element).datepicker({
@@ -67,10 +54,7 @@
                 },
                 {
                     label: '<fmt:message key="demo.blog.col.url" />',
-                    name: 'url', width: 400, sortable: false, editable: true, editrules: {required: true},
-                    searchoptions:{
-                        sopt:["cn"]
-                    }
+                    name: 'url', width: 400, sortable: false, editable: true, editrules: {required: true}
                 }
             ],
             rowNum: 10,
@@ -82,7 +66,7 @@
             caption: "<fmt:message key='demo.blog' />"
         });
         $("#blog_list").navGrid('#blog_list_pager',
-                { edit: true, add: true, del: true, search: true, refresh: true, view: false, position: "left", cloneToTop: false },
+                { edit: true, add: true, del: true, search: false, refresh: false, view: false, position: "left", cloneToTop: false },
                 {
                     template: template,
                     closeAfterEdit: true,
@@ -104,9 +88,6 @@
                     errorTextFormat: function (data) {
                         return '<fmt:message key="global.msg.error" />: ' + data.responseText
                     }
-                },
-                {
-                    //multipleSearch: true
                 });
 
     });

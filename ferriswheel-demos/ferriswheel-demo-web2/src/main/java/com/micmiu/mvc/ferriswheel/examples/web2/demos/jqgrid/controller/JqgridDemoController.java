@@ -18,7 +18,13 @@ public class JqgridDemoController extends SpringAbstractController {
 
 
 	@RequestMapping("/index.do")
-	public String index(HttpServletRequest req) {
+	public String index() {
 		return getViewPrefix() + viewHandler.getViewLayout() + "index";
 	}
+
+	@RequestMapping("/list.do")
+	public String list() {
+		return getViewPrefix() + viewHandler.getViewLayout() + "jqgrid_list";
+	}
+
 }
