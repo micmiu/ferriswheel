@@ -15,14 +15,15 @@
 			</span>
 
             <h2>
-                v1.1
+                demo-web2's feature
             </h2>
             <ul>
                 <li>SpringMVC 3.2.0.RELEASE</li>
                 <li>Hibernate 4.1.9.Final</li>
-                <li>Tiles 2.2,2</li>
-                <li>sitemesh 1.2.0</li>
+                <li>sitemesh 2.4,2</li>
+                <li>shiro 1.2.0</li>
                 <li>Bootstrap</li>
+                <li>jqgrid</li>
             </ul>
         </div>
     </div>

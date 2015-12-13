@@ -12,13 +12,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<c:url value='/index.do'/>"><fmt:message key="global.text.index"/></a>
+            <a class="navbar-brand active" href="<c:url value='/index.do'/>"><fmt:message key="global.text.index"/></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.system"/>
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -27,7 +27,6 @@
                         <li><a href="<c:url value='/system/role.do?method=showList'/>"><fmt:message
                                 key="menu.system.role"/></a></li>
                     </ul>
-
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.demo"/>
@@ -37,12 +36,20 @@
                                 key="menu.demo.common"/></a></li>
                         <li><a href="<c:url value='/demo/jqgrid/blog.do?method=showList'/>"><fmt:message
                                 key="menu.demo.crud"/></a></li>
-                        <li><a href="<c:url value='/demo/jqgrid/list.do'/>"><fmt:message
-                                key="menu.demo.jqgrid"/></a></li>
                         <li><a href="<c:url value='/demo/bootstrap/treeview.do'/>"><fmt:message
                                 key="menu.demo.treeview"/></a></li>
                         <li><a href="<c:url value='/demo/bootstrap/ztree.do'/>">ztree</a></li>
                         <li><a href="<c:url value='/demo/bootstrap/jstree.do'/>">jstree</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.demo.jqgrid"/>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="<c:url value='/demo/jqgrid/base.do'/>"><fmt:message
+                                key="menu.demo.jqgrid"/>-base</a></li>
+                        <li><a href="<c:url value='/demo/jqgrid/list.do'/>"><fmt:message
+                                key="menu.demo.jqgrid"/>-list</a></li>
                     </ul>
                 </li>
             </ul>

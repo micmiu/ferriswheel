@@ -27,4 +27,9 @@ public class JqgridDemoController extends SpringAbstractController {
 		return getViewPrefix() + viewHandler.getViewLayout() + "jqgrid_list";
 	}
 
+	@RequestMapping("/base.do")
+	public String base() {
+		return getViewPrefix() + viewHandler.getViewLayout() + "jqgrid_base";
+	}
+
 }
