@@ -1,12 +1,12 @@
 package com.micmiu.mvc.ferriswheel.examples.web2.simple.controller;
 
-import com.micmiu.mvc.ferriswheel.examples.web2.simple.entity.Menu;
-import com.micmiu.mvc.ferriswheel.examples.web2.simple.entity.Permission;
-import com.micmiu.mvc.ferriswheel.examples.web2.simple.entity.Role;
-import com.micmiu.mvc.ferriswheel.examples.web2.simple.entity.User;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.Menu;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.Permission;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.Role;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.User;
+import com.micmiu.mvc.ferriswheel.examples.core.service.MenuService;
+import com.micmiu.mvc.ferriswheel.examples.core.service.UserService;
 import com.micmiu.mvc.ferriswheel.examples.web2.simple.model.TreeNode;
-import com.micmiu.mvc.ferriswheel.examples.web2.simple.service.MenuService;
-import com.micmiu.mvc.ferriswheel.examples.web2.simple.service.UserService;
 import com.micmiu.mvc.ferriswheel.examples.web2.simple.util.MenuPermUtils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
