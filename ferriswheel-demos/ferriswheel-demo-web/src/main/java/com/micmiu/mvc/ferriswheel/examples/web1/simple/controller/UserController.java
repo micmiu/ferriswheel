@@ -2,16 +2,15 @@ package com.micmiu.mvc.ferriswheel.examples.web1.simple.controller;
 
 import com.micmiu.mvc.ferriswheel.core.FerriswheelConstant;
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
-import com.micmiu.mvc.ferriswheel.examples.web1.Constant;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.entity.Menu;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.entity.Permission;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.entity.Role;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.entity.User;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.Menu;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.Permission;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.Role;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.User;
+import com.micmiu.mvc.ferriswheel.examples.core.service.MenuService;
+import com.micmiu.mvc.ferriswheel.examples.core.service.RoleService;
+import com.micmiu.mvc.ferriswheel.examples.core.service.UserService;
 import com.micmiu.mvc.ferriswheel.examples.web1.simple.model.TreeNode;
 import com.micmiu.mvc.ferriswheel.examples.web1.simple.model.UserDataGridQuery;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.service.MenuService;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.service.RoleService;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.service.UserService;
 import com.micmiu.mvc.ferriswheel.examples.web1.simple.util.MenuPermUtils;
 import com.micmiu.mvc.ferriswheel.support.easyui.controller.SimpleManageController;
 import com.micmiu.mvc.ferriswheel.utils.StringUtils;
@@ -39,9 +38,6 @@ import java.util.Set;
 @Controller
 @RequestMapping(value = "/system/user.do")
 public class UserController extends SimpleManageController<User, Long, UserDataGridQuery> {
-
-	private static final String PREFIX = Constant.VIEW_PREFIX + "system" + Constant.LAYOUT_SPLIT + "user";
-
 	@Autowired
 	private UserService userService;
 
@@ -54,16 +50,6 @@ public class UserController extends SimpleManageController<User, Long, UserDataG
 	@Override
 	public BaseService<User, Long> getBaseService() {
 		return userService;
-	}
-
-	@Override
-	public String getViewPrefix() {
-		return PREFIX;
-	}
-
-	@Override
-	protected String getViewDelimiter() {
-		return Constant.VIEW_PAGE_SPLIT;
 	}
 
 	@Override

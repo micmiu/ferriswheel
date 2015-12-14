@@ -6,8 +6,8 @@ import com.micmiu.mvc.ferriswheel.core.model.AbstractQuery;
 import com.micmiu.mvc.ferriswheel.core.model.OperationType;
 import com.micmiu.mvc.ferriswheel.core.model.Page;
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
-import com.micmiu.mvc.ferriswheel.support.datatables.model.TablePage;
-import com.micmiu.mvc.ferriswheel.support.datatables.model.TableQuery;
+import com.micmiu.mvc.ferriswheel.support.datatables.model.DataTablesPage;
+import com.micmiu.mvc.ferriswheel.support.datatables.model.DataTablesQuery;
 import com.micmiu.mvc.ferriswheel.support.spring.mvc.SpringBaseManageController;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +27,7 @@ import java.util.List;
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
 
-public abstract class DatatablesManageController<E extends FerriswheelID, V, ID extends Serializable, Q extends TableQuery>
+public abstract class DatatablesManageController<E extends FerriswheelID, V, ID extends Serializable, Q extends DataTablesQuery>
 		extends SpringBaseManageController<E, V, ID, Q> {
 
 	public DatatablesManageController() {
@@ -71,14 +71,14 @@ public abstract class DatatablesManageController<E extends FerriswheelID, V, ID 
 	@Override
 	protected Page<E> doPagedQuery(AbstractQuery q, BaseService<E, ID> s, int pg, int rows) {
 		Page<E> page = super.doPagedQuery(q, s, pg, rows);
-		TableQuery query = (TableQuery) q;
+		DataTablesQuery query = (DataTablesQuery) q;
 		page.setsEcho(query.getsEcho());
 		return page;
 	}
 
 	@Override
 	protected Page<V> convertPageE2V(Page<E> pageE, HttpServletRequest request) {
-		Page<V> pageV = new TablePage<V>();
+		Page<V> pageV = new DataTablesPage<V>();
 		try {
 			BeanUtils.copyProperties(pageV, pageE);
 			List<V> vlist = new ArrayList<V>();
@@ -89,7 +89,7 @@ public abstract class DatatablesManageController<E extends FerriswheelID, V, ID 
 		} catch (Exception e) {
 			logger.warn("convert Page<E> to Page<V> error:", e);
 		}
-		return new TablePage<V>(pageV);
+		return new DataTablesPage<V>(pageV);
 	}
 
 }

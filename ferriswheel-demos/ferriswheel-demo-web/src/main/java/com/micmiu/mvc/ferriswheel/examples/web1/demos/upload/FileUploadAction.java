@@ -1,7 +1,8 @@
 package com.micmiu.mvc.ferriswheel.examples.web1.demos.upload;
 
-import com.micmiu.mvc.ferriswheel.examples.web1.Constant;
+import com.micmiu.mvc.ferriswheel.core.controller.ViewHandler;
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,11 +24,13 @@ import java.util.Iterator;
 @RequestMapping(value = "/demo/FileUpload.do")
 public class FileUploadAction {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.LAYOUT_SPLIT + "upload";
+
+	@Autowired
+	private ViewHandler viewHandler;
 
 	@RequestMapping(params = {"method=showForm"})
 	public String showForm() {
-		return PREFIX + Constant.VIEW_PAGE_SPLIT + "form";
+		return getPrefix() + viewHandler.getViewDelimiter() + "form";
 
 	}
 
@@ -51,7 +54,7 @@ public class FileUploadAction {
 
 	@RequestMapping(params = {"method=showUploadifyForm"})
 	public String showUploadifyForm() {
-		return PREFIX + Constant.VIEW_PAGE_SPLIT + "uploadify";
+		return getPrefix() + viewHandler.getViewDelimiter() + "uploadify";
 
 	}
 
@@ -83,5 +86,9 @@ public class FileUploadAction {
 
 		return "success";
 
+	}
+
+	private String getPrefix() {
+		return viewHandler.getViewStyle() + viewHandler.getViewLayout() + "demo" + viewHandler.getViewLayout() + "upload";
 	}
 }

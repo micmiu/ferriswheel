@@ -2,9 +2,8 @@ package com.micmiu.mvc.ferriswheel.examples.web1.demos.datatables.controller;
 
 
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
-import com.micmiu.mvc.ferriswheel.examples.web1.Constant;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.entity.Blog;
-import com.micmiu.mvc.ferriswheel.examples.web1.demos.model.BlogTableQuery;
+import com.micmiu.mvc.ferriswheel.examples.web1.demos.model.BlogDataTablesQuery;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.service.BlogService;
 import com.micmiu.mvc.ferriswheel.support.datatables.controller.SimpleManageController;
 import com.micmiu.mvc.ferriswheel.utils.StringUtils;
@@ -22,9 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping(value = "/demo/datatables/blog.do")
-public class BlogDatatablesController extends SimpleManageController<Blog, Long, BlogTableQuery> {
-
-	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.LAYOUT_SPLIT + "datatables.blog";
+public class BlogDatatablesController extends SimpleManageController<Blog, Long, BlogDataTablesQuery> {
 
 	@Autowired
 	private BlogService blogService;
@@ -32,16 +29,6 @@ public class BlogDatatablesController extends SimpleManageController<Blog, Long,
 	@Override
 	public BaseService<Blog, Long> getBaseService() {
 		return blogService;
-	}
-
-	@Override
-	public String getViewPrefix() {
-		return PREFIX;
-	}
-
-	@Override
-	protected String getViewDelimiter() {
-		return Constant.VIEW_PAGE_SPLIT;
 	}
 
 	@Override

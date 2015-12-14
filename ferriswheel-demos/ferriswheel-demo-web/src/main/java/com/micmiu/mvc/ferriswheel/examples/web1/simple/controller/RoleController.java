@@ -4,16 +4,15 @@ package com.micmiu.mvc.ferriswheel.examples.web1.simple.controller;
 import com.google.common.collect.Lists;
 import com.micmiu.mvc.ferriswheel.core.model.OperationType;
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
-import com.micmiu.mvc.ferriswheel.examples.web1.Constant;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.entity.Menu;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.entity.Permission;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.entity.Role;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.Menu;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.Permission;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.Role;
+import com.micmiu.mvc.ferriswheel.examples.core.service.MenuService;
+import com.micmiu.mvc.ferriswheel.examples.core.service.PermissionService;
+import com.micmiu.mvc.ferriswheel.examples.core.service.RoleService;
 import com.micmiu.mvc.ferriswheel.examples.web1.simple.model.RoleDataGridQuery;
 import com.micmiu.mvc.ferriswheel.examples.web1.simple.model.RoleVo;
 import com.micmiu.mvc.ferriswheel.examples.web1.simple.model.TreeNode;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.service.MenuService;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.service.PermissionService;
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.service.RoleService;
 import com.micmiu.mvc.ferriswheel.support.easyui.controller.PropertyGridController;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +35,6 @@ import java.util.Set;
 @RequestMapping(value = "/system/role.do")
 public class RoleController extends PropertyGridController<Role, RoleVo, Long, RoleDataGridQuery> {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "system" + Constant.LAYOUT_SPLIT + "role";
-
 	@Autowired
 	private RoleService roleService;
 
@@ -50,16 +47,6 @@ public class RoleController extends PropertyGridController<Role, RoleVo, Long, R
 	@Override
 	public BaseService<Role, Long> getBaseService() {
 		return roleService;
-	}
-
-	@Override
-	public String getViewPrefix() {
-		return PREFIX;
-	}
-
-	@Override
-	protected String getViewDelimiter() {
-		return Constant.VIEW_PAGE_SPLIT;
 	}
 
 	@Override

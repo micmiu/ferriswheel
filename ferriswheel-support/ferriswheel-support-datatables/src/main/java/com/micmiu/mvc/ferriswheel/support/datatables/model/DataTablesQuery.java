@@ -13,7 +13,7 @@ import java.util.Map;
  * @author <a href="http://www.micmiu.com">Michael</a>
  * @version 1.0
  */
-public abstract class TableQuery extends AbstractQuery {
+public abstract class DataTablesQuery extends AbstractQuery {
 
 	private int iDisplayLength = DEFAULT_ITEMS_PERPAGE;
 	private int iDisplayStart = 0;

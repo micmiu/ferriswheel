@@ -1,6 +1,6 @@
 package com.micmiu.mvc.ferriswheel.examples.web1.demos.easyui.controller;
 
-import com.micmiu.mvc.ferriswheel.examples.web1.Constant;
+import com.micmiu.mvc.ferriswheel.core.controller.ViewHandler;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,8 @@ import java.util.List;
 @RequestMapping(value = "/demo/easyui/datagrid.do")
 public class DatagridController {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.LAYOUT_SPLIT + "datagrid";
+	@Autowired
+	private ViewHandler viewHandler;
 
 	@Autowired
 	private BlogService blogService;
@@ -28,20 +29,24 @@ public class DatagridController {
 	public String list4base(Model model) {
 		List<Blog> list = blogService.queryAll();
 		model.addAttribute("blogs", list);
-		return PREFIX + Constant.VIEW_PAGE_SPLIT + "list" + Constant.VIEW_PAGE_SPLIT + "base";
+		return getPrefix() + viewHandler.getViewDelimiter() + "list" + viewHandler.getViewDelimiter() + "base";
 	}
 
 	@RequestMapping(params = {"method=dg4tb"})
 	public String list4tb(Model model) {
 		List<Blog> list = blogService.queryAll();
 		model.addAttribute("blogs", list);
-		return PREFIX + Constant.VIEW_PAGE_SPLIT + "list" + Constant.VIEW_PAGE_SPLIT + "tb";
+		return getPrefix() + viewHandler.getViewDelimiter() + "list" + viewHandler.getViewDelimiter() + "tb";
 	}
 
 	@RequestMapping(params = {"method=dg4export"})
 	public String list4export(Model model) {
 		List<Blog> list = blogService.queryAll();
 		model.addAttribute("blogs", list);
-		return PREFIX + Constant.VIEW_PAGE_SPLIT + "list" + Constant.VIEW_PAGE_SPLIT + "export";
+		return getPrefix() + viewHandler.getViewDelimiter() + "list" + viewHandler.getViewDelimiter() + "export";
+	}
+
+	private String getPrefix() {
+		return viewHandler.getViewStyle() + viewHandler.getViewLayout() + "demo" + viewHandler.getViewLayout() + "datagrid";
 	}
 }

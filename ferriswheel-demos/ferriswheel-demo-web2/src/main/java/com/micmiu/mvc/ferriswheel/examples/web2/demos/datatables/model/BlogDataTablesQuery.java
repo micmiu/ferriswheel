@@ -2,12 +2,12 @@ package com.micmiu.mvc.ferriswheel.examples.web2.demos.datatables.model;
 
 
 import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
-import com.micmiu.mvc.ferriswheel.support.datatables.model.TableQuery;
+import com.micmiu.mvc.ferriswheel.support.datatables.model.DataTablesQuery;
 
 /**
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
-public class BlogTableQuery extends TableQuery {
+public class BlogDataTablesQuery extends DataTablesQuery {
 
 	private String title;
 

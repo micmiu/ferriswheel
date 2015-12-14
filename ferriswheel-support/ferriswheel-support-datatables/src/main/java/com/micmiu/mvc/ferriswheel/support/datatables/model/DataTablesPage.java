@@ -12,7 +12,7 @@ import java.util.List;
  * @author <a href="http://www.micmiu.com">Michael</a>
  * @version 1.0
  */
-public class TablePage<T> extends Page<T> {
+public class DataTablesPage<T> extends Page<T> {
 
 	private int sEcho = 1;
 
@@ -25,7 +25,7 @@ public class TablePage<T> extends Page<T> {
 	/**
 	 * 构造函数．
 	 */
-	public TablePage() {
+	public DataTablesPage() {
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class TablePage<T> extends Page<T> {
 	 *
 	 * @param page
 	 */
-	public TablePage(Page<T> page) {
+	public DataTablesPage(Page<T> page) {
 		try {
 			this.sEcho = page.getsEcho();
 			this.aaData = page.getPageList();

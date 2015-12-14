@@ -3,8 +3,8 @@ package com.micmiu.mvc.ferriswheel.support.datatables.controller;
 
 import com.micmiu.mvc.ferriswheel.core.entity.FerriswheelID;
 import com.micmiu.mvc.ferriswheel.core.model.Page;
-import com.micmiu.mvc.ferriswheel.support.datatables.model.TablePage;
-import com.micmiu.mvc.ferriswheel.support.datatables.model.TableQuery;
+import com.micmiu.mvc.ferriswheel.support.datatables.model.DataTablesPage;
+import com.micmiu.mvc.ferriswheel.support.datatables.model.DataTablesQuery;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
@@ -19,7 +19,7 @@ import java.io.Serializable;
  * @param <Q> 查询vo
  */
 
-public abstract class SimpleManageController<E extends FerriswheelID, ID extends Serializable, Q extends TableQuery>
+public abstract class SimpleManageController<E extends FerriswheelID, ID extends Serializable, Q extends DataTablesQuery>
 		extends DatatablesManageController<E, E, ID, Q> {
 
 	public SimpleManageController() {
@@ -33,6 +33,6 @@ public abstract class SimpleManageController<E extends FerriswheelID, ID extends
 
 	@Override
 	protected Page<E> convertPageE2V(Page<E> pageE, HttpServletRequest request) {
-		return new TablePage<E>(pageE);
+		return new DataTablesPage<E>(pageE);
 	}
 }

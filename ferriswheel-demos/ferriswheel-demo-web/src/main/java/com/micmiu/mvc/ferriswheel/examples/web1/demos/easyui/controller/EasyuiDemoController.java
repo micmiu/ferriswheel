@@ -1,7 +1,8 @@
 package com.micmiu.mvc.ferriswheel.examples.web1.demos.easyui.controller;
 
-import com.micmiu.mvc.ferriswheel.examples.web1.Constant;
+import com.micmiu.mvc.ferriswheel.core.controller.ViewHandler;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.model.FormBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,17 +15,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping(value = "/demo/easyui/index.do")
 public class EasyuiDemoController {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "demo";
+	@Autowired
+	private ViewHandler viewHandler;
+
+	private String getPrefix() {
+		return viewHandler.getViewStyle() + viewHandler.getViewLayout() + "demo";
+	}
 
 	@RequestMapping()
 	public String index() {
-		return PREFIX + Constant.VIEW_PAGE_SPLIT + "index";
+		return getPrefix() + viewHandler.getViewDelimiter() + "index";
 
 	}
 
 	@RequestMapping(params = {"method=showForm"})
 	public String showForm(FormBean bean) {
-		return PREFIX + Constant.VIEW_PAGE_SPLIT + "form";
+		return getPrefix() + viewHandler.getViewDelimiter() + "form";
 
 	}
 

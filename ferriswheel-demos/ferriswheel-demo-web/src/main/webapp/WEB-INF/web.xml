@@ -101,7 +101,7 @@
 
     <servlet>
         <servlet-name>CaptchaServlet</servlet-name>
-        <servlet-class>com.micmiu.mvc.ferriswheel.examples.web1.simple.CaptchaServlet</servlet-class>
+        <servlet-class>com.micmiu.mvc.ferriswheel.examples.core.CaptchaServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CaptchaServlet</servlet-name>

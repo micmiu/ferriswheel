@@ -2,7 +2,6 @@ package com.micmiu.mvc.ferriswheel.examples.web1.demos.easyui.controller;
 
 
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
-import com.micmiu.mvc.ferriswheel.examples.web1.Constant;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.model.BlogDatagridQuery;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.service.BlogService;
@@ -24,24 +23,12 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "/demo/easyui/crud.do")
 public class BlogCrudController extends SimpleManageController<Blog, Long, BlogDatagridQuery> {
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.LAYOUT_SPLIT + "crud";
-
 	@Autowired
 	private BlogService blogService;
 
 	@Override
 	public BaseService<Blog, Long> getBaseService() {
 		return blogService;
-	}
-
-	@Override
-	public String getViewPrefix() {
-		return PREFIX;
-	}
-
-	@Override
-	protected String getViewDelimiter() {
-		return Constant.VIEW_PAGE_SPLIT;
 	}
 
 	@Override

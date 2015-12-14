@@ -6,45 +6,45 @@
 
     <!-- blog page config -->
 
-    <definition name="easyui.demo.index" extends="easyui.default">
+    <definition name="easyui.demo.index" extends="easyui.default.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/demo_index.jsp"/>
     </definition>
-    <definition name="easyui.demo.form" extends="easyui.page">
+    <definition name="easyui.demo.form" extends="easyui.page.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/demo_form.jsp"/>
     </definition>
 
-    <definition name="easyui.demo.upload.form" extends="easyui.page">
+    <definition name="easyui.demo.upload.form" extends="easyui.page.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/file_upload.jsp"/>
     </definition>
 
-    <definition name="easyui.demo.upload.uploadify" extends="easyui.page">
+    <definition name="easyui.demo.upload.uploadify" extends="easyui.page.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/file_uploadify.jsp"/>
     </definition>
 
-    <definition name="easyui.demo.datagrid.list.base" extends="easyui.page">
+    <definition name="easyui.demo.datagrid.list.base" extends="easyui.page.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/datagrid_list_base.jsp"/>
     </definition>
-    <definition name="easyui.demo.datagrid.list.tb" extends="easyui.page">
+    <definition name="easyui.demo.datagrid.list.tb" extends="easyui.page.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/datagrid_list_tb.jsp"/>
     </definition>
-    <definition name="easyui.demo.datagrid.list.export" extends="easyui.page">
+    <definition name="easyui.demo.datagrid.list.export" extends="easyui.page.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/datagrid_list_export.jsp"/>
     </definition>
 
-    <definition name="easyui.demo.crud.list" extends="easyui.default">
+    <definition name="easyui.demo.easyui.crud.list" extends="easyui.default.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/crud_list.jsp"/>
     </definition>
-    <definition name="easyui.demo.crud.form" extends="easyui.win">
+    <definition name="easyui.demo.easyui.crud.form" extends="easyui.win.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/crud_form.jsp"/>
     </definition>
-    <definition name="easyui.demo.crud.view" extends="easyui.win">
+    <definition name="easyui.demo.easyui.crud.view" extends="easyui.win.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/crud_view.jsp"/>
     </definition>
 
-    <definition name="easyui.demo.i18n.index" extends="easyui.page">
+    <definition name="easyui.demo.i18n.index" extends="easyui.page.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/i18n_index.jsp"/>
     </definition>
-    <definition name="easyui.demo.i18n.show" extends="easyui.page">
+    <definition name="easyui.demo.i18n.show" extends="easyui.page.tpl">
         <put-attribute name="workspace" value="/WEB-INF/views/easyui/demo/i18n_show.jsp"/>
     </definition>
 </tiles-definitions> 

@@ -1,6 +1,6 @@
 package com.micmiu.mvc.ferriswheel.examples.web1.simple.util;
 
-import com.micmiu.mvc.ferriswheel.examples.web1.simple.entity.Menu;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.Menu;
 import com.micmiu.mvc.ferriswheel.examples.web1.simple.model.TreeNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

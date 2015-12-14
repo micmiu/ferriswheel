@@ -2,14 +2,14 @@ package com.micmiu.mvc.ferriswheel.examples.web1.simple.model;
 
 
 import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
-import com.micmiu.mvc.ferriswheel.support.datatables.model.TableQuery;
+import com.micmiu.mvc.ferriswheel.support.datatables.model.DataTablesQuery;
 
 /**
  * 用户查询条件.
  * 
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
-public class UserTableQuery extends TableQuery {
+public class UserDataTablesQuery extends DataTablesQuery {
 
 	private String loginName;
 

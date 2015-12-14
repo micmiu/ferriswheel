@@ -1,8 +1,9 @@
 package com.micmiu.mvc.ferriswheel.examples.web1.demos.i18n.controller;
 
-import com.micmiu.mvc.ferriswheel.examples.web1.Constant;
+import com.micmiu.mvc.ferriswheel.core.controller.ViewHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,11 +21,12 @@ public class I18nController {
 
 	private static final Logger logger = LoggerFactory.getLogger(I18nController.class);
 
-	private static final String PREFIX = Constant.VIEW_PREFIX + "demo" + Constant.VIEW_PAGE_SPLIT + "i18n";
+	@Autowired
+	private ViewHandler viewHandler;
 
 	@RequestMapping(value = "index.do")
 	public String index() {
-		return PREFIX + ".index";
+		return getPrefix() + viewHandler.getViewDelimiter() + "index";
 
 	}
 
@@ -37,8 +39,11 @@ public class I18nController {
 
 	@RequestMapping(value = "show.do")
 	public String show() {
-		return PREFIX + ".show";
+		return getPrefix() + viewHandler.getViewDelimiter() + "show";
 
 	}
 
+	private String getPrefix() {
+		return viewHandler.getViewStyle() + viewHandler.getViewLayout() + "demo" + viewHandler.getViewLayout() + "i18n";
+	}
 }

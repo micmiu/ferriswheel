@@ -2,7 +2,7 @@ package com.micmiu.mvc.ferriswheel.examples.web2.demos.datatables.controller;
 
 
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
-import com.micmiu.mvc.ferriswheel.examples.web2.demos.datatables.model.BlogTableQuery;
+import com.micmiu.mvc.ferriswheel.examples.web2.demos.datatables.model.BlogDataTablesQuery;
 import com.micmiu.mvc.ferriswheel.examples.web2.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.web2.demos.service.BlogService;
 import com.micmiu.mvc.ferriswheel.support.datatables.controller.SimpleManageController;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping(value = "/demo/datatables/blog.do")
-public class BlogDatatablesController extends SimpleManageController<Blog, Long, BlogTableQuery> {
+public class BlogDatatablesController extends SimpleManageController<Blog, Long, BlogDataTablesQuery> {
 
 	@Autowired
 	private BlogService blogService;
