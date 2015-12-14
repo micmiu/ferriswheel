@@ -6,6 +6,10 @@
       * 
 #### Improvement :
       * 自动根据requestmapping配置匹配view
+      * 重构了demo的包结构，web演示重构为多模块
+      * 完善jqgrid 演示功能
+#### Bug :
+	  * maven deploy 排除web演示项目
 
 ---
 ## v1.1
