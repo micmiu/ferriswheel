@@ -14,19 +14,19 @@
 * ferriswheel-core	  	：核心模块
 * ferriswheel-utils   	：工具类模块
 * ferriswheel-support	：扩展模块组
-	* ferriswheel-support-jackson
-	* ferriswheel-support-jackson2
-	* ferriswheel-support-shiro
-	* ferriswheel-support-spring
-	* ferriswheel-support-hibernate
-	* ferriswheel-support-springmvc
-	* ferriswheel-support-easyui
-	* ferriswheel-support-datatables
-	* ferriswheel-support-jqgrid 
+	* ferriswheel-support-jackson	: 扩展支持jackson序列号json
+	* ferriswheel-support-jackson2	: 扩展支持jackson2序列号json
+	* ferriswheel-support-shiro		: 扩展支持shiro权限认证
+	* ferriswheel-support-spring	: 扩展支持spring
+	* ferriswheel-support-hibernate	: 扩展支持hibernate组件
+	* ferriswheel-support-springmvc	: 扩展实现CRUD基础controller
+	* ferriswheel-support-easyui	: 扩展支持easyui组件
+	* ferriswheel-support-datatables: 扩展支持datatables组件
+	* ferriswheel-support-jqgrid 	: 扩展支持jqgrid组件
 * ferriswheel-demos		：演示模块组
-	* ferriswheel-demo-core-sh	：演示核心
-	* ferriswheel-demo-web		：web演示
-	* ferriswheel-demo-web2		：web2演示
+	* ferriswheel-demo-core-sh	：演示核心业务 spring + hibernate + shiro
+	* ferriswheel-demo-web		：web 演示 tiles + jQuery + easyui
+	* ferriswheel-demo-web2		：web2演示 sitemesh + jQuery + bootstrap3 +jqgrid
 
 ##Technical Summary :
 
