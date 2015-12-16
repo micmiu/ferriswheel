@@ -1,0 +1,12 @@
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (1,'mvc-ssm','Michael','j2ee','http://micmiu.com/j2ee/mvc','2014-06-11');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (2,'sso','Michael','SSO','http://www.micmiu.com/category/enterprise-app/sso/','2014-08-01');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (3,'webservice','Michael','SOA','http://www.micmiu.com/category/soa/webservice/','2014-08-02');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (4,'hadoop','Michael','bigdata','http://www.micmiu.com/category/bigdata/hadoop/','2014-08-03');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (5,'hive','Michael','bigdata','http://www.micmiu.com/category/bigdata/hive/','2014-08-04');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (6,'hbase','Michael','bigdata','http://www.micmiu.com/category/bigdata/hbase/','2014-08-05');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (7,'spark','Michael','bigdata','http://www.micmiu.com/category/bigdata/spark/','2014-08-06');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (8,'sqoop','Michael','bigdata','http://www.micmiu.com/category/bigdata/sqoop/','2014-08-07');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (9,'hibernate','Michael','j2ee','http://www.micmiu.com/category/j2ee/hibernate/','2014-08-08');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (10,'spring','Michael','j2ee','http://www.micmiu.com/category/j2ee/spring/','2014-08-09');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (11,'jta','Michael','j2ee','http://www.micmiu.com/category/j2ee/jta/','2014-08-10');
+insert into T_BLOG (ID, TITLE, AUTHOR, CATEGORY, URL, PUBLISH_DATE) values (12,'java','Michael','language','http://www.micmiu.com/category/lang/java/','2014-08-11');

@@ -25,6 +25,7 @@
         <module>ferriswheel-support-easyui</module>
         <module>ferriswheel-support-datatables</module>
         <module>ferriswheel-support-jqgrid</module>
+        <module>ferriswheel-support-mybatis</module>
     </modules>
     <dependencies>
         <!-- spring -->
