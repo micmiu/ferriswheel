@@ -29,7 +29,7 @@
 
 	<!-- datasource druid -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-		destroy-method="close">
+		destroy-method="close">git
 		<property name="driverClassName" value="${jdbc.driver}" />
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />

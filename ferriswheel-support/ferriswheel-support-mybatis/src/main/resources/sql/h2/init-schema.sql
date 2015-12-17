@@ -8,3 +8,4 @@ create table T_BLOG (
   URL varchar(256),
   PUBLISH_DATE date
 );
+
