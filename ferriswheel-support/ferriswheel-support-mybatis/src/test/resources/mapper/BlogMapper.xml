@@ -4,15 +4,15 @@
 
 <!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
 <mapper namespace="com.micmiu.mvc.ferriswheel.support.mybatis.mapper.BlogMapper">
-    <resultMap  id="resultMap" type="Blog">
-        <id property="id" column="ID" jdbcType="Long"/>
+    <resultMap id="resultMap" type="Blog">
+        <id property="id" column="ID" javaType="long" jdbcType="BIGINT"/>
         <result property="title" column="TITLE"/>
         <result property="author" column="AUTHOR"/>
         <result property="category" column="CATEGORY"/>
         <result property="url" column="URL"/>
         <result property="publishDate" column="PUBLISH_DATE"/>
     </resultMap>
-    <insert id="create" parameterType="Blog" useGeneratedKeys="true" keyProperty="id" >
+    <insert id="create" parameterType="Blog" useGeneratedKeys="true" keyProperty="id">
        insert into t_blog (title, author, category, url, publish_date)
        values ( #{title}, #{author}, #{category}, #{url}, #{publishDate})
      </insert>
@@ -26,11 +26,11 @@
        where id = #{id}
      </update>
 
-    <delete id="delete" parameterType="long" >
+    <delete id="delete" parameterType="long">
       delete from  t_blog where id = #{id}
      </delete>
 
-    <select id="queryAll" resultMap="resultMap" >
+    <select id="queryAll" resultMap="resultMap">
       select * from t_blog
     </select>
 </mapper>

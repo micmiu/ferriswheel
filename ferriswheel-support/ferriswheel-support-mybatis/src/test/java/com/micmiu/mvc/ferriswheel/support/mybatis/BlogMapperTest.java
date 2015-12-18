@@ -80,6 +80,16 @@ public class BlogMapperTest extends AbstractTransactionalJUnit4SpringContextTest
 
 	}
 
+	@Test
+	public void testfindByURL() {
+
+		Blog entity = mockEntity();
+		Long id = service.create(entity);
+		Blog entity2 = service.findByURL(entity.getUrl());
+		Assert.assertEquals(id, entity2.getId());
+
+	}
+
 	public Blog mockEntity() {
 		long randomKey = atom.addAndGet(100);
 		Blog entity = new Blog();
