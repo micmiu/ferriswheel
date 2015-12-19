@@ -1,14 +1,15 @@
-package com.micmiu.mvc.ferriswheel.support.mybatis.mapper;
+package com.micmiu.mvc.ferriswheel.core.dao.mybatis;
 
 import java.io.Serializable;
 
 /**
- * Created
+ * Base mapper for mybatis
  * User: <a href="http://micmiu.com">micmiu</a>
- * Date: 12/15/2015
- * Time: 16:39
+ * Date: 5/26/2014
+ * Time: 17:58
  */
 public interface BaseMapper<E, ID extends Serializable> {
+
 	int deleteByPrimaryKey(ID id);
 
 	int insert(E record);
