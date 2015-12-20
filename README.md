@@ -23,6 +23,7 @@
 	* ferriswheel-support-easyui	: 扩展支持easyui组件
 	* ferriswheel-support-datatables: 扩展支持datatables组件
 	* ferriswheel-support-jqgrid 	: 扩展支持jqgrid组件
+	* ferriswheel-support-mybatis 	: 扩展支持mybatis组件
 * ferriswheel-demos		：演示模块组
 	* ferriswheel-demo-core-sh	：演示核心业务 spring + hibernate + shiro
 	* ferriswheel-demo-web		：web 演示 tiles + jQuery + easyui
