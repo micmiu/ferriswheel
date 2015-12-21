@@ -52,7 +52,7 @@ CREATE TABLE `t_sys_menu` (
 -- ----------------------------
 --  Table structure for `t_sys_permssion`
 -- ----------------------------
-DROP TABLE IF EXISTS `t_sys_permssion`;
+DROP TABLE IF EXISTS `t_sys_permission`;
 CREATE TABLE `t_sys_permssion` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `operation` varchar(50) DEFAULT NULL,

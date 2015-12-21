@@ -42,28 +42,28 @@ INSERT INTO t_sys_menu (ID, ALIAS_NAME, MENU_NAME, MENU_TYPE, MENU_URL, ORDER_NU
 INSERT INTO t_sys_menu (ID, ALIAS_NAME, MENU_NAME, MENU_TYPE, MENU_URL, ORDER_NUM, PARENT_ID) VALUES ('6', 'demo_common', 'menu.demo.common', '', 'demo/easyui/index.do', '2100', '5');
 INSERT INTO t_sys_menu (ID, ALIAS_NAME, MENU_NAME, MENU_TYPE, MENU_URL, ORDER_NUM, PARENT_ID) VALUES ('7', 'demo_crud', 'menu.demo.crud', '', 'demo/easyui/crud.do?method=showList', '2200', '5');
 
---t_sys_permssion
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('1', 'read', 'module.anno.index', 'anno', '1');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('101', 'read', 'module.system.user', 'user', '3');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('102', 'update', 'module.system.user', 'user', '3');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('103', 'create', 'module.system.user', 'user', '3');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('104', 'delete', 'module.system.user', 'user', '3');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('105', 'export', 'module.system.user', 'user', '3');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('106', 'print', 'module.system.user', 'user', '3');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('107', 'read', 'module.system.role', 'role', '4');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('108', 'update', 'module.system.role', 'role', '4');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('109', 'create', 'module.system.role', 'role', '4');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('110', 'delete', 'module.system.role', 'role', '4');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('111', 'export', 'module.system.role', 'role', '4');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('112', 'print', 'module.system.role', 'role', '4');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('121', 'read', 'module.demo.common', 'demo_common', '6');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('122', 'update', 'module.demo.common', 'demo_common', '6');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('123', 'create', 'module.demo.common', 'demo_common', '6');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('124', 'delete', 'module.demo.common', 'demo_common', '6');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('125', 'read', 'module.demo.crud', 'demo_common', '7');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('126', 'update', 'module.demo.crud', 'demo_common', '7');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('127', 'create', 'module.demo.crud', 'demo_common', '7');
-INSERT INTO t_sys_permssion (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('128', 'delete', 'module.demo.crud', 'demo_common', '7');
+--t_sys_permission
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('1', 'read', 'module.anno.index', 'anno', '1');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('101', 'read', 'module.system.user', 'user', '3');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('102', 'update', 'module.system.user', 'user', '3');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('103', 'create', 'module.system.user', 'user', '3');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('104', 'delete', 'module.system.user', 'user', '3');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('105', 'export', 'module.system.user', 'user', '3');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('106', 'print', 'module.system.user', 'user', '3');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('107', 'read', 'module.system.role', 'role', '4');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('108', 'update', 'module.system.role', 'role', '4');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('109', 'create', 'module.system.role', 'role', '4');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('110', 'delete', 'module.system.role', 'role', '4');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('111', 'export', 'module.system.role', 'role', '4');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('112', 'print', 'module.system.role', 'role', '4');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('121', 'read', 'module.demo.common', 'demo_common', '6');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('122', 'update', 'module.demo.common', 'demo_common', '6');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('123', 'create', 'module.demo.common', 'demo_common', '6');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('124', 'delete', 'module.demo.common', 'demo_common', '6');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('125', 'read', 'module.demo.crud', 'demo_common', '7');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('126', 'update', 'module.demo.crud', 'demo_common', '7');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('127', 'create', 'module.demo.crud', 'demo_common', '7');
+INSERT INTO t_sys_permission (ID, OPERATION, RES_CN_NAME, RES_NAME, MENU_ID) VALUES ('128', 'delete', 'module.demo.crud', 'demo_common', '7');
 
 -- t_sys_r2p
 INSERT INTO t_sys_r2p (ROLE_ID, PERM_ID) VALUES ('1', '1');
