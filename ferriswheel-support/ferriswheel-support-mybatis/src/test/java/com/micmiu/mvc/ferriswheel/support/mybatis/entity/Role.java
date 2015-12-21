@@ -1,30 +1,23 @@
 package com.micmiu.mvc.ferriswheel.support.mybatis.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Role {
+    private Long id;
 
-public class Role extends MybatisEntity<Long> {
+    private String roleName;
 
-	private String roleName;
+    public Long getId() {
+        return id;
+    }
 
-	private List<Permission> permissions = new ArrayList<Permission>();
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getRoleName() {
-		return roleName;
-	}
+    public String getRoleName() {
+        return roleName;
+    }
 
-	/**
-	 * 操作权限集合.
-	 */
-	public List<Permission> getPermissions() {
-		return permissions;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
-	public void setPermissions(List<Permission> permissions) {
-		this.permissions = permissions;
-	}
+    public void setRoleName(String roleName) {
+        this.roleName = roleName == null ? null : roleName.trim();
+    }
 }

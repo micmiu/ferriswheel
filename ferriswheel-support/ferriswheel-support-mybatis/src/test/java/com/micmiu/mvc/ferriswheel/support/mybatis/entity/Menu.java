@@ -1,100 +1,73 @@
 package com.micmiu.mvc.ferriswheel.support.mybatis.entity;
 
+public class Menu {
+    private Long id;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
+    private Long parentId;
 
-import java.util.HashSet;
-import java.util.Set;
+    private String menuName;
 
-/**
- * @author <a href="http://www.micmiu.com">Michael Sun</a>
- */
+    private String aliasName;
 
-public class Menu extends MybatisEntity<Long> {
+    private String menuUrl;
 
-	private String menuName;
+    private String menuType;
 
-	private String aliasName;
+    private Integer orderNum;
 
-	private String menuURL;
+    public Long getId() {
+        return id;
+    }
 
-	private String menuType;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	private Integer orderNum;
+    public Long getParentId() {
+        return parentId;
+    }
 
-	private Set<Menu> children = new HashSet<Menu>();
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
 
-	private Set<Permission> permssionList = new HashSet<Permission>();
+    public String getMenuName() {
+        return menuName;
+    }
 
-	private Menu parent;
+    public void setMenuName(String menuName) {
+        this.menuName = menuName == null ? null : menuName.trim();
+    }
 
-	public Menu getParent() {
-		return parent;
-	}
+    public String getAliasName() {
+        return aliasName;
+    }
 
+    public void setAliasName(String aliasName) {
+        this.aliasName = aliasName == null ? null : aliasName.trim();
+    }
 
-	public Set<Menu> getChildren() {
-		return children;
-	}
+    public String getMenuUrl() {
+        return menuUrl;
+    }
 
-	public Set<Permission> getPermssionList() {
-		return permssionList;
-	}
+    public void setMenuUrl(String menuUrl) {
+        this.menuUrl = menuUrl == null ? null : menuUrl.trim();
+    }
 
-	public void setPermssionList(Set<Permission> permssionList) {
-		this.permssionList = permssionList;
-	}
+    public String getMenuType() {
+        return menuType;
+    }
 
-	public String getMenuName() {
-		return menuName;
-	}
+    public void setMenuType(String menuType) {
+        this.menuType = menuType == null ? null : menuType.trim();
+    }
 
-	public String getAliasName() {
-		return aliasName;
-	}
+    public Integer getOrderNum() {
+        return orderNum;
+    }
 
-	public String getMenuURL() {
-		return menuURL;
-	}
-
-	public String getMenuType() {
-		return menuType;
-	}
-
-	public Integer getOrderNum() {
-		return orderNum;
-	}
-
-	public void setOrderNum(Integer orderNum) {
-		this.orderNum = orderNum;
-	}
-
-	public void setMenuName(String menuName) {
-		this.menuName = menuName;
-	}
-
-	public void setAliasName(String aliasName) {
-		this.aliasName = aliasName;
-	}
-
-	public void setMenuURL(String menuURL) {
-		this.menuURL = menuURL;
-	}
-
-	public void setMenuType(String menuType) {
-		this.menuType = menuType;
-	}
-
-	public void setChildren(Set<Menu> children) {
-		this.children = children;
-	}
-
-	public void setParent(Menu parent) {
-		this.parent = parent;
-	}
-
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
+    public void setOrderNum(Integer orderNum) {
+        this.orderNum = orderNum;
+    }
 }

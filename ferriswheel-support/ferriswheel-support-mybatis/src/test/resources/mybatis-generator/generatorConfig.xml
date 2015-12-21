@@ -22,8 +22,8 @@
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.micmiu.mvc.ferriswheel.support.mybatis.xml"
-                         targetProject="/Users/micmiu/workspace/myprojects/micmiu-github/ferriswheel/ferriswheel-support/ferriswheel-support-mybatis/src/test/java">
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="/Users/micmiu/workspace/myprojects/micmiu-github/ferriswheel/ferriswheel-support/ferriswheel-support-mybatis/src/test/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
@@ -33,6 +33,21 @@
         </javaClientGenerator>
 
         <table tableName="T_USER" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="T_ROLE" domainObjectName="Role"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="T_MENU" domainObjectName="Menu"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table tableName="T_PERMISSION" domainObjectName="Permission"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

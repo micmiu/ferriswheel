@@ -1,55 +1,63 @@
 package com.micmiu.mvc.ferriswheel.support.mybatis.entity;
 
+public class Permission {
+    private Long id;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
+    private Long roleId;
 
-/**
- * @author <a href="http://www.micmiu.com">Michael Sun</a>
- */
-public class Permission extends MybatisEntity<Long>  {
+    private Long menuId;
 
-	private String resName;
+    private String resName;
 
-	private String resCnName;
+    private String resCnName;
 
-	private String operation;
+    private String operation;
 
-	private Menu menu;
+    public Long getId() {
+        return id;
+    }
 
-	public String getResName() {
-		return resName;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getOperation() {
-		return operation;
-	}
+    public Long getRoleId() {
+        return roleId;
+    }
 
-	public String getResCnName() {
-		return resCnName;
-	}
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
 
-	public Menu getMenu() {
-		return menu;
-	}
+    public Long getMenuId() {
+        return menuId;
+    }
 
-	public void setResCnName(String resCnName) {
-		this.resCnName = resCnName;
-	}
+    public void setMenuId(Long menuId) {
+        this.menuId = menuId;
+    }
 
-	public void setMenu(Menu menu) {
-		this.menu = menu;
-	}
+    public String getResName() {
+        return resName;
+    }
 
-	public void setResName(String resName) {
-		this.resName = resName;
-	}
+    public void setResName(String resName) {
+        this.resName = resName == null ? null : resName.trim();
+    }
 
-	public void setOperation(String operation) {
-		this.operation = operation;
-	}
+    public String getResCnName() {
+        return resCnName;
+    }
 
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
+    public void setResCnName(String resCnName) {
+        this.resCnName = resCnName == null ? null : resCnName.trim();
+    }
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation == null ? null : operation.trim();
+    }
 }

@@ -17,7 +17,7 @@ import javax.persistence.Transient;
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
 @Entity
-@Table(name = "T_SYS_PERMSSION")
+@Table(name = "T_SYS_PERMISSION")
 public class Permission extends BaseJpaEntity<Long> implements ShiroPermissible {
 
 	private String resName;
