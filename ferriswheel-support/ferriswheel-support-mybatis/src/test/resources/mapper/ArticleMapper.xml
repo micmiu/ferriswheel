@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.micmiu.mvc.ferriswheel.support.mybatis.mapper.ArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.micmiu.mvc.ferriswheel.support.mybatis.entity.Article" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="CATEGORY" property="category" jdbcType="VARCHAR" />
+    <result column="URL" property="url" jdbcType="VARCHAR" />
+    <result column="PUBLISH_DATE" property="publishDate" jdbcType="DATE" />
+    <result column="AUTHOR_ID" property="authorId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TITLE, CATEGORY, URL, PUBLISH_DATE, AUTHOR_ID
+  </sql>
+  <select id="selectListByAuthorId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from T_ARTICLE
+    where AUTHOR_ID = #{authorId,jdbcType=BIGINT}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_ARTICLE
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from T_ARTICLE
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.micmiu.mvc.ferriswheel.support.mybatis.entity.Article" >
+    insert into T_ARTICLE (ID, TITLE, CATEGORY, 
+      URL, PUBLISH_DATE, AUTHOR_ID
+      )
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{publishDate,jdbcType=DATE}, #{authorId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.micmiu.mvc.ferriswheel.support.mybatis.entity.Article" >
+    insert into T_ARTICLE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="category != null" >
+        CATEGORY,
+      </if>
+      <if test="url != null" >
+        URL,
+      </if>
+      <if test="publishDate != null" >
+        PUBLISH_DATE,
+      </if>
+      <if test="authorId != null" >
+        AUTHOR_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDate != null" >
+        #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="authorId != null" >
+        #{authorId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.micmiu.mvc.ferriswheel.support.mybatis.entity.Article" >
+    update T_ARTICLE
+    <set >
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        CATEGORY = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDate != null" >
+        PUBLISH_DATE = #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="authorId != null" >
+        AUTHOR_ID = #{authorId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.micmiu.mvc.ferriswheel.support.mybatis.entity.Article" >
+    update T_ARTICLE
+    set TITLE = #{title,jdbcType=VARCHAR},
+      CATEGORY = #{category,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
+      PUBLISH_DATE = #{publishDate,jdbcType=DATE},
+      AUTHOR_ID = #{authorId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
