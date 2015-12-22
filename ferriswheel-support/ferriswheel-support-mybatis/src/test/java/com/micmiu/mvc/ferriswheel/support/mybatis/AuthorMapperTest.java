@@ -2,10 +2,7 @@ package com.micmiu.mvc.ferriswheel.support.mybatis;
 
 import com.micmiu.mvc.ferriswheel.support.mybatis.entity.Article;
 import com.micmiu.mvc.ferriswheel.support.mybatis.entity.Author;
-import com.micmiu.mvc.ferriswheel.support.mybatis.entity.Blog;
 import com.micmiu.mvc.ferriswheel.support.mybatis.mapper.AuthorMapper;
-import com.micmiu.mvc.ferriswheel.support.mybatis.service.BlogService;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,9 +13,6 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Date;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created

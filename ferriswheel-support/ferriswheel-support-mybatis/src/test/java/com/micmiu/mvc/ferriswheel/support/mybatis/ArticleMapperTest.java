@@ -2,7 +2,6 @@ package com.micmiu.mvc.ferriswheel.support.mybatis;
 
 import com.micmiu.mvc.ferriswheel.support.mybatis.entity.Article;
 import com.micmiu.mvc.ferriswheel.support.mybatis.mapper.ArticleMapper;
-import com.micmiu.mvc.ferriswheel.support.mybatis.mapper.AuthorMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
