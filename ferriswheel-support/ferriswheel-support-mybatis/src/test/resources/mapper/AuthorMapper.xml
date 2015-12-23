@@ -18,12 +18,13 @@
 
     <resultMap id="authorArticleResultMap2" type="com.micmiu.mvc.ferriswheel.support.mybatis.entity.Author"
                extends="BaseResultMap">
-        <collection property="articleList" column="id" ofType="Article">
-            <id column="ID" property="id" jdbcType="BIGINT" />
-            <result column="TITLE" property="title" jdbcType="VARCHAR" />
-            <result column="CATEGORY" property="category" jdbcType="VARCHAR" />
-            <result column="URL" property="url" jdbcType="VARCHAR" />
-            <result column="PUBLISH_DATE" property="publishDate" jdbcType="DATE" />
+        <collection property="articleList" column="ID" ofType="Article">
+            <id column="ARTICLE_ID" property="id" jdbcType="BIGINT"/>
+            <result column="TITLE" property="title" jdbcType="VARCHAR"/>
+            <result column="CATEGORY" property="category" jdbcType="VARCHAR"/>
+            <result column="URL" property="url" jdbcType="VARCHAR"/>
+            <result column="PUBLISH_DATE" property="publishDate" jdbcType="DATE"/>
+            <result column="AUTHOR_ID" property="authorId" jdbcType="BIGINT" />
         </collection>
     </resultMap>
 
@@ -36,6 +37,14 @@
         <include refid="Base_Column_List"/>
         from T_AUTHOR
         where ID = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectAuthorAriticleById2" resultMap="authorArticleResultMap2" parameterType="java.lang.Long">
+        select t.*,
+        t2.ID AS ARTICLE_ID, t2.TITLE, t2.CATEGORY, t2.URL, t2.PUBLISH_DATE, t2.AUTHOR_ID
+        from T_AUTHOR t
+        LEFT OUTER JOIN T_ARTICLE t2 ON t2.AUTHOR_ID = t.ID
+        where t.ID = #{id,jdbcType=BIGINT}
     </select>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">

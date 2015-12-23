@@ -36,7 +36,20 @@ public class AuthorMapperTest extends AbstractTransactionalJUnit4SpringContextTe
 		Author author = authorMapper.selectAuthorAriticleById(id);
 		Assert.assertNotNull(author);
 		for (Article article : author.getArticleList()) {
-			System.out.println(article);
+			//System.out.println(article);
+			Assert.assertEquals(id, article.getAuthorId());
+		}
+
+	}
+
+	@Test
+	public void testQueryOne2Many2() {
+		Long id = 1L;
+		Author author = authorMapper.selectAuthorAriticleById2(id);
+		//System.out.println(author);
+		Assert.assertNotNull(author);
+		for (Article article : author.getArticleList()) {
+			//System.out.println(article);
 			Assert.assertEquals(id, article.getAuthorId());
 		}
 

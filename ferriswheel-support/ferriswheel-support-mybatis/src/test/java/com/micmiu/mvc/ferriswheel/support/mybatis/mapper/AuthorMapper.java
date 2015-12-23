@@ -16,4 +16,6 @@ public interface AuthorMapper {
     int updateByPrimaryKey(Author record);
 
     Author selectAuthorAriticleById(Long id);
+
+    Author selectAuthorAriticleById2(Long id);
 }
