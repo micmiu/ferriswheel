@@ -32,6 +32,12 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
+        <table tableName="T_BLOG" domainObjectName="Blog"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
         <!--
         <table tableName="T_USER" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false"

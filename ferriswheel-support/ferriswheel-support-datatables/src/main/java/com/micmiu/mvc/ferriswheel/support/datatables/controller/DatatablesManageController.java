@@ -70,10 +70,9 @@ public abstract class DatatablesManageController<E extends FerriswheelID, V, ID 
 
 	@Override
 	protected Page<E> doPagedQuery(AbstractQuery q, BaseService<E, ID> s, int pg, int rows) {
-		Page<E> page = super.doPagedQuery(q, s, pg, rows);
-		DataTablesQuery query = (DataTablesQuery) q;
-		page.setsEcho(query.getsEcho());
-		return page;
+		DataTablesPage dataTablesPage = new DataTablesPage(super.doPagedQuery(q, s, pg, rows));
+		dataTablesPage.setsEcho(((DataTablesQuery) q).getsEcho());
+		return dataTablesPage;
 	}
 
 	@Override

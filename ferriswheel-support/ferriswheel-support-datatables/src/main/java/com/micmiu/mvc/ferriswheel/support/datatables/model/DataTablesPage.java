@@ -35,7 +35,6 @@ public class DataTablesPage<T> extends Page<T> {
 	 */
 	public DataTablesPage(Page<T> page) {
 		try {
-			this.sEcho = page.getsEcho();
 			this.aaData = page.getPageList();
 			this.iTotalDisplayRecords = (int) page.getTotalCount();
 			this.iTotalRecords = (int) page.getTotalCount();

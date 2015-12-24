@@ -18,8 +18,6 @@ public class Page<T> {
 
 	private List<T> pageList;
 
-	private int sEcho = 1;
-
 	/**
 	 * 获取当页记录列表.
 	 *
@@ -94,14 +92,6 @@ public class Page<T> {
 		} else {
 			return getTotalCount() / getRowsPerPage() + 1;
 		}
-	}
-
-	public int getsEcho() {
-		return sEcho;
-	}
-
-	public void setsEcho(int sEcho) {
-		this.sEcho = sEcho;
 	}
 
 	/**

@@ -123,7 +123,7 @@
                 <configuration>
                     <configurationFile>src/test/resources/mybatis-generator/generatorConfig.xml</configurationFile>
                     <verbose>true</verbose>
-                    <overwrite>true</overwrite>
+                    <overwrite>false</overwrite>
                 </configuration>
                 <executions>
                     <execution>
