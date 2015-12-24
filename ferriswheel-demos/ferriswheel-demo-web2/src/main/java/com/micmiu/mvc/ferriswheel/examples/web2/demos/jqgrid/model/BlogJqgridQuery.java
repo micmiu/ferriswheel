@@ -1,6 +1,6 @@
 package com.micmiu.mvc.ferriswheel.examples.web2.demos.jqgrid.model;
 
-import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
+import com.micmiu.mvc.ferriswheel.core.annotation.QueryProperty;
 import com.micmiu.mvc.ferriswheel.support.jqgrid.model.JqgridQuery;
 
 /**
@@ -21,7 +21,7 @@ public class BlogJqgridQuery extends JqgridQuery {
 
 	private String url;
 
-	@QueryPropery
+	@QueryProperty
 	public String getTitle() {
 		return title;
 	}
@@ -30,7 +30,7 @@ public class BlogJqgridQuery extends JqgridQuery {
 		this.title = title;
 	}
 
-	@QueryPropery
+	@QueryProperty
 	public String getAuthor() {
 		return author;
 	}
@@ -39,7 +39,7 @@ public class BlogJqgridQuery extends JqgridQuery {
 		this.author = author;
 	}
 
-	@QueryPropery
+	@QueryProperty
 	public String getCategory() {
 		return category;
 	}
@@ -48,7 +48,7 @@ public class BlogJqgridQuery extends JqgridQuery {
 		this.category = category;
 	}
 
-	@QueryPropery
+	@QueryProperty
 	public Long getId() {
 		return id;
 	}
@@ -57,7 +57,7 @@ public class BlogJqgridQuery extends JqgridQuery {
 		this.id = id;
 	}
 
-	@QueryPropery
+	@QueryProperty
 	public String getUrl() {
 		return url;
 	}

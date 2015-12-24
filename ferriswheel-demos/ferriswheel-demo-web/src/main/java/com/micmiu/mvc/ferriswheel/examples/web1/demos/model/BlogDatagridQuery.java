@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferriswheel.examples.web1.demos.model;
 
 
-import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
+import com.micmiu.mvc.ferriswheel.core.annotation.QueryProperty;
 import com.micmiu.mvc.ferriswheel.support.easyui.vo.DatagridQuery;
 
 /**
@@ -11,7 +11,7 @@ public class BlogDatagridQuery extends DatagridQuery {
 
 	private String title;
 
-	@QueryPropery
+	@QueryProperty
 	public String getTitle() {
 		return title;
 	}

@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferriswheel.examples.web2.simple.model;
 
 
-import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
+import com.micmiu.mvc.ferriswheel.core.annotation.QueryProperty;
 import com.micmiu.mvc.ferriswheel.support.jqgrid.model.JqgridQuery;
 
 /**
@@ -11,7 +11,7 @@ public class RoleJqgridQuery extends JqgridQuery {
 
 	private String roleName;
 
-	@QueryPropery
+	@QueryProperty
 	public String getRoleName() {
 		return roleName;
 	}

@@ -9,6 +9,6 @@ import java.lang.annotation.RetentionPolicy;
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
 @Retention(RetentionPolicy.RUNTIME)
-public @interface QueryPropery {
+public @interface QueryProperty {
 	String name() default "";
 }

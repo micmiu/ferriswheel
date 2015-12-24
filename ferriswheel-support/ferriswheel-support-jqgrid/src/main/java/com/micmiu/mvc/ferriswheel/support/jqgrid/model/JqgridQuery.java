@@ -1,6 +1,6 @@
 package com.micmiu.mvc.ferriswheel.support.jqgrid.model;
 
-import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
+import com.micmiu.mvc.ferriswheel.core.annotation.QueryProperty;
 import com.micmiu.mvc.ferriswheel.core.model.AbstractQuery;
 import com.micmiu.mvc.ferriswheel.core.model.SortType;
 import com.micmiu.mvc.ferriswheel.utils.RefAnnotationUtil;
@@ -156,7 +156,7 @@ public abstract class JqgridQuery extends AbstractQuery {
 	@Override
 	public Map<String, Object> getQueryProperties() {
 		Map<String, Object> propertyValues = new HashMap<String, Object>();
-		List<Field> properties = RefAnnotationUtil.getAllPublicFields(getClass(), QueryPropery.class);
+		List<Field> properties = RefAnnotationUtil.getAllPublicFields(getClass(), QueryProperty.class);
 		for (Field p : properties) {
 			if (p.getName().equals(searchField) && StringUtils.isNotEmpty(searchString)) {
 				propertyValues.put(getQueryPropertyName(p.getName()),searchString);

@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferriswheel.examples.web1.simple.model;
 
 
-import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
+import com.micmiu.mvc.ferriswheel.core.annotation.QueryProperty;
 import com.micmiu.mvc.ferriswheel.support.datatables.model.DataTablesQuery;
 
 /**
@@ -22,7 +22,7 @@ public class UserDataTablesQuery extends DataTablesQuery {
 	 * 
 	 * @return loginName
 	 */
-	@QueryPropery
+	@QueryProperty
 	public String getLoginName() {
 		return loginName;
 	}
@@ -41,7 +41,7 @@ public class UserDataTablesQuery extends DataTablesQuery {
 	 * 
 	 * @return 用户姓名
 	 */
-	@QueryPropery
+	@QueryProperty
 	public String getName() {
 		return name;
 	}
@@ -60,7 +60,7 @@ public class UserDataTablesQuery extends DataTablesQuery {
 	 * 
 	 * @return 查询部门ID
 	 */
-	@QueryPropery(name = "departmentId")
+	@QueryProperty(name = "departmentId")
 	public Long getDepartment() {
 		return department;
 	}

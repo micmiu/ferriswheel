@@ -22,28 +22,28 @@ public interface BaseService<E extends FerriswheelID, ID extends Serializable> {
 	 *
 	 * @param entity
 	 */
-	public ID create(E entity);
+	ID create(E entity);
 
 	/**
 	 * 更新实体对象.
 	 *
 	 * @param entity
 	 */
-	public void update(E entity);
+	void update(E entity);
 
 	/**
 	 * 按ID删除实体对象.
 	 *
 	 * @param id 实体id
 	 */
-	public void delete(ID id);
+	void delete(ID id);
 
 	/**
 	 * 按ID批量删除实体对象.
 	 *
 	 * @param ids 实体id数组
 	 */
-	public void delete(ID[] ids);
+	void delete(ID[] ids);
 
 	/**
 	 * 按ID返回实体对象.
@@ -51,7 +51,7 @@ public interface BaseService<E extends FerriswheelID, ID extends Serializable> {
 	 * @param id
 	 * @return T 按返回实体。
 	 */
-	public E find(ID id);
+	E find(ID id);
 
 	/**
 	 * 按属性查找实体对象.
@@ -60,14 +60,14 @@ public interface BaseService<E extends FerriswheelID, ID extends Serializable> {
 	 * @param value        字段值
 	 * @return E 实体对象
 	 */
-	public E find(String propertyName, Object value);
+	E find(String propertyName, Object value);
 
 	/**
 	 * 查询所有对象实体.
 	 *
 	 * @return List<E> 所有对象实体
 	 */
-	public List<E> queryAll();
+	List<E> queryAll();
 
 	/**
 	 * 按字段查找实体列表.
@@ -76,7 +76,7 @@ public interface BaseService<E extends FerriswheelID, ID extends Serializable> {
 	 * @param value        字段值
 	 * @return 实体列表
 	 */
-	public List<E> query(String propertyName, Object value);
+	List<E> query(String propertyName, Object value);
 
 	/**
 	 * 按字段查找实体列表.
@@ -84,7 +84,7 @@ public interface BaseService<E extends FerriswheelID, ID extends Serializable> {
 	 * @param properties 查询字段 <字段名,字段值>
 	 * @return 实体列表
 	 */
-	public List<E> query(Map<String, Object> properties);
+	List<E> query(Map<String, Object> properties);
 
 	/**
 	 * 按字段查找实体列表.
@@ -93,7 +93,7 @@ public interface BaseService<E extends FerriswheelID, ID extends Serializable> {
 	 * @param sortProperties 排序字段 <字段名,DESC/ASC>
 	 * @return 实体列表
 	 */
-	public List<E> query(Map<String, Object> properties, Map<String, SortType> sortProperties);
+	List<E> query(Map<String, Object> properties, Map<String, SortType> sortProperties);
 
 	/**
 	 * 按字段查找实体列表.
@@ -104,14 +104,14 @@ public interface BaseService<E extends FerriswheelID, ID extends Serializable> {
 	 * @param rows           查询记录数
 	 * @return 实体列表
 	 */
-	public List<E> query(Map<String, Object> properties, Map<String, SortType> sortProperties, int start, int rows);
+	List<E> query(Map<String, Object> properties, Map<String, SortType> sortProperties, int start, int rows);
 
 	/**
 	 * 获取所有记录数.
 	 *
 	 * @return 所有记录数.
 	 */
-	public Long countAll();
+	Long countAll();
 
 	/**
 	 * 按条件获取记录数.
@@ -119,6 +119,6 @@ public interface BaseService<E extends FerriswheelID, ID extends Serializable> {
 	 * @param properties 查询字段 <字段名,字段值>
 	 * @return 记录数.
 	 */
-	public Long count(Map<String, Object> properties);
+	Long count(Map<String, Object> properties);
 
 }

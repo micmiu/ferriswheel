@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferriswheel.core.model;
 
 
-import com.micmiu.mvc.ferriswheel.core.annotation.QueryPropery;
+import com.micmiu.mvc.ferriswheel.core.annotation.QueryProperty;
 import com.micmiu.mvc.ferriswheel.core.annotation.SortProperty;
 import com.micmiu.mvc.ferriswheel.utils.RefAnnotationUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -64,7 +64,7 @@ public abstract class AbstractQuery {
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> getQueryProperties() {
 		Map<String, Object> propertyValues = new HashMap<String, Object>();
-		List<Field> properties = RefAnnotationUtil.getAllPublicFields(getClass(), QueryPropery.class);
+		List<Field> properties = RefAnnotationUtil.getAllPublicFields(getClass(), QueryProperty.class);
 		for (Field p : properties) {
 			Object value = RefAnnotationUtil.getFieldValue(this, p.getName(), true);
 			if (null != value) {
@@ -83,8 +83,8 @@ public abstract class AbstractQuery {
 	 */
 	protected String getQueryPropertyName(String fieldName) {
 		String queryName = fieldName;
-		QueryPropery qp = (QueryPropery) RefAnnotationUtil.getFieldAnnotation(
-				getClass(), fieldName, QueryPropery.class);
+		QueryProperty qp = (QueryProperty) RefAnnotationUtil.getFieldAnnotation(
+				getClass(), fieldName, QueryProperty.class);
 		if (qp != null && StringUtils.isNotEmpty(qp.name())) {
 			queryName = qp.name();
 		}

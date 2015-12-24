@@ -10,7 +10,7 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- * Created
+ * 注解工具类
  * User: <a href="http://micmiu.com">micmiu</a>
  * Date: 11/11/2015
  * Time: 15:48
@@ -70,8 +70,7 @@ public class AnnotationUtils {
 	 * @param messageSource
 	 * @param locale
 	 */
-	public static Map<String, String> getBeanShwoParamMap(Object obj,
-														  MessageSource messageSource, Locale locale) {
+	public static Map<String, String> getBeanShwoParamMap(Object obj, MessageSource messageSource, Locale locale) {
 		return getBeanShwoParamMap(obj.getClass(), messageSource, locale);
 
 	}
