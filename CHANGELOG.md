@@ -1,13 +1,14 @@
 # ferriswheel
 
 ---
-## v1.3
+## v1.3.0
 #### New Feature :
-      * mybatis ?
+      * mybatis 基本演示
 #### Improvement :
-      *
+      * 模块功能角色划分重构
+      * 优化部分代码设计
 #### Bug :
-	  * 
+	  * 修改tomcat部署下登录后重定向index.do失败
 
 ---
 ## v1.2
