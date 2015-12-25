@@ -27,17 +27,17 @@
         </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-support-spring</artifactId>
+            <artifactId>ferriswheel-spring-exts</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-support-hibernate</artifactId>
+            <artifactId>ferriswheel-orm-hibernate</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-support-springmvc</artifactId>
+            <artifactId>ferriswheel-spring-mvc</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>

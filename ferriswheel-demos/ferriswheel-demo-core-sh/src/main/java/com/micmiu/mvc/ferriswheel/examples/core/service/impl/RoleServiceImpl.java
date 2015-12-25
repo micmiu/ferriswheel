@@ -5,7 +5,7 @@ import com.micmiu.mvc.ferriswheel.examples.core.entity.Permission;
 import com.micmiu.mvc.ferriswheel.examples.core.entity.Role;
 import com.micmiu.mvc.ferriswheel.examples.core.service.PermissionService;
 import com.micmiu.mvc.ferriswheel.examples.core.service.RoleService;
-import com.micmiu.mvc.ferriswheel.support.hibernate.HibernateBaseService;
+import com.micmiu.mvc.ferriswheel.orm.hibernate.HibernateBaseService;
 import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

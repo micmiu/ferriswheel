@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferriswheel.examples.web1.demos.entity;
 
 import com.micmiu.mvc.ferriswheel.core.annotation.ShowParam;
-import com.micmiu.mvc.ferriswheel.support.hibernate.BaseJpaEntity;
+import com.micmiu.mvc.ferriswheel.orm.hibernate.BaseJpaEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.format.annotation.DateTimeFormat;
 

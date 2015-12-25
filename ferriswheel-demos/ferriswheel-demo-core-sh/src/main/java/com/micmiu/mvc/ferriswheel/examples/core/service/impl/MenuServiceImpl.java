@@ -2,7 +2,7 @@ package com.micmiu.mvc.ferriswheel.examples.core.service.impl;
 
 import com.micmiu.mvc.ferriswheel.examples.core.entity.Menu;
 import com.micmiu.mvc.ferriswheel.examples.core.service.MenuService;
-import com.micmiu.mvc.ferriswheel.support.hibernate.HibernateBaseService;
+import com.micmiu.mvc.ferriswheel.orm.hibernate.HibernateBaseService;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;

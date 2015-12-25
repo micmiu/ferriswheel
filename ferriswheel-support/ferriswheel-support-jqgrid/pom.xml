@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-support-springmvc</artifactId>
+            <artifactId>ferriswheel-spring-mvc</artifactId>
             <version>${parent.version}</version>
         </dependency>
         <dependency>

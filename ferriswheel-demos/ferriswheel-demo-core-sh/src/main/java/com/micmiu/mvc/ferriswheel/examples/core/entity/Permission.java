@@ -2,7 +2,7 @@ package com.micmiu.mvc.ferriswheel.examples.core.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.micmiu.mvc.ferriswheel.support.hibernate.BaseJpaEntity;
+import com.micmiu.mvc.ferriswheel.orm.hibernate.BaseJpaEntity;
 import com.micmiu.mvc.ferriswheel.support.shiro.ShiroPermissible;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 

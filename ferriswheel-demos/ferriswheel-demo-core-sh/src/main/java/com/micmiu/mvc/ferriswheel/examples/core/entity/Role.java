@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferriswheel.examples.core.entity;
 
 import com.micmiu.mvc.ferriswheel.core.annotation.ShowParam;
-import com.micmiu.mvc.ferriswheel.support.hibernate.BaseJpaEntity;
+import com.micmiu.mvc.ferriswheel.orm.hibernate.BaseJpaEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;

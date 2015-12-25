@@ -36,10 +36,12 @@
 
     <modules>
         <module>ferriswheel-parent</module>
-        <module>ferriswheel-core</module>
-        <module>ferriswheel-support</module>
         <module>ferriswheel-common</module>
         <module>ferriswheel-utils</module>
+        <module>ferriswheel-core</module>
+        <module>ferriswheel-spring</module>
+        <module>ferriswheel-orm</module>
+        <module>ferriswheel-support</module>
         <module>ferriswheel-demos</module>
     </modules>
 

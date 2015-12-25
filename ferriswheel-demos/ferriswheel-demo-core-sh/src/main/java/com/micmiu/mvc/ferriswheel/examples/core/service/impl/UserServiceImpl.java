@@ -4,7 +4,7 @@ package com.micmiu.mvc.ferriswheel.examples.core.service.impl;
 import com.micmiu.mvc.ferriswheel.examples.core.entity.Role;
 import com.micmiu.mvc.ferriswheel.examples.core.entity.User;
 import com.micmiu.mvc.ferriswheel.examples.core.service.UserService;
-import com.micmiu.mvc.ferriswheel.support.hibernate.HibernateBaseService;
+import com.micmiu.mvc.ferriswheel.orm.hibernate.HibernateBaseService;
 import com.micmiu.mvc.ferriswheel.support.shiro.ShiroPermissible;
 import com.micmiu.mvc.ferriswheel.support.shiro.ShiroRealmService;
 import org.hibernate.Criteria;

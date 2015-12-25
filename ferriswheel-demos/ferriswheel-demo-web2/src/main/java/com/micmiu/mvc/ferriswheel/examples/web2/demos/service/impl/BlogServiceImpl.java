@@ -3,7 +3,7 @@ package com.micmiu.mvc.ferriswheel.examples.web2.demos.service.impl;
 
 import com.micmiu.mvc.ferriswheel.examples.web2.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.web2.demos.service.BlogService;
-import com.micmiu.mvc.ferriswheel.support.hibernate.HibernateBaseService;
+import com.micmiu.mvc.ferriswheel.orm.hibernate.HibernateBaseService;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;

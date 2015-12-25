@@ -2,7 +2,7 @@ package com.micmiu.mvc.ferriswheel.examples.core.service.impl;
 
 import com.micmiu.mvc.ferriswheel.examples.core.entity.Permission;
 import com.micmiu.mvc.ferriswheel.examples.core.service.PermissionService;
-import com.micmiu.mvc.ferriswheel.support.hibernate.HibernateBaseService;
+import com.micmiu.mvc.ferriswheel.orm.hibernate.HibernateBaseService;
 import org.hibernate.Criteria;
 import org.springframework.stereotype.Service;
 

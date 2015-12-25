@@ -3,7 +3,7 @@ package com.micmiu.mvc.ferriswheel.examples.core.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.micmiu.mvc.ferriswheel.core.annotation.ShowParam;
-import com.micmiu.mvc.ferriswheel.support.hibernate.BaseJpaEntity;
+import com.micmiu.mvc.ferriswheel.orm.hibernate.BaseJpaEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.annotations.Cache;

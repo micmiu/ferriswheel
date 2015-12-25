@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.micmiu.mvc.ferriswheel.orm.mybatis.mapper.AuthorMapper">
+    <resultMap id="BaseResultMap" type="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Author">
+        <id column="ID" property="id" jdbcType="BIGINT"/>
+        <result column="USER_ID" property="userId" jdbcType="VARCHAR"/>
+        <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
+        <result column="EMAIL" property="email" jdbcType="VARCHAR"/>
+        <result column="DESCRIBE_INFO" property="describeInfo" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="authorArticleResultMap" type="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Author"
+               extends="BaseResultMap">
+        <collection property="articleList" column="ID" ofType="Article"
+                    select="com.micmiu.mvc.ferriswheel.orm.mybatis.mapper.ArticleMapper.selectListByAuthorId">
+        </collection>
+    </resultMap>
+
+    <resultMap id="authorArticleResultMap2" type="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Author"
+               extends="BaseResultMap">
+        <collection property="articleList" column="ID" ofType="Article">
+            <id column="ARTICLE_ID" property="id" jdbcType="BIGINT"/>
+            <result column="TITLE" property="title" jdbcType="VARCHAR"/>
+            <result column="CATEGORY" property="category" jdbcType="VARCHAR"/>
+            <result column="URL" property="url" jdbcType="VARCHAR"/>
+            <result column="PUBLISH_DATE" property="publishDate" jdbcType="DATE"/>
+            <result column="AUTHOR_ID" property="authorId" jdbcType="BIGINT" />
+        </collection>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    ID, USER_ID, USER_NAME, EMAIL, DESCRIBE_INFO
+  </sql>
+
+    <select id="selectAuthorAriticleById" resultMap="authorArticleResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from T_AUTHOR
+        where ID = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectAuthorAriticleById2" resultMap="authorArticleResultMap2" parameterType="java.lang.Long">
+        select t.*,
+        t2.ID AS ARTICLE_ID, t2.TITLE, t2.CATEGORY, t2.URL, t2.PUBLISH_DATE, t2.AUTHOR_ID
+        from T_AUTHOR t
+        LEFT OUTER JOIN T_ARTICLE t2 ON t2.AUTHOR_ID = t.ID
+        where t.ID = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from T_AUTHOR
+        where ID = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_AUTHOR
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Author">
+    insert into T_AUTHOR (ID, USER_ID, USER_NAME, 
+      EMAIL, DESCRIBE_INFO)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{describeInfo,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Author">
+        insert into T_AUTHOR
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="userName != null">
+                USER_NAME,
+            </if>
+            <if test="email != null">
+                EMAIL,
+            </if>
+            <if test="describeInfo != null">
+                DESCRIBE_INFO,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="describeInfo != null">
+                #{describeInfo,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Author">
+        update T_AUTHOR
+        <set>
+            <if test="userId != null">
+                USER_ID = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                USER_NAME = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                EMAIL = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="describeInfo != null">
+                DESCRIBE_INFO = #{describeInfo,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Author">
+    update T_AUTHOR
+    set USER_ID = #{userId,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      DESCRIBE_INFO = #{describeInfo,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
