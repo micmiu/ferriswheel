@@ -5,7 +5,7 @@ import com.micmiu.mvc.ferriswheel.core.service.BaseService;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.model.BlogDataTablesQuery;
 import com.micmiu.mvc.ferriswheel.examples.web1.demos.service.BlogService;
-import com.micmiu.mvc.ferriswheel.support.datatables.controller.SimpleManageController;
+import com.micmiu.mvc.ferriswheel.support.datatables.controller.DatatablesSimpleController;
 import com.micmiu.mvc.ferriswheel.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping(value = "/demo/datatables/blog.do")
-public class BlogDatatablesController extends SimpleManageController<Blog, Long, BlogDataTablesQuery> {
+public class DatatablesSimpleController extends DatatablesSimpleController<Blog, Long, BlogDataTablesQuery> {
 
 	@Autowired
 	private BlogService blogService;

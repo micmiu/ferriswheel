@@ -1,11 +1,11 @@
-package com.micmiu.mvc.ferriswheel.examples.web1.demos.easyui.controller;
+package com.micmiu.mvc.ferriswheel.examples.web2.demos.datatables.controller;
 
 
 import com.micmiu.mvc.ferriswheel.core.service.BaseService;
-import com.micmiu.mvc.ferriswheel.examples.web1.demos.entity.Blog;
-import com.micmiu.mvc.ferriswheel.examples.web1.demos.model.BlogDatagridQuery;
-import com.micmiu.mvc.ferriswheel.examples.web1.demos.service.BlogService;
-import com.micmiu.mvc.ferriswheel.support.easyui.controller.SimpleManageController;
+import com.micmiu.mvc.ferriswheel.examples.web2.demos.datatables.model.BlogDataTablesQuery;
+import com.micmiu.mvc.ferriswheel.examples.web2.demos.entity.Blog;
+import com.micmiu.mvc.ferriswheel.examples.web2.demos.service.BlogService;
+import com.micmiu.mvc.ferriswheel.support.datatables.controller.DatatablesSimpleController;
 import com.micmiu.mvc.ferriswheel.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletRequest;
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
 @Controller
-@RequestMapping(value = "/demo/easyui/crud.do")
-public class BlogCrudController extends SimpleManageController<Blog, Long, BlogDatagridQuery> {
+@RequestMapping(value = "/demo/datatables/blog.do")
+public class BlogDatatablesControllerDatatables extends DatatablesSimpleController<Blog, Long, BlogDataTablesQuery> {
 
 	@Autowired
 	private BlogService blogService;
@@ -50,5 +50,4 @@ public class BlogCrudController extends SimpleManageController<Blog, Long, BlogD
 	protected Long[] parseDeleteIDS(HttpServletRequest request) {
 		return StringUtils.parseIdstr(request.getParameter("ids"));
 	}
-
 }

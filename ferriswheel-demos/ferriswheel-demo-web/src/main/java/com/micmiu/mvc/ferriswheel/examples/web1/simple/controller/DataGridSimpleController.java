@@ -12,7 +12,7 @@ import com.micmiu.mvc.ferriswheel.examples.core.service.UserService;
 import com.micmiu.mvc.ferriswheel.examples.web1.simple.model.TreeNode;
 import com.micmiu.mvc.ferriswheel.examples.web1.simple.model.UserDataGridQuery;
 import com.micmiu.mvc.ferriswheel.examples.web1.simple.util.MenuPermUtils;
-import com.micmiu.mvc.ferriswheel.support.easyui.controller.SimpleManageController;
+import com.micmiu.mvc.ferriswheel.support.easyui.controller.DataGridSimpleController;
 import com.micmiu.mvc.ferriswheel.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,7 @@ import java.util.Set;
  */
 @Controller
 @RequestMapping(value = "/system/user.do")
-public class UserController extends SimpleManageController<User, Long, UserDataGridQuery> {
+public class DataGridSimpleController extends DataGridSimpleController<User, Long, UserDataGridQuery> {
 	@Autowired
 	private UserService userService;
 

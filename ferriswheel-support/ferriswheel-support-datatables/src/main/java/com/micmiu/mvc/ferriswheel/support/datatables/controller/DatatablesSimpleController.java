@@ -19,10 +19,10 @@ import java.io.Serializable;
  * @param <Q> 查询vo
  */
 
-public abstract class SimpleManageController<E extends FerriswheelID, ID extends Serializable, Q extends DataTablesQuery>
+public abstract class DatatablesSimpleController<E extends FerriswheelID, ID extends Serializable, Q extends DataTablesQuery>
 		extends DatatablesManageController<E, E, ID, Q> {
 
-	public SimpleManageController() {
+	public DatatablesSimpleController() {
 		super();
 	}
 

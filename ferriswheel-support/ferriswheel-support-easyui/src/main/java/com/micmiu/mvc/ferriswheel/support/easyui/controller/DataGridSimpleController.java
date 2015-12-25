@@ -10,7 +10,7 @@ import java.io.Serializable;
  * Easyui基础controller
  * User: <a href="http://micmiu.com">micmiu</a>
  */
-public abstract class SimpleManageController<E extends FerriswheelID, ID extends Serializable, Q extends DatagridQuery>
+public abstract class DataGridSimpleController<E extends FerriswheelID, ID extends Serializable, Q extends DatagridQuery>
 		extends PropertyGridController<E, E, ID, Q> {
 	@Override
 	protected E convertE2V(E e, HttpServletRequest request) {
