@@ -11,12 +11,11 @@ import java.io.Serializable;
 
 /**
  * 实现了datables基本CRUD+Export功能
- * 
- * @author <a href="http://www.micmiu.com">Michael Sun</a>
- * 
- * @param <E> 实体类
+ *
+ * @param <E>  实体类
  * @param <ID> 注解
- * @param <Q> 查询vo
+ * @param <Q>  查询vo
+ * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
 
 public abstract class DatatablesSimpleController<E extends FerriswheelID, ID extends Serializable, Q extends DataTablesQuery>
@@ -33,6 +32,6 @@ public abstract class DatatablesSimpleController<E extends FerriswheelID, ID ext
 
 	@Override
 	protected Page<E> convertPageE2V(Page<E> pageE, HttpServletRequest request) {
-		return new DataTablesPage<E>(pageE);
+		return pageE;
 	}
 }

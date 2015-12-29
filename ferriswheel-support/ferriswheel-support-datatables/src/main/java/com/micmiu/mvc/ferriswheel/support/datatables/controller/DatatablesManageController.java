@@ -70,7 +70,13 @@ public abstract class DatatablesManageController<E extends FerriswheelID, V, ID 
 
 	@Override
 	protected Page<E> doPagedQuery(AbstractQuery q, BaseService<E, ID> s, int pg, int rows) {
+		Page<E> pageE = super.doPagedQuery(q, s, pg, rows);
 		DataTablesPage dataTablesPage = new DataTablesPage(super.doPagedQuery(q, s, pg, rows));
+		try {
+			BeanUtils.copyProperties(dataTablesPage, pageE);
+		} catch (Exception e) {
+			logger.warn("convert Page<E> to DataTablesPage error:", e);
+		}
 		dataTablesPage.setsEcho(((DataTablesQuery) q).getsEcho());
 		return dataTablesPage;
 	}
@@ -88,7 +94,7 @@ public abstract class DatatablesManageController<E extends FerriswheelID, V, ID 
 		} catch (Exception e) {
 			logger.warn("convert Page<E> to Page<V> error:", e);
 		}
-		return new DataTablesPage<V>(pageV);
+		return pageV;
 	}
 
 }

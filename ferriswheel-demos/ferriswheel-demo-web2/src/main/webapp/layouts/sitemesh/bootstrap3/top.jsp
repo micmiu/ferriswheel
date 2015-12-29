@@ -52,6 +52,18 @@
                                 key="menu.demo.jqgrid"/>-list</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.demo.datatables"/>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="<c:url value='/demo/datatables/base.do'/>"><fmt:message
+                                key="menu.demo.datatables"/>-base</a></li>
+                        <li><a href="<c:url value='/demo/datatables/query.do'/>"><fmt:message
+                                key="menu.demo.datatables"/>-query</a></li>
+                        <li><a href="<c:url value='/demo/datatables/list.do'/>"><fmt:message
+                                key="menu.demo.datatables"/>-list</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
