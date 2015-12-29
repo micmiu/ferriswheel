@@ -60,7 +60,7 @@
                                 key="menu.demo.datatables"/>-base</a></li>
                         <li><a href="<c:url value='/demo/datatables/query.do'/>"><fmt:message
                                 key="menu.demo.datatables"/>-query</a></li>
-                        <li><a href="<c:url value='/demo/datatables/list.do'/>"><fmt:message
+                        <li><a href="<c:url value='/demo/datatables/blog.do?method=showList'/>"><fmt:message
                                 key="menu.demo.datatables"/>-list</a></li>
                     </ul>
                 </li>

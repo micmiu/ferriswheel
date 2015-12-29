@@ -35,9 +35,9 @@ ferriswheel.table_oSettings = {
         "bSortable": false,
         "mRender": function (data, type, full) {
             var id = full.id;
-            return '<a class="btn btn-success" href="javascript:ferriswheel.tableShowView(crud_paras,' + id + ')"><i class="icon-zoom-in icon-white"></i></a>'
-                + '<a class="btn btn-info" href="javascript:ferriswheel.tableShowUpdate(crud_paras,' + id + ')"><i class="icon-edit icon-white"></i></a>'
-                + '<a class="btn btn-danger" href="javascript:ferriswheel.tableDelete(crud_paras,' + id + ')"><i class="icon-trash icon-white"></i></a>';
+            return '<a class="btn btn-default" href="javascript:ferriswheel.tableShowView(crud_paras,' + id + ')"><span class="glyphicon glyphicon-eye-open"></span></a>'
+                + '<a class="btn btn-default" href="javascript:ferriswheel.tableShowUpdate(crud_paras,' + id + ')"><span class="glyphicon glyphicon-edit"></span></a>'
+                + '<a class="btn btn-default" href="javascript:ferriswheel.tableDelete(crud_paras,' + id + ')"><span class="glyphicon glyphicon-remove"></span></i></a>';
         }
     }
     ],

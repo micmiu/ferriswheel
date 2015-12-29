@@ -1,15 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ include file="/static/tags/taglibs.jsp" %>
 <head>
-    <title><fmt:message key='module.datatables'/> - Base</title>
-    <!-- datatables-->
-    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/datatables/1.10.10/css/dataTables.bootstrap.css'/>">
-    <script type="text/javascript" src="<c:url value='/static/plugins/datatables/1.10.10/js/jquery.dataTables.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/static/plugins/datatables/1.10.10/js/dataTables.bootstrap.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/static/plugins/datatables/datatables.ext.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/static/js/ferriswheel.tables.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/static/plugins/datatables/1.10.10/i18n/default.settings-zh_CN.js'/>"></script>
-
+    <%@ include file="datatables.header.jsp"%>
+    <title><fmt:message key='module.datatables'/> - Query</title>
 </head>
 <div class="row">
     <div class="col-xs-12">
@@ -66,7 +59,7 @@
             "bRetrieve": true,
             "bProcessing": true,
             "bServerSide": true,
-            "filter": false,
+            "searching": false,
             "fnServerParams": function (aoData) {
                 $("tfoot input.search_val").each(function () {
                     aoData.push({"name": this.name, "value": this.value});
@@ -75,7 +68,6 @@
             "sAjaxSource": blogurl + "?method=pageQuery",
             "aoColumns": aoColumns_def
         };
-        $.extend(true, dt_oSettings, ext_lang_settings);
         oTable = $('#blog_list').dataTable(dt_oSettings);
 
         $("tfoot input").keyup(function () {

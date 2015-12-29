@@ -11,7 +11,7 @@
         <pattern>/login.do</pattern>
     </decorator>
     <decorator name="demo" page="layout.demo.jsp">
-        <pattern>/anon/demo/*</pattern>
+        <pattern>/demo/*</pattern>
     </decorator>
 	<decorator name="default" page="layout.main.jsp">
 		<pattern>/*</pattern>

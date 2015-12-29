@@ -1,14 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ include file="/static/tags/taglibs.jsp" %>
 <head>
+    <%@ include file="datatables.header.jsp"%>
     <title><fmt:message key='module.datatables'/> - Base</title>
-    <!-- datatables-->
-    <link type="text/css" rel="stylesheet" href="<c:url value='/static/plugins/datatables/1.10.10/css/dataTables.bootstrap.css'/>">
-    <script type="text/javascript" src="<c:url value='/static/plugins/datatables/1.10.10/js/jquery.dataTables.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/static/plugins/datatables/1.10.10/js/dataTables.bootstrap.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/static/js/ferriswheel.tables.js'/>"></script>
-    <script type="text/javascript" src="<c:url value='/static/plugins/datatables/1.10.10/i18n/default.settings-zh_CN.js'/>"></script>
-
 </head>
 <div class="row">
     <div class="col-xs-12">
@@ -46,7 +40,6 @@
         "sAjaxSource": blogurl + "?method=pageQuery",
         "aoColumns": aoColumns_def
     };
-    $.extend(true, dt_oSettings,ext_lang_settings);
 
     var asInitVals = new Array();
     $(document).ready(function () {
