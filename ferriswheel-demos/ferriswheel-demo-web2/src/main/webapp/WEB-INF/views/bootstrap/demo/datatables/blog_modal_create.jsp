@@ -13,7 +13,9 @@
 								key="demo.blog.col.title" /><em>*</em></label>
 						<div class="controls">
 							<input class="input-xlarge required" id="title" name="title" type="text"
-								value="" placeholder="enter title">
+								value="" placeholder="<fmt:message
+								key="global.msg.pleaseinput" /> <fmt:message
+								key="demo.blog.col.title" />">
 						</div>
 					</div>
 					<div class="control-group">
@@ -67,17 +69,17 @@
 <!--/row-->
 
 <script type="text/javascript">
-var _validator_create = $("#table_create_form").validate({
-	errorPlacement: function(error, element) {
-	    if ( element.is(":radio") ) 
-	        error.appendTo ( element.parent() ); 
-	    else if ( element.is(":checkbox") ) 
-	        error.appendTo ( element.parent() ); 
-	    else if ( element.is("input[name=captcha]") ) 
-	        error.appendTo ( element.parent() ); 
-	    else {
-	    	error.insertAfter(element); 	
-	    }
-	}
-})
+	var _validator_create = $("#table_create_form").validate({
+		errorPlacement: function (error, element) {
+			if (element.is(":radio"))
+				error.appendTo(element.parent());
+			else if (element.is(":checkbox"))
+				error.appendTo(element.parent());
+			else if (element.is("input[name=captcha]"))
+				error.appendTo(element.parent());
+			else {
+				error.insertAfter(element);
+			}
+		}
+	})
 </script>

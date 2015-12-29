@@ -10,8 +10,8 @@
                class="table table-striped table-bordered bootstrap-datatable">
             <thead>
             <tr>
-                <th width="20%"><fmt:message key="demo.blog.col.title" /></th>
-                <th width="15%"><fmt:message key="demo.blog.col.category" /></th>
+                <th width="15%"><fmt:message key="demo.blog.col.title" /></th>
+                <th width="10%"><fmt:message key="demo.blog.col.category" /></th>
                 <th width="10%"><fmt:message key="demo.blog.col.author" /></th>
                 <th width="25%"><fmt:message key="demo.blog.col.url" /></th>
                 <th width="10%"><fmt:message key="demo.blog.col.publishDate" /></th>
@@ -43,59 +43,79 @@
         </table>
     </div>
 </div>
-
 <!-- create -->
-<div class="modal hide fade" id="createModal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h3>
-            <fmt:message key="demo.gd.blog" />
-        </h3>
-    </div>
-    <div class="modal-body">
-        <jsp:include page="blog_modal_create.jsp" />
-    </div>
-    <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal"><fmt:message
-                key="global.text.close" /></a> <a
-            href="javascript:ferriswheel.tableCreateFormModalOK(crud_paras)"
-            class="btn btn-primary"><fmt:message key="global.text.ok" /></a>
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog"
+     aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h3 class="modal-title" id="createModalLabel">
+                    <fmt:message key="demo.blog"/>
+                </h3>
+            </div>
+            <div class="modal-body">
+                <jsp:include page="blog_modal_create.jsp" />
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal"><fmt:message
+                        key="global.text.close"/></a> <a
+                    href="javascript:ferriswheel.tableCreateFormModalOK(crud_paras)"
+                    class="btn btn-primary"><fmt:message key="global.text.ok"/></a>
+            </div>
+        </div>
     </div>
 </div>
 <!-- /create -->
 <!-- update -->
-<div class="modal hide fade" id="updateModal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h3>
-            <fmt:message key="demo.gd.blog" />
-        </h3>
-    </div>
-    <div class="modal-body">
-        <jsp:include page="blog_modal_update.jsp" />
-    </div>
-    <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal"><fmt:message
-                key="global.text.close" /></a> <a
-            href="javascript:hx.tableUpdateFormModalOK(crud_paras)"
-            class="btn btn-primary"><fmt:message key="global.text.ok" /></a>
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
+     aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h3 class="modal-title" id="updateModalLabel">
+                    <fmt:message key="demo.blog"/>
+                </h3>
+            </div>
+            <div class="modal-body">
+                <jsp:include page="blog_modal_update.jsp"/>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal"><fmt:message
+                        key="global.text.close"/></a> <a
+                    href="javascript:ferriswheel.tableUpdateFormModalOK(crud_paras)"
+                    class="btn btn-primary"><fmt:message key="global.text.ok"/></a>
+            </div>
+        </div>
     </div>
 </div>
 <!-- /update -->
 <!-- view -->
-<div class="modal hide fade" id="viewModal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h3>
-            <fmt:message key="demo.gd.blog" />
-        </h3>
-    </div>
-    <div class="modal-body">
-        <jsp:include page="blog_modal_view.jsp" />
-    </div>
-    <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal"><fmt:message
-                key="global.text.close" /></a>
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog"
+     aria-labelledby="viewModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h3 class="modal-title" id="viewModalLabel">
+                    <fmt:message key="demo.blog"/>
+                </h3>
+            </div>
+            <div class="modal-body">
+                <jsp:include page="blog_modal_view.jsp"/>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal"><fmt:message
+                        key="global.text.close"/></a>
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript">
@@ -121,13 +141,17 @@
     })
     var asInitVals = new Array();
     $(document).ready(function() {
+        $('input.datepicker').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd'
+        });
         var dt_oSetting={
             "searching": false,
             "ordering": false,
             "bRetrieve": true,
             "bProcessing": true,
             "bServerSide": true,
-            "bAutoWidth": false,
+            "autoWidth": true,
             "fnServerParams": function (aoData) {
                 $("tfoot input.search_val").each(function () {
                     aoData.push({"name": this.name, "value": this.value});
@@ -138,9 +162,9 @@
                 "bSortable": false,
                 "mRender": function (data, type, full) {
                     var id = full.id;
-                    return '<a class="btn btn-default" href="javascript:ferriswheel.tableShowView(crud_paras,' + id + ')"><span class="glyphicon glyphicon-eye-open"></span></a>'
-                            + '<a class="btn btn-default" href="javascript:ferriswheel.tableShowUpdate(crud_paras,' + id + ')"><span class="glyphicon glyphicon-edit"></span></a>'
-                            + '<a class="btn btn-default" href="javascript:ferriswheel.tableDelete(crud_paras,' + id + ')"><span class="glyphicon glyphicon-remove"></span></i></a>';
+                    return '<a class="btn" href="javascript:ferriswheel.tableShowView(crud_paras,' + id + ')"><span class="glyphicon glyphicon-eye-open"></span></a>'
+                            + '<a class="btn" href="javascript:ferriswheel.tableShowUpdate(crud_paras,' + id + ')"><span class="glyphicon glyphicon-edit"></span></a>'
+                            + '<a class="btn" href="javascript:ferriswheel.tableDelete(crud_paras,' + id + ')"><span class="glyphicon glyphicon-remove"></span></i></a>';
                 }
             }
             ]
