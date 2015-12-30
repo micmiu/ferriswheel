@@ -20,19 +20,19 @@
             </tbody>
             <tfoot>
             <tr>
-                <th><input type="text" name="title"
+                <th width="20%"><input type="text" name="title"
                            value="<fmt:message key='global.text.filter' /> <fmt:message key='demo.blog.col.title' />"
                            class="search_init"/></th>
-                <th><input type="text" name="category"
+                <th width="10%"><input type="text" name="category"
                            value="<fmt:message key='global.text.filter' /> <fmt:message key='demo.blog.col.category' />"
                            class="search_init"/></th>
-                <th><input type="text" name="author"
+                <th width="10%"><input type="text" name="author"
                            value="<fmt:message key='global.text.filter' /> <fmt:message key='demo.blog.col.author' />"
                            class="search_init"/></th>
-                <th><input type="text" name="url"
+                <th width="45%"><input type="text" name="url"
                            value="<fmt:message key='global.text.filter' /> <fmt:message key='demo.blog.col.url' />"
                            class="search_init"/></th>
-                <th></th>
+                <th width="15%"></th>
             </tr>
             </tfoot>
         </table>
@@ -59,6 +59,7 @@
             "bRetrieve": true,
             "bProcessing": true,
             "bServerSide": true,
+            "bAutoWidth": false,
             "searching": false,
             "fnServerParams": function (aoData) {
                 $("tfoot input.search_val").each(function () {

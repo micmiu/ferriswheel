@@ -10,38 +10,38 @@
                     <input type="hidden" name="creater" value=""/>
 
                     <div class="control-group">
-                        <label class="control-label" for="title"><fmt:message
+                        <label class="control-label" for="u_title"><fmt:message
                                 key="demo.blog.col.title"/></label>
 
                         <div class="controls">
-                            <input class="input-xlarge required" id="title" name="title" type="text"
+                            <input class="input-xlarge required" id="u_title" name="title" type="text"
                                    value="">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="author"><fmt:message
+                        <label class="control-label" for="u_author"><fmt:message
                                 key="demo.blog.col.author"/></label>
 
                         <div class="controls">
-                            <input class="input-xlarge required" id="author" name="author" type="text"
+                            <input class="input-xlarge required" id="u_author" name="author" type="text"
                                    value="">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="category"><fmt:message
+                        <label class="control-label" for="u_category"><fmt:message
                                 key="demo.blog.col.category"/></label>
 
                         <div class="controls">
-                            <input class="input-xlarge required" id="category" name="category"
+                            <input class="input-xlarge required" id="u_category" name="category"
                                    type="text" value="">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="url"><fmt:message
+                        <label class="control-label" for="u_url"><fmt:message
                                 key="demo.blog.col.url"/></label>
 
                         <div class="controls">
-                            <input class="input-xlarge required" id="url" name="url" type="text"
+                            <input class="input-xlarge required" id="u_url" name="url" type="text"
                                    value="">
                         </div>
                     </div>
@@ -55,11 +55,11 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="publishDate"><fmt:message
+                        <label class="control-label" for="u_publishDate"><fmt:message
                                 key="demo.blog.col.publishDate"/></label>
 
                         <div class="controls">
-                            <input class="input-xlarge datepicker required" id="publishDate"
+                            <input class="input-xlarge required" id="u_publishDate"
                                    type="text" name="publishDate" value="">
                         </div>
                     </div>
@@ -74,5 +74,9 @@
 <!--/row-->
 
 <script type="text/javascript">
+    $('#u_publishDate').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd'
+    });
     var _validator_update = $("#table_update_form").validate();
 </script>

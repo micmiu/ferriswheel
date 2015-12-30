@@ -13,8 +13,8 @@
                 <th width="15%"><fmt:message key="demo.blog.col.title" /></th>
                 <th width="10%"><fmt:message key="demo.blog.col.category" /></th>
                 <th width="10%"><fmt:message key="demo.blog.col.author" /></th>
-                <th width="25%"><fmt:message key="demo.blog.col.url" /></th>
-                <th width="10%"><fmt:message key="demo.blog.col.publishDate" /></th>
+                <th width="30%"><fmt:message key="demo.blog.col.url" /></th>
+                <th width="15%"><fmt:message key="demo.blog.col.publishDate" /></th>
                 <th width="20%"><fmt:message key="global.text.operation"/> <a class="btn btn-default"
                         href="javascript:ferriswheel.tableShowCreate(crud_paras)">
                     <span class="glyphicon glyphicon-plus"></span></a></th>
@@ -141,10 +141,6 @@
     })
     var asInitVals = new Array();
     $(document).ready(function() {
-        $('input.datepicker').datepicker({
-            autoclose: true,
-            format: 'yyyy-mm-dd'
-        });
         var dt_oSetting={
             "searching": false,
             "ordering": false,
