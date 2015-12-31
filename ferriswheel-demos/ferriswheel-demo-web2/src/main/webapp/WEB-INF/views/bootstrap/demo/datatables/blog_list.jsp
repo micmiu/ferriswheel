@@ -119,6 +119,11 @@
     </div>
 </div>
 <script type="text/javascript">
+    $('input.datepicker').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd',
+        todayHighlight: true
+    });
     var blogurl = "<c:url value='/demo/datatables/blog.do'/>";
     var oTable;
     var aoColumns_def = [ {

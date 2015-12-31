@@ -59,7 +59,7 @@
                                 key="demo.blog.col.publishDate"/></label>
 
                         <div class="controls">
-                            <input class="input-xlarge required" id="u_publishDate"
+                            <input class="input-xlarge required datepicker" id="u_publishDate"
                                    type="text" name="publishDate" value="">
                         </div>
                     </div>
@@ -74,9 +74,5 @@
 <!--/row-->
 
 <script type="text/javascript">
-    $('#u_publishDate').datepicker({
-        autoclose: true,
-        format: 'yyyy-mm-dd'
-    });
     var _validator_update = $("#table_update_form").validate();
 </script>

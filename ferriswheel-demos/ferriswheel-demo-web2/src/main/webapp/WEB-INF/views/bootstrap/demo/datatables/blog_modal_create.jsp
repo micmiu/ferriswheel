@@ -69,10 +69,6 @@
 <!--/row-->
 
 <script type="text/javascript">
-	$('#c_publishDate').datepicker({
-		autoclose: true,
-		format: 'yyyy-mm-dd'
-	});
 	var _validator_create = $("#table_create_form").validate({
 		errorPlacement: function (error, element) {
 			if (element.is(":radio"))

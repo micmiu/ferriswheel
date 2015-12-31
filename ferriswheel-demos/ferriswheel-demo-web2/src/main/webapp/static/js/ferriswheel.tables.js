@@ -175,6 +175,9 @@ ferriswheel.tableShowUpdate = function (_paras, _id) {
                         || htmlType == "hidden"
                         || htmlType == "button") {
                         $(this).val(val);
+                        if($(this).hasClass('datepicker')){
+                            $(this).datepicker('update', val);
+                        }
                     } else if (htmlType == "radio") {
                         $(this).attr("checked", $(this).val() == val);
                     } else if (htmlType == "checkbox") {
