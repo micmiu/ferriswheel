@@ -8,8 +8,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>ferriswheel-demo-web2</artifactId>
-    <packaging>war</packaging>
+    <artifactId>ferriswheel-demo-core-common</artifactId>
+    <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
     <url>http://micmiu.com</url>
@@ -17,53 +17,28 @@
     <dependencies>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-demo-core-common</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-demo-core-hibernate</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.micmiu.mvc</groupId>
             <artifactId>ferriswheel-core</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
             <artifactId>ferriswheel-spring-exts</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
             <artifactId>ferriswheel-orm-hibernate</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
             <artifactId>ferriswheel-spring-mvc</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
             <artifactId>ferriswheel-support-shiro</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-support-jqgrid</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-support-datatables</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.micmiu.mvc</groupId>
-            <artifactId>ferriswheel-support-jackson2</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <!-- SPRING begin -->
@@ -144,27 +119,8 @@
         </dependency>
 
         <dependency>
-            <groupId>net.sf.spring-json</groupId>
-            <artifactId>spring-json</artifactId>
-        </dependency>
-        <!-- jackson1
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-        </dependency>
-        -->
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
         </dependency>
 
         <!-- SECURITY begin -->
@@ -185,11 +141,6 @@
             <artifactId>shiro-ehcache</artifactId>
         </dependency>
         <!-- SECURITY end -->
-
-        <dependency>
-            <groupId>opensymphony</groupId>
-            <artifactId>sitemesh</artifactId>
-        </dependency>
 
         <!-- j2ee web spec -->
         <dependency>
@@ -281,75 +232,24 @@
             <artifactId>spring-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!-- jetty -->
-        <dependency>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
-            <artifactId>jetty-webapp</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-jsp</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- selenium 2.0 -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                    <artifactId>selenium-android-driver</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                    <artifactId>selenium-iphone-driver</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-remote-driver</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>cglib</groupId>
-                    <artifactId>cglib-nodep</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>
         <!-- TEST end -->
     </dependencies>
     <build>
-        <finalName>${project.artifactId}</finalName>
-        <filters>
-            <filter>src/main/filters/filter-${env}.properties</filter>
-        </filters>
-        <resources>
-            <!-- 只过滤properties文件中得属性 -->
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.properties</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-                <includes>
-                    <include>**/*.xml</include>
-                    <include>**/*.sql</include>
-                </includes>
-            </resource>
-        </resources>
+        <plugins>
+            <!-- source attach plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 </project>

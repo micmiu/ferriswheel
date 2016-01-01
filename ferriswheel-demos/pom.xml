@@ -14,7 +14,8 @@
     <name>${project.artifactId}</name>
     <url>http://micmiu.com</url>
     <modules>
-        <module>ferriswheel-demo-core-sh</module>
+        <module>ferriswheel-demo-core-common</module>
+        <module>ferriswheel-demo-core-hibernate</module>
         <module>ferriswheel-demo-web</module>
         <module>ferriswheel-demo-web2</module>
     </modules>
