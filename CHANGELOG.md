@@ -5,7 +5,7 @@
 #### New Feature :
       * mybatis web演示？
 #### Improvement :
-      * ?
+      * 重构demo模块：core-common、core-hibernate
 #### Bug :
 	  * ?
 
