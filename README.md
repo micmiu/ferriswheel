@@ -29,8 +29,9 @@
 * ferriswheel-demos		: 演示模块组
 	* ferriswheel-demo-core-common		: web演示的基础模块
 	* ferriswheel-demo-core-hibernate	: 基于hibernate实现的业务模块
+	* ferriswheel-demo-core-mybatis		: 基于mybatis实现的业务模块
 	* ferriswheel-demo-web				: web 演示 tiles + jQuery + easyui
-	* ferriswheel-demo-web2				: web2演示 sitemesh + jQuery + bootstrap3 +jqgrid
+	* ferriswheel-demo-web2				: web2演示 sitemesh + jQuery + bootstrap3 +jqgrid + datatables
 
 ##Technical Summary :
 
