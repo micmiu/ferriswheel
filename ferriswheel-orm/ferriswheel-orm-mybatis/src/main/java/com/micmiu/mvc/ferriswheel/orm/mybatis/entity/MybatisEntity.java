@@ -1,5 +1,7 @@
 package com.micmiu.mvc.ferriswheel.orm.mybatis.entity;
 
+import com.micmiu.mvc.ferriswheel.core.entity.AbstractEntity;
+
 import java.io.Serializable;
 
 /**

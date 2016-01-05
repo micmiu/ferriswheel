@@ -1,5 +1,7 @@
 package com.micmiu.mvc.ferriswheel.orm.hibernate;
 
+import com.micmiu.mvc.ferriswheel.core.entity.AbstractEntity;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

@@ -1,6 +1,5 @@
-package com.micmiu.mvc.ferriswheel.orm.hibernate;
+package com.micmiu.mvc.ferriswheel.core.entity;
 
-import com.micmiu.mvc.ferriswheel.core.entity.FerriswheelID;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import java.io.Serializable;
