@@ -19,7 +19,7 @@
 	<context:annotation-config />
 
 	<!-- 使用annotation 自动注册bean -->
-	<context:component-scan base-package="com.micmiu.mvc.ferriswheel.orm.mybatis">
+	<context:component-scan base-package="com.micmiu.mvc.ferriswheel.examples.core">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
@@ -55,7 +55,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <!-- 自动扫描, 省掉mybatis-config.xml 手工配置 -->
-        <property name="typeAliasesPackage" value="com.micmiu.mvc.ferriswheel.orm.mybatis.entity" />
+        <property name="typeAliasesPackage" value="com.micmiu.mvc.ferriswheel.examples.core.entity" />
 
         <!--<property name="configLocation" value="classpath:mybatis-config.xml" />-->
 
@@ -70,7 +70,7 @@
     <!--</bean>-->
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.micmiu.mvc.ferriswheel.orm.mybatis.mapper" />
+        <property name="basePackage" value="com.micmiu.mvc.ferriswheel.examples.core.mapper" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.micmiu.mvc.ferriswheel.orm.mybatis.mapper.MenuMapper" >
-  <resultMap id="BaseResultMap" type="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Menu" >
-    <id column="ID" property="id" jdbcType="BIGINT" />
+<mapper namespace="com.micmiu.mvc.ferriswheel.examples.core.mapper.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.micmiu.mvc.ferriswheel.examples.core.entity.Menu" >
+    <id column="ID" property="id" javaType="long" jdbcType="BIGINT"/>
     <result column="PARENT_ID" property="parentId" jdbcType="BIGINT" />
     <result column="MENU_NAME" property="menuName" jdbcType="VARCHAR" />
     <result column="ALIAS_NAME" property="aliasName" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from T_MENU
     where ID = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Menu" >
+  <insert id="insert" parameterType="com.micmiu.mvc.ferriswheel.examples.core.entity.Menu" >
     insert into T_MENU (ID, PARENT_ID, MENU_NAME, 
       ALIAS_NAME, MENU_URL, MENU_TYPE, 
       ORDER_NUM)
@@ -31,7 +31,7 @@
       #{aliasName,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR}, #{menuType,jdbcType=VARCHAR}, 
       #{orderNum,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Menu" >
+  <insert id="insertSelective" parameterType="com.micmiu.mvc.ferriswheel.examples.core.entity.Menu" >
     insert into T_MENU
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Menu" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.micmiu.mvc.ferriswheel.examples.core.entity.Menu" >
     update T_MENU
     <set >
       <if test="parentId != null" >
@@ -104,7 +104,7 @@
     </set>
     where ID = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Menu" >
+  <update id="updateByPrimaryKey" parameterType="com.micmiu.mvc.ferriswheel.examples.core.entity.Menu" >
     update T_MENU
     set PARENT_ID = #{parentId,jdbcType=BIGINT},
       MENU_NAME = #{menuName,jdbcType=VARCHAR},
@@ -114,4 +114,9 @@
       ORDER_NUM = #{orderNum,jdbcType=INTEGER}
     where ID = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectCountAll" resultType="java.lang.Integer">
+    select count(1) from T_MENU
+  </select>
+
 </mapper>

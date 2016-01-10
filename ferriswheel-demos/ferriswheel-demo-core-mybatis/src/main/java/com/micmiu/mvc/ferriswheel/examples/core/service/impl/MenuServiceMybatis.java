@@ -51,4 +51,9 @@ public class MenuServiceMybatis implements MenuService {
 	public int updateByPrimaryKey(Menu record) {
 		return mapper.updateByPrimaryKey(record);
 	}
+
+	@Override
+	public Integer selectCountAll() {
+		return mapper.selectCountAll();
+	}
 }

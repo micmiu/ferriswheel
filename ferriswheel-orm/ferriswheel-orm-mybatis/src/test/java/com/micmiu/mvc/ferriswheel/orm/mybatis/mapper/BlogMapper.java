@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
  * Date: 6/11/2014
  * Time: 15:43
  */
-public interface BlogMapper extends MybatisMapper<Blog, Long> {
+public interface BlogMapper extends BaseMapper<Blog, Long> {
 
 	@Select("select * from t_blog where url = #{url}")
 	Blog findByURL(String url);

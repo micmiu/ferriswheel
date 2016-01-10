@@ -8,7 +8,7 @@ import java.io.Serializable;
  * Date: 12/15/2015
  * Time: 16:40
  */
-public interface BaseMybatisService<T, ID extends Serializable> {
+public interface GenerateService<T, ID extends Serializable> {
 
 	int deleteByPrimaryKey(ID id);
 

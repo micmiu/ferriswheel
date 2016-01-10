@@ -2,8 +2,6 @@ package com.micmiu.mvc.ferrissheel.example.core.mybatis;
 
 import com.micmiu.mvc.ferriswheel.examples.core.entity.Menu;
 import com.micmiu.mvc.ferriswheel.examples.core.service.MenuService;
-import com.micmiu.mvc.ferriswheel.orm.mybatis.entity.Blog;
-import com.micmiu.mvc.ferriswheel.orm.mybatis.service.BlogService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -39,10 +36,13 @@ public class MenuMapperTest extends AbstractTransactionalJUnit4SpringContextTest
 	@Test
 	public void testCreate() {
 
-		int beforeDbCount = service.queryAll().size();
+		int beforeDbCount = service.selectCountAll();
 		Menu entity = mockEntity();
-		service.create(entity);
-		int afterDbCount = service.queryAll().size();
+		System.out.println(entity.getId());
+		int size = service.insert(entity);
+		System.out.println(size);
+		System.out.println(entity.getId());
+		int afterDbCount = service.selectCountAll();
 		Assert.assertEquals(beforeDbCount + 1, afterDbCount);
 	}
 
@@ -50,45 +50,36 @@ public class MenuMapperTest extends AbstractTransactionalJUnit4SpringContextTest
 	public void testUpdate() {
 
 		Menu entity = mockEntity();
-		service.create(entity);
+		service.insert(entity);
 		Long id = entity.getId();
 
-		String expect = "Michael";
-		Assert.assertNotSame(expect, entity.getAuthor());
-		entity.setAuthor(expect);
-		service.update(entity);
+		String expect = "micmiu.com";
+		Assert.assertNotSame(expect, entity.getMenuURL());
+		entity.setMenuURL(expect);
+		service.updateByPrimaryKey(entity);
 
-		Assert.assertEquals(expect, service.read(id).getAuthor());
+		Assert.assertEquals(expect, service.selectByPrimaryKey(id).getMenuURL());
 
 	}
 
 	@Test
 	public void testDelete() {
-		Long id = service.create(mockEntity());
-		int beforeDelCount = service.queryAll().size();
-		service.delete(id);
-		int afterDelCount = service.queryAll().size();
+		Menu entity = mockEntity();
+		service.insert(entity);
+		int beforeDelCount = service.selectCountAll();
+		service.deleteByPrimaryKey(entity.getId());
+		int afterDelCount = service.selectCountAll();
 		Assert.assertEquals(beforeDelCount - 1, afterDelCount);
 	}
 
 	@Test
 	public void testList() {
 
-		int count1 = service.queryAll().size();
+		int count1 = service.selectCountAll();
 		Menu entity = mockEntity();
-		service.create(entity);
-		int count2 = service.queryAll().size();
+		service.insert(entity);
+		int count2 = service.selectCountAll();
 		Assert.assertEquals(count1 + 1, count2);
-
-	}
-
-	@Test
-	public void testfindByURL() {
-
-		Menu entity = mockEntity();
-		Long id = service.create(entity);
-		Menu entity2 = service.findByURL(entity.getUrl());
-		Assert.assertEquals(id, entity2.getId());
 
 	}
 

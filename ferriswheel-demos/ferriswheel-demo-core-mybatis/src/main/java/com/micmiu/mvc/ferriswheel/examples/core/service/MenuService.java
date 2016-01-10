@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferriswheel.examples.core.service;
 
 import com.micmiu.mvc.ferriswheel.examples.core.entity.Menu;
-import com.micmiu.mvc.ferriswheel.orm.mybatis.service.BaseMybatisService;
+import com.micmiu.mvc.ferriswheel.orm.mybatis.service.GenerateService;
 
 /**
  * Created
@@ -9,5 +9,7 @@ import com.micmiu.mvc.ferriswheel.orm.mybatis.service.BaseMybatisService;
  * Date: 1/8/2016
  * Time: 23:11
  */
-public interface MenuService extends BaseMybatisService<Menu, Long> {
+public interface MenuService extends GenerateService<Menu, Long> {
+
+	Integer selectCountAll();
 }

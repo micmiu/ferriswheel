@@ -11,7 +11,7 @@ import java.util.List;
  * Date: 5/26/2014
  * Time: 17:58
  */
-public interface MybatisMapper<E extends FerriswheelID, ID extends Serializable> {
+public interface BaseMapper<E extends FerriswheelID, ID extends Serializable> {
 
 	void create(E entity);
 
