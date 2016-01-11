@@ -1,5 +1,7 @@
 package com.micmiu.mvc.ferriswheel.core.dao.mybatis;
 
+import com.micmiu.mvc.ferriswheel.core.entity.FerriswheelID;
+
 import java.io.Serializable;
 
 /**
@@ -8,7 +10,7 @@ import java.io.Serializable;
  * Date: 5/26/2014
  * Time: 17:58
  */
-public interface BaseMapper<E, ID extends Serializable> {
+public interface BaseMapper<E extends FerriswheelID, ID extends Serializable> {
 
 	int deleteByPrimaryKey(ID id);
 

@@ -1,5 +1,7 @@
 package com.micmiu.mvc.ferriswheel.orm.mybatis.service;
 
+import com.micmiu.mvc.ferriswheel.core.entity.FerriswheelID;
+
 import java.io.Serializable;
 
 /**
@@ -8,7 +10,7 @@ import java.io.Serializable;
  * Date: 12/15/2015
  * Time: 16:40
  */
-public interface GenerateService<T, ID extends Serializable> {
+public interface GenerateService<T extends FerriswheelID, ID extends Serializable> {
 
 	int deleteByPrimaryKey(ID id);
 
