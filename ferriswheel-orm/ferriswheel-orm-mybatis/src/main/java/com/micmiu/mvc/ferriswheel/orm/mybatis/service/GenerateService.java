@@ -22,7 +22,5 @@ public interface GenerateService<T extends FerriswheelID, ID extends Serializabl
 
 	int updateByPrimaryKeySelective(T record);
 
-	int updateByPrimaryKeyWithBLOBs(T record);
-
 	int updateByPrimaryKey(T record);
 }
