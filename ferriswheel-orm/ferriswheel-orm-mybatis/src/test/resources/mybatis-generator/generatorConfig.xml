@@ -19,20 +19,26 @@
                         password=""/>
 
         <javaModelGenerator targetPackage="com.micmiu.mvc.ferriswheel.support.mybatis.entity"
-                            targetProject="/Users/micmiu/workspace/myprojects/micmiu-github/ferriswheel/ferriswheel-support/ferriswheel-support-mybatis/src/test/java/">
+                            targetProject="/Users/micmiu/workspace/myprojects/micmiu-github/ferriswheel/ferriswheel-orm/ferriswheel-orm-mybatis/src/test/java/">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="mapper"
-                         targetProject="/Users/micmiu/workspace/myprojects/micmiu-github/ferriswheel/ferriswheel-support/ferriswheel-support-mybatis/src/test/resources">
+                         targetProject="/Users/micmiu/workspace/myprojects/micmiu-github/ferriswheel/ferriswheel-orm/ferriswheel-orm-mybatis/src/test/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.micmiu.mvc.ferriswheel.support.mybatis.mapper"
-                             targetProject="/Users/micmiu/workspace/myprojects/micmiu-github/ferriswheel/ferriswheel-support/ferriswheel-support-mybatis/src/test/java">
+                             targetProject="/Users/micmiu/workspace/myprojects/micmiu-github/ferriswheel/ferriswheel-orm/ferriswheel-orm-mybatis/src/test/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
+
+        <table tableName="T_BLOG" domainObjectName="Blog2"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
 
         <!--
         <table tableName="T_BLOG" domainObjectName="Blog"
