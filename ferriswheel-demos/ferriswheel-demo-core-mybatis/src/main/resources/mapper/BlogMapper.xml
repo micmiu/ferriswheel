@@ -22,7 +22,7 @@
     delete from T_BLOG
     where ID = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.micmiu.mvc.ferriswheel.examples.core.entity.Blog" >
+  <insert id="insert" parameterType="com.micmiu.mvc.ferriswheel.examples.core.entity.Blog" useGeneratedKeys="true" keyProperty="id" >
     insert into T_BLOG (ID, TITLE, AUTHOR, 
       CATEGORY, URL, PUBLISH_DATE
       )
@@ -103,4 +103,8 @@
       PUBLISH_DATE = #{publishDate,jdbcType=DATE}
     where ID = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="queryAll" resultMap="BaseResultMap">
+    select * from t_blog
+  </select>
 </mapper>

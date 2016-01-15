@@ -59,7 +59,7 @@
 
         <!--<property name="configLocation" value="classpath:mybatis-config.xml" />-->
 
-        <property name="mapperLocations" value="classpath:mapper/*Mapper.xml" />
+        <property name="mapperLocations" value="classpath:mapper/BlogMapper.xml" />
     </bean>
 
     <!--<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->

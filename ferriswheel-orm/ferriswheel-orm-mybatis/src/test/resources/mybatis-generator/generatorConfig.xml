@@ -24,7 +24,7 @@
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mapper"
+        <sqlMapGenerator targetPackage="mapper/generator"
                          targetProject="/Users/micmiu/workspace/myprojects/micmiu-github/ferriswheel/ferriswheel-orm/ferriswheel-orm-mybatis/src/test/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>

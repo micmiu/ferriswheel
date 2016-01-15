@@ -4,6 +4,8 @@ package com.micmiu.mvc.ferriswheel.examples.core.service;
 import com.micmiu.mvc.ferriswheel.examples.core.entity.Blog;
 import com.micmiu.mvc.ferriswheel.orm.mybatis.service.GenerateService;
 
+import java.util.List;
+
 /**
  * Created
  * User: <a href="http://micmiu.com">micmiu</a>
@@ -13,5 +15,7 @@ import com.micmiu.mvc.ferriswheel.orm.mybatis.service.GenerateService;
 public interface BlogService extends GenerateService<Blog, Long> {
 
 	Blog findByURL(String url);
+
+	List<Blog> queryAll();
 
 }
