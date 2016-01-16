@@ -16,7 +16,7 @@ import java.util.List;
  * Date: 6/11/2014
  * Time: 16:11
  */
-@Service("blogService")
+@Service
 public class BlogServiceMybatis extends AbstractGenerateService<Blog, Long> implements BlogService {
 
 	@Autowired

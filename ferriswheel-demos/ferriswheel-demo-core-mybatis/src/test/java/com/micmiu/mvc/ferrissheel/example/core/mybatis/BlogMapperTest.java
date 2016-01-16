@@ -19,8 +19,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created
  * User: <a href="http://micmiu.com">micmiu</a>
- * Date: 5/26/2014
- * Time: 23:32
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:applicationContext-mybatis-test.xml"})

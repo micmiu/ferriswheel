@@ -103,4 +103,13 @@
       OTHER = #{other,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectCountAll" resultType="java.lang.Integer">
+    select count(1) from T_USER
+  </select>
+  <select id="findUserByLoginName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from T_USER
+    where LOGIN_NAME = #{loginName,jdbcType=VARCHAR}
+  </select>
 </mapper>

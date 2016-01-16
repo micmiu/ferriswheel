@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferrissheel.example.core.mybatis;
 
-import com.micmiu.mvc.ferriswheel.examples.core.entity.Menu;
-import com.micmiu.mvc.ferriswheel.examples.core.service.MenuService;
+import com.micmiu.mvc.ferriswheel.examples.core.entity.User;
+import com.micmiu.mvc.ferriswheel.examples.core.service.UserService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created
+ * Created User test
  * User: <a href="http://micmiu.com">micmiu</a>
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,18 +24,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 @ActiveProfiles("test")
 @Transactional
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
-public class MenuMapperTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class UserMapperTest extends AbstractTransactionalJUnit4SpringContextTests {
 
 	AtomicInteger atom = new AtomicInteger();
 
 	@Autowired
-	private MenuService service;
+	private UserService service;
 
 	@Test
 	public void testCreate() {
 
 		int beforeDbCount = service.selectCountAll();
-		Menu entity = mockEntity();
+		User entity = mockEntity();
 		System.out.println(entity.getId());
 		int size = service.insert(entity);
 		System.out.println(size);
@@ -47,22 +47,22 @@ public class MenuMapperTest extends AbstractTransactionalJUnit4SpringContextTest
 	@Test
 	public void testUpdate() {
 
-		Menu entity = mockEntity();
+		User entity = mockEntity();
 		service.insert(entity);
 		Long id = entity.getId();
 
 		String expect = "micmiu.com";
-		Assert.assertNotSame(expect, entity.getMenuURL());
-		entity.setMenuURL(expect);
+		Assert.assertNotSame(expect, entity.getOther());
+		entity.setOther(expect);
 		service.updateByPrimaryKey(entity);
 
-		Assert.assertEquals(expect, service.selectByPrimaryKey(id).getMenuURL());
+		Assert.assertEquals(expect, service.selectByPrimaryKey(id).getOther());
 
 	}
 
 	@Test
 	public void testDelete() {
-		Menu entity = mockEntity();
+		User entity = mockEntity();
 		service.insert(entity);
 		int beforeDelCount = service.selectCountAll();
 		service.deleteByPrimaryKey(entity.getId());
@@ -74,22 +74,21 @@ public class MenuMapperTest extends AbstractTransactionalJUnit4SpringContextTest
 	public void testList() {
 
 		int count1 = service.selectCountAll();
-		Menu entity = mockEntity();
+		User entity = mockEntity();
 		service.insert(entity);
 		int count2 = service.selectCountAll();
 		Assert.assertEquals(count1 + 1, count2);
 
 	}
 
-	public Menu mockEntity() {
-		int randomKey = atom.addAndGet(100);
-		Menu entity = new Menu();
-		entity.setAliasName("demo_" + randomKey);
-		entity.setMenuName("demo_" + randomKey);
-		entity.setMenuType("");
-		entity.setMenuURL("demo/mybatis");
-		entity.setOrderNum(randomKey);
-
+	public User mockEntity() {
+		long randomKey = atom.addAndGet(100);
+		User entity = new User();
+		entity.setLoginName("micmiu_" + randomKey);
+		entity.setEmail(randomKey + "@micmiu.com");
+		entity.setName("micmiu_" + randomKey);
+		entity.setPassword("password");
+		entity.setOther("junit test.");
 		return entity;
 	}
 
