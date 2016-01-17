@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.micmiu.mvc.ferriswheel.examples.core.mapper.MenuMapper" >
   <resultMap id="BaseResultMap" type="com.micmiu.mvc.ferriswheel.examples.core.entity.Menu" >
-    <id column="ID" property="id" javaType="long" jdbcType="BIGINT"/>
+    <id column="ID" property="id" jdbcType="BIGINT"/>
     <result column="PARENT_ID" property="parentId" jdbcType="BIGINT" />
     <result column="MENU_NAME" property="menuName" jdbcType="VARCHAR" />
     <result column="ALIAS_NAME" property="aliasName" jdbcType="VARCHAR" />
