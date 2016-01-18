@@ -12,5 +12,7 @@ public interface BlogMapper extends GenerateMapper<Blog, Long> {
 	Blog findByURL(String url);
 
 	List<Blog> queryAll();
+
+	Integer selectCountAll();
 }
 

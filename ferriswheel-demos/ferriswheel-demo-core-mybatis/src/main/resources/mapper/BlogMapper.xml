@@ -103,7 +103,9 @@
       PUBLISH_DATE = #{publishDate,jdbcType=DATE}
     where ID = #{id,jdbcType=BIGINT}
   </update>
-
+  <select id="selectCountAll" resultType="java.lang.Integer">
+    select count(1) from T_BLOG
+  </select>
   <select id="queryAll" resultMap="BaseResultMap">
     select * from t_blog
   </select>

@@ -37,4 +37,8 @@ public class BlogServiceMybatis extends AbstractGenerateService<Blog, Long> impl
 		return mapper.queryAll();
 	}
 
+	@Override
+	public Integer selectCountAll() {
+		return mapper.selectCountAll();
+	}
 }
