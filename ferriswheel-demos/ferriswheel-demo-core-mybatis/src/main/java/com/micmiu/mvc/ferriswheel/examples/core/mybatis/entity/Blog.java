@@ -1,6 +1,6 @@
 package com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity;
 
-import com.micmiu.mvc.ferriswheel.orm.mybatis.entity.MybatisEntity;
+import com.micmiu.mvc.ferriswheel.orm.mybatis.entity.IdLongEntity;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import java.util.Date;
  * entity: Blog
  * User: <a href="http://micmiu.com">micmiu</a>
  */
-public class Blog extends MybatisEntity<Long> {
+public class Blog extends IdLongEntity {
 
 	private String title;
 
@@ -59,9 +59,4 @@ public class Blog extends MybatisEntity<Long> {
 	public void setPublishDate(Date publishDate) {
 		this.publishDate = publishDate;
 	}
-
-	public Long getId() {
-		return id;
-	}
-
 }

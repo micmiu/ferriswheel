@@ -22,7 +22,5 @@ public abstract class MybatisEntity<ID extends Serializable> extends AbstractEnt
 	 */
 	public abstract ID getId();
 
-	public void setId(ID id) {
-		this.id = id;
-	}
+	public abstract void setId(ID id);
 }

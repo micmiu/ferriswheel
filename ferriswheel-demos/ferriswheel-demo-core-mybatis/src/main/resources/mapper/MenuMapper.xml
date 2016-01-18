@@ -23,7 +23,7 @@
     delete from T_MENU
     where ID = #{id,jdbcType=BIGINT}
   </delete>
-    <insert id="insert" parameterType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Menu">
+    <insert id="insert" parameterType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Menu" useGeneratedKeys="true" keyProperty="id">
     insert into T_MENU (ID, PARENT_ID, MENU_NAME, 
       ALIAS_NAME, MENU_URL, MENU_TYPE, 
       ORDER_NUM)
