@@ -1,8 +1,8 @@
-package com.micmiu.mvc.ferriswheel.examples.core.service.impl;
+package com.micmiu.mvc.ferriswheel.examples.core.mybatis.service.impl;
 
-import com.micmiu.mvc.ferriswheel.examples.core.entity.Blog;
-import com.micmiu.mvc.ferriswheel.examples.core.mapper.BlogMapper;
-import com.micmiu.mvc.ferriswheel.examples.core.service.BlogService;
+import com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Blog;
+import com.micmiu.mvc.ferriswheel.examples.core.mybatis.mapper.BlogMapper;
+import com.micmiu.mvc.ferriswheel.examples.core.mybatis.service.BlogService;
 import com.micmiu.mvc.ferriswheel.orm.mybatis.mapper.GenerateMapper;
 import com.micmiu.mvc.ferriswheel.orm.mybatis.service.AbstractGenerateService;
 import org.springframework.beans.factory.annotation.Autowired;

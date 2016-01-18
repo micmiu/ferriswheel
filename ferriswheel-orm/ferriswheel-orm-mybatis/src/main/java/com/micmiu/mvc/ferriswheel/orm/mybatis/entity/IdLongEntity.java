@@ -6,7 +6,7 @@ package com.micmiu.mvc.ferriswheel.orm.mybatis.entity;
  * Date: 12/16/2015
  * Time: 14:39
  */
-public class IdLongEntity extends MybatisEntity<Long> {
+public abstract class IdLongEntity extends MybatisEntity<Long> {
 
 	protected Long id;
 

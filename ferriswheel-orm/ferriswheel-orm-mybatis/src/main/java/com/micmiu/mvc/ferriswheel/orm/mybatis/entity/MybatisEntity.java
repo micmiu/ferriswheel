@@ -15,9 +15,12 @@ import java.io.Serializable;
 public abstract class MybatisEntity<ID extends Serializable> extends AbstractEntity<ID> {
 	protected ID id;
 
-	public ID getId() {
-		return id;
-	}
+	/**
+	 * 实体类需要重写次方法，否则报错 No typehandler Exception
+	 *
+	 * @return
+	 */
+	public abstract ID getId();
 
 	public void setId(ID id) {
 		this.id = id;

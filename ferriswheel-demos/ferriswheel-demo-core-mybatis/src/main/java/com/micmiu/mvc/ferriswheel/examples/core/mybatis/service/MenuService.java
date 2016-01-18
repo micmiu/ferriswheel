@@ -1,6 +1,6 @@
-package com.micmiu.mvc.ferriswheel.examples.core.service;
+package com.micmiu.mvc.ferriswheel.examples.core.mybatis.service;
 
-import com.micmiu.mvc.ferriswheel.examples.core.entity.Menu;
+import com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Menu;
 import com.micmiu.mvc.ferriswheel.orm.mybatis.service.GenerateService;
 
 /**

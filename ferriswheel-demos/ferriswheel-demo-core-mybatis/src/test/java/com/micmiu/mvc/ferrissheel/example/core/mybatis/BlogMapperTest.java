@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferrissheel.example.core.mybatis;
 
-import com.micmiu.mvc.ferriswheel.examples.core.entity.Blog;
-import com.micmiu.mvc.ferriswheel.examples.core.service.BlogService;
+import com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Blog;
+import com.micmiu.mvc.ferriswheel.examples.core.mybatis.service.BlogService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -15,6 +15,15 @@ insert into T_ARTICLE (ID, AUTHOR_ID, TITLE, CATEGORY, URL, PUBLISH_DATE) values
 insert into T_ARTICLE (ID, AUTHOR_ID, TITLE, CATEGORY, URL, PUBLISH_DATE) values (11,3,'jta','j2ee','http://www.micmiu.com/category/j2ee/jta/','2014-08-10');
 insert into T_ARTICLE (ID, AUTHOR_ID, TITLE, CATEGORY, URL, PUBLISH_DATE) values (12,3,'java','language','http://www.micmiu.com/category/lang/java/','2014-08-11');
 
+-- t_blog
+INSERT INTO T_BLOG (ID, AUTHOR, CATEGORY, CREATER, OTHER, PUBLISH_DATE, TITLE, URL) VALUES ('1', 'michael', 'j2ee', 'michael', '', '2013-04-07', 'spring', 'http://www.micmiu.com/category/j2ee/');
+INSERT INTO T_BLOG (ID, AUTHOR, CATEGORY, CREATER, OTHER, PUBLISH_DATE, TITLE, URL) VALUES ('2', 'michael', 'j2ee', 'michael', '', '2013-04-07', 'struts', 'http://www.micmiu.com/category/soa/');
+INSERT INTO T_BLOG (ID, AUTHOR, CATEGORY, CREATER, OTHER, PUBLISH_DATE, TITLE, URL) VALUES ('3', 'michael', 'j2ee', 'michael', '', '2013-04-07', 'hibernate', 'http://www.micmiu.com/category/opensource/');
+INSERT INTO T_BLOG (ID, AUTHOR, CATEGORY, CREATER, OTHER, PUBLISH_DATE, TITLE, URL) VALUES ('4', 'michael', 'j2ee', 'michael', '', '2013-04-07', 'shiro', 'http://www.micmiu.com/category/nosql/');
+INSERT INTO T_BLOG (ID, AUTHOR, CATEGORY, CREATER, OTHER, PUBLISH_DATE, TITLE, URL) VALUES ('5', 'michael', 'j2ee', 'michael', '', '2013-04-07', 'sso', 'http://www.micmiu.com/category/architecture/');
+INSERT INTO T_BLOG (ID, AUTHOR, CATEGORY, CREATER, OTHER, PUBLISH_DATE, TITLE, URL) VALUES ('6', 'michael', 'j2ee', 'michael', '', '2013-04-07', 'cas', 'http://www.micmiu.com/category/lang/');
+
+
 INSERT INTO T_MENU (ID, ALIAS_NAME, MENU_NAME, MENU_TYPE, MENU_URL, ORDER_NUM, PARENT_ID) VALUES ('1', 'index', 'menu.index', '', 'index.do', '1', null);
 INSERT INTO T_MENU (ID, ALIAS_NAME, MENU_NAME, MENU_TYPE, MENU_URL, ORDER_NUM, PARENT_ID) VALUES ('2', 'system', 'menu.system', '', '', '1000', null);
 INSERT INTO T_MENU (ID, ALIAS_NAME, MENU_NAME, MENU_TYPE, MENU_URL, ORDER_NUM, PARENT_ID) VALUES ('3', 'user', 'menu.system.user', '', 'system/user.do?method=showList', '1100', '2');

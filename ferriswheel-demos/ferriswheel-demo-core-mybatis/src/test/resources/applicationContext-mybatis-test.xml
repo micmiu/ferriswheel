@@ -55,7 +55,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <!-- 自动扫描, 省掉mybatis-config.xml 手工配置 -->
-        <property name="typeAliasesPackage" value="com.micmiu.mvc.ferriswheel.examples.core.entity" />
+        <property name="typeAliasesPackage" value="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity" />
 
         <!--<property name="configLocation" value="classpath:mybatis-config.xml" />-->
 
@@ -70,7 +70,7 @@
     <!--</bean>-->
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.micmiu.mvc.ferriswheel.examples.core.mapper" />
+        <property name="basePackage" value="com.micmiu.mvc.ferriswheel.examples.core.mybatis.mapper" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 

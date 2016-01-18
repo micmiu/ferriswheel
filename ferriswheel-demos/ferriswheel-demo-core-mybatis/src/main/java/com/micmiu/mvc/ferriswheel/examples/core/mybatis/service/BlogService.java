@@ -1,7 +1,7 @@
-package com.micmiu.mvc.ferriswheel.examples.core.service;
+package com.micmiu.mvc.ferriswheel.examples.core.mybatis.service;
 
 
-import com.micmiu.mvc.ferriswheel.examples.core.entity.Blog;
+import com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Blog;
 import com.micmiu.mvc.ferriswheel.orm.mybatis.service.GenerateService;
 
 import java.util.List;

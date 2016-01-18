@@ -1,6 +1,6 @@
-package com.micmiu.mvc.ferriswheel.examples.core.mapper;
+package com.micmiu.mvc.ferriswheel.examples.core.mybatis.mapper;
 
-import com.micmiu.mvc.ferriswheel.examples.core.entity.Blog;
+import com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Blog;
 import com.micmiu.mvc.ferriswheel.orm.mybatis.mapper.GenerateMapper;
 import org.apache.ibatis.annotations.Select;
 

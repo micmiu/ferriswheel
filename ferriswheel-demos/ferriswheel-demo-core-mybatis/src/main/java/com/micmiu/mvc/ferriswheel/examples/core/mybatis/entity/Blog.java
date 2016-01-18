@@ -1,4 +1,4 @@
-package com.micmiu.mvc.ferriswheel.examples.core.entity;
+package com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity;
 
 import com.micmiu.mvc.ferriswheel.orm.mybatis.entity.MybatisEntity;
 
@@ -64,7 +64,4 @@ public class Blog extends MybatisEntity<Long> {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 }

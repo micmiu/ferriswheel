@@ -1,7 +1,7 @@
 package com.micmiu.mvc.ferrissheel.example.core.mybatis;
 
-import com.micmiu.mvc.ferriswheel.examples.core.entity.Menu;
-import com.micmiu.mvc.ferriswheel.examples.core.service.MenuService;
+import com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Menu;
+import com.micmiu.mvc.ferriswheel.examples.core.mybatis.service.MenuService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,11 +52,11 @@ public class MenuMapperTest extends AbstractTransactionalJUnit4SpringContextTest
 		Long id = entity.getId();
 
 		String expect = "micmiu.com";
-		Assert.assertNotSame(expect, entity.getMenuURL());
-		entity.setMenuURL(expect);
+		Assert.assertNotSame(expect, entity.getMenuUrl());
+		entity.setMenuUrl(expect);
 		service.updateByPrimaryKey(entity);
 
-		Assert.assertEquals(expect, service.selectByPrimaryKey(id).getMenuURL());
+		Assert.assertEquals(expect, service.selectByPrimaryKey(id).getMenuUrl());
 
 	}
 
@@ -87,7 +87,7 @@ public class MenuMapperTest extends AbstractTransactionalJUnit4SpringContextTest
 		entity.setAliasName("demo_" + randomKey);
 		entity.setMenuName("demo_" + randomKey);
 		entity.setMenuType("");
-		entity.setMenuURL("demo/mybatis");
+		entity.setMenuUrl("demo/mybatis");
 		entity.setOrderNum(randomKey);
 
 		return entity;
