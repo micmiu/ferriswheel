@@ -54,9 +54,9 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/springside/springside4</url>
-        <connection>scm:git:git://github.com/springside/springside4.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:springside/springside4.git</developerConnection>
+        <url>https://github.com/micmiu/ferriswheel</url>
+        <connection>scm:git:git://github.com/micmiu/ferriswheel.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:micmiu/ferriswheel.git</developerConnection>
     </scm>
 
     <distributionManagement>
