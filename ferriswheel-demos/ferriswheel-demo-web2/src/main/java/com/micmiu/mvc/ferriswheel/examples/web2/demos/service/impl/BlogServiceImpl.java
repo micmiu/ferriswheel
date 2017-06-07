@@ -5,8 +5,11 @@ import com.micmiu.mvc.ferriswheel.examples.web2.demos.entity.Blog;
 import com.micmiu.mvc.ferriswheel.examples.web2.demos.service.BlogService;
 import com.micmiu.mvc.ferriswheel.orm.hibernate.HibernateBaseService;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
@@ -36,4 +39,10 @@ public class BlogServiceImpl extends HibernateBaseService<Blog, Long> implements
 		return currentCriteria;
 	}
 
+	@Override
+	public List queryStatic() {
+		List list = this.getSession().createCriteria(Blog.class).setProjection(Projections.projectionList()
+				.add(Projections.groupProperty("category")).add(Projections.rowCount(), "count")).list();
+		return list;
+	}
 }

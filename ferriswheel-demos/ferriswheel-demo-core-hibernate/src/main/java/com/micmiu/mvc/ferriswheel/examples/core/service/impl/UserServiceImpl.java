@@ -10,9 +10,11 @@ import com.micmiu.mvc.ferriswheel.support.shiro.ShiroRealmService;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.internal.CriteriaImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -63,6 +65,9 @@ public class UserServiceImpl extends HibernateBaseService<User, Long> implements
 				currentCriteria.add(d);
 			} catch (Exception e) {
 			}
+		} else if ("roleId".equals(propertyName)) {
+			currentCriteria.createAlias("roleList", "r");
+			currentCriteria.add(Restrictions.eq("r.id", value));
 		}
 		return currentCriteria;
 	}

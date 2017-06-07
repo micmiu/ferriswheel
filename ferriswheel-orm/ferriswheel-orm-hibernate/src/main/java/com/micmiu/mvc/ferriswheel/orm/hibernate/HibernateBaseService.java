@@ -11,7 +11,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -93,8 +92,7 @@ public abstract class HibernateBaseService<E extends FerriswheelID, ID extends S
 		if (paraMaps != null) {
 			for (Entry<String, Object> entry : paraMaps.entrySet()) {
 				if (entry.getValue() instanceof Collection) {
-					q.setParameterList(entry.getKey(),
-							(Collection<?>) entry.getValue());
+					q.setParameterList(entry.getKey(), (Collection<?>) entry.getValue());
 				} else {
 					q.setParameter(entry.getKey(), entry.getValue());
 				}
@@ -194,8 +192,7 @@ public abstract class HibernateBaseService<E extends FerriswheelID, ID extends S
 	 * @param value           字段值
 	 * @return Hibernate Criteria
 	 */
-	protected abstract Criteria handleProperty(Criteria currentCriteria,
-											   String propertyName, Object value);
+	protected abstract Criteria handleProperty(Criteria currentCriteria, String propertyName, Object value);
 
 	/**
 	 * 创建实体对象.
