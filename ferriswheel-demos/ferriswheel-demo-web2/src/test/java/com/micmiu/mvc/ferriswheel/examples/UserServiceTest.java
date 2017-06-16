@@ -12,7 +12,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created
@@ -33,6 +35,15 @@ public class UserServiceTest extends AbstractTransactionalJUnit4SpringContextTes
 	@Test
 	public void test() {
 		List<User> list = userService.query("roleId", 1L);
+		System.out.println("list size =:" + list.size());
+		for (User user : list) {
+			System.out.println(user);
+		}
+
+		Map<String,Object> params = new HashMap<String, Object>();
+		params.put("roleId", 1L);
+		params.put("roleName", "管理员");
+		list = userService.query(params);
 		System.out.println("list size =:" + list.size());
 		for (User user : list) {
 			System.out.println(user);

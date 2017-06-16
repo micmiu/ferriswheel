@@ -24,13 +24,11 @@
             </noscript>
             <!-- content starts -->
             <div id="content" class="col-xs-9">
-                <div>
                     <ol class="breadcrumb">
                         <li><a href="<c:url value='/index.do'/>"><fmt:message
                                 key="global.text.index" /></a></li>
                         <li><a href="#"> <sitemesh:title /></a></li>
                     </ol>
-                </div>
                 <sitemesh:body />
             </div>
             <!-- content ends -->

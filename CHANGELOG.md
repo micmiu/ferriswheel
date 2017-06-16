@@ -3,6 +3,7 @@
 ---
 ## v1.3.1
 #### New Feature :
+      * 增加jqgrid多条件组合查询
       * mybatis web演示？
 #### Improvement :
       * 重构demo模块：core-common、core-hibernate

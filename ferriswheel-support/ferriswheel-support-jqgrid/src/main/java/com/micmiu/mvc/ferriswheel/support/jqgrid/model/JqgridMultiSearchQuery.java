@@ -14,13 +14,32 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Created
+ * 实现Jqgrid 多条件组合分页查询
  * User: <a href="http://micmiu.com">micmiu</a>
  * Date: 4/7/2017
  * Time: 13:44
  */
 public abstract class JqgridMultiSearchQuery extends JqgridQuery {
 
+	/**
+	 * 类似格式:
+	 *{
+	 *    "groupOp": "AND",
+	 *    "rules": [
+	 *        {
+	 *            "field": "loginName",
+	 *            "op": "cn",
+	 *            "data": "micmiu"
+	 *        },
+	 *        ....
+	 *        {
+	 *            "field": "roleId",
+	 *            "op": "eq",
+	 *            "data": "1"
+	 *        }
+	 *    ]
+	 *}
+	 */
 	private String filters;
 
 	public String getFilters() {

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 基于AbstractQuery实现jqgrid的分页查询
+ * 实现jqgrid的单条件分页查询
  * User: <a href="http://micmiu.com">micmiu</a>
  * Date: 11/28/2015
  * Time: 21:59
@@ -159,7 +159,7 @@ public abstract class JqgridQuery extends AbstractQuery {
 		List<Field> properties = RefAnnotationUtil.getAllPublicFields(getClass(), QueryProperty.class);
 		for (Field p : properties) {
 			if (p.getName().equals(searchField) && StringUtils.isNotEmpty(searchString)) {
-				propertyValues.put(getQueryPropertyName(p.getName()),searchString);
+				propertyValues.put(getQueryPropertyName(p.getName()), searchString);
 			}
 		}
 		return propertyValues;

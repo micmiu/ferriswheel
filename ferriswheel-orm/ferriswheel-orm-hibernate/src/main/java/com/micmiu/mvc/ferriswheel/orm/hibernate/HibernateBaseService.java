@@ -10,12 +10,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
+import org.hibernate.internal.CriteriaImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -182,6 +184,24 @@ public abstract class HibernateBaseService<E extends FerriswheelID, ID extends S
 		} else {
 			return null;
 		}
+	}
+
+	/**
+	 * @param currentCriteria
+	 * @param associationPath
+	 * @param defaultAlias
+	 * @return fetchAlias
+	 */
+	protected String fetchAlias(Criteria currentCriteria, String associationPath, String defaultAlias) {
+		Iterator it = ((CriteriaImpl) currentCriteria).iterateSubcriteria();
+		while (it.hasNext()) {
+			CriteriaImpl.Subcriteria sub = (CriteriaImpl.Subcriteria) it.next();
+			if (associationPath.equals(sub.getPath())) {
+				return sub.getAlias();
+			}
+		}
+		currentCriteria.createAlias(associationPath, defaultAlias);
+		return defaultAlias;
 	}
 
 	/**

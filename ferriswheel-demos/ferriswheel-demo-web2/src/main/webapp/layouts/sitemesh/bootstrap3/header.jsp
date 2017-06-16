@@ -40,7 +40,7 @@
     <script type="text/javascript" src="<c:url value='/static/plugins/bootstrap-datepicker/1.5.0/locales/bootstrap-datepicker.${LOCALE}.min.js' />"></script>
 
     <script type="text/javascript">
-        $.jgrid.defaults.width = 780;
+        $.jgrid.defaults.width = 700;
         $.jgrid.defaults.responsive = true;
         $.jgrid.defaults.styleUI = 'Bootstrap';
         $.fn.datepicker.defaults.language = '${LOCALE}';

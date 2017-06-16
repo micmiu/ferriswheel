@@ -2,20 +2,22 @@ package com.micmiu.mvc.ferriswheel.examples.web2.simple.model;
 
 
 import com.micmiu.mvc.ferriswheel.core.annotation.QueryProperty;
-import com.micmiu.mvc.ferriswheel.support.jqgrid.model.JqgridQuery;
+import com.micmiu.mvc.ferriswheel.support.jqgrid.model.JqgridMultiSearchQuery;
 
 /**
  * 用户查询条件.
  *
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
-public class UserJqgridQuery extends JqgridQuery {
+public class UserJqgridQuery extends JqgridMultiSearchQuery {
 
 	private String loginName;
 
 	private String name;
 
-	private Long department;
+	private String email;
+
+	private Long roleId;
 
 	/**
 	 * 获取查询用户名.
@@ -55,23 +57,21 @@ public class UserJqgridQuery extends JqgridQuery {
 		this.name = name;
 	}
 
-	/**
-	 * 获取查询部门ID.
-	 *
-	 * @return 查询部门ID
-	 */
-	@QueryProperty(name = "departmentId")
-	public Long getDepartment() {
-		return department;
+	@QueryProperty
+	public String getEmail() {
+		return email;
 	}
 
-	/**
-	 * 设置查询部门ID.
-	 *
-	 * @param department 查询部门ID
-	 */
-	public void setDepartment(Long department) {
-		this.department = department;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
+	@QueryProperty
+	public Long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
+	}
 }

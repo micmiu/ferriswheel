@@ -4,17 +4,16 @@ package com.micmiu.mvc.ferriswheel.examples.core.service.impl;
 import com.micmiu.mvc.ferriswheel.examples.core.entity.Role;
 import com.micmiu.mvc.ferriswheel.examples.core.entity.User;
 import com.micmiu.mvc.ferriswheel.examples.core.service.UserService;
-import com.micmiu.mvc.ferriswheel.orm.hibernate.HibernateBaseService;
+import com.micmiu.mvc.ferriswheel.orm.hibernate.HibernateMultiOpService;
 import com.micmiu.mvc.ferriswheel.support.shiro.ShiroPermissible;
 import com.micmiu.mvc.ferriswheel.support.shiro.ShiroRealmService;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.internal.CriteriaImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -23,8 +22,7 @@ import java.util.List;
  * @author <a href="http://www.micmiu.com">Michael Sun</a>
  */
 @Service
-public class UserServiceImpl extends HibernateBaseService<User, Long> implements
-		UserService, ShiroRealmService {
+public class UserServiceImpl extends HibernateMultiOpService<User, Long> implements UserService, ShiroRealmService {
 
 	/**
 	 * 生成Hibernate查询条件对象. 各实现类针对所管理的实体对象，实现支持查询字段的处理逻辑.
@@ -34,9 +32,7 @@ public class UserServiceImpl extends HibernateBaseService<User, Long> implements
 	 * @param value           字段值
 	 * @return Hibernate Criteria
 	 */
-	@Override
-	protected Criteria handleProperty(Criteria currentCriteria,
-									  String propertyName, Object value) {
+	protected Criteria handleProperty2(Criteria currentCriteria, String propertyName, Object value) {
 		if ("loginName".equals(propertyName)) {
 			currentCriteria.add(Restrictions.like("loginName", "%" + value
 					+ "%"));
@@ -50,7 +46,7 @@ public class UserServiceImpl extends HibernateBaseService<User, Long> implements
 			currentCriteria.add(Restrictions.eq("department.departmentId",
 					value));
 			// 复杂
-			// currentCriteria.createCriteria("department").add(Restrictions.eq("departmentId",
+			// currentCriteria.x("department").add(Restrictions.eq("departmentId",
 			// value));
 		} else if ("status".equals(propertyName)) {
 			// 健壮性捕获异常
@@ -66,10 +62,31 @@ public class UserServiceImpl extends HibernateBaseService<User, Long> implements
 			} catch (Exception e) {
 			}
 		} else if ("roleId".equals(propertyName)) {
-			currentCriteria.createAlias("roleList", "r");
-			currentCriteria.add(Restrictions.eq("r.id", value));
+			String alias = fetchAlias(currentCriteria, "roleList", "r");
+			currentCriteria.add(Restrictions.eq(alias + ".id", value));
+		} else if ("roleName".equals(propertyName)) {
+			String alias = fetchAlias(currentCriteria, "roleList", "r");
+			currentCriteria.add(Restrictions.like(alias + ".roleName", "%" + value + "%"));
 		}
 		return currentCriteria;
+	}
+
+	@Override
+	protected Criterion handlCriterion(Criteria currentCriteria, String op, String propertyName, Object value) {
+		if (propertyName.equals("roleId")) {
+			currentCriteria.createAlias("roleList", "r");
+			return Restrictions.eq("r.id", this.handlePrpertyValue(propertyName, value));
+		} else {
+			return super.handlCriterion(currentCriteria, op, propertyName, value);
+		}
+	}
+
+	@Override
+	protected Object handlePrpertyValue(String column, Object value) {
+		if ("roleId".equals(column)) {
+			return new Long(Long.parseLong(value.toString()));
+		}
+		return value;
 	}
 
 	@Override
