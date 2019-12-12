@@ -1,4 +1,4 @@
-package com.micmiu.mvc.ferriswheel.examples.web2.demos.jqgrid.controller;
+package com.micmiu.mvc.ferriswheel.examples.web3.demos.jqgrid.controller;
 
 import com.micmiu.mvc.ferriswheel.support.spring.mvc.SpringAbstractController;
 import org.springframework.stereotype.Controller;

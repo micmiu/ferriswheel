@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/layouts/sitemesh/bootstrap3">
+	<excludes>
+        <pattern>/static/*</pattern>
+		<pattern>/servlet/*</pattern>
+        <pattern>/anno/*</pattern>
+		<pattern>/api/*</pattern>
+	</excludes>
+
+    <decorator name="login" page="layout.login.jsp">
+        <pattern>/login.do</pattern>
+    </decorator>
+    <decorator name="demo" page="layout.demo.jsp">
+        <pattern>/demo/*</pattern>
+    </decorator>
+	<decorator name="default" page="layout.main.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+	
+
+</decorators>

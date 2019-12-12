@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.micmiu.mvc.ferriswheel.examples.mapper.UserMapper">
+    <resultMap  id="userResultMap" type="User">
+        <id property="id" column="ID"/>
+        <result property="userID" column="USER_ID"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="role" column="ROLE"/>
+        <result property="createDate" column="CREATE_DATE"/>
+    </resultMap>
+    <insert id="create" parameterType="User" useGeneratedKeys="true" keyProperty="id" >
+       insert into t_user (user_id, user_name, password, role, create_date)
+       values ( #{userID}, #{userName}, #{password}, #{role}, #{createDate})
+     </insert>
+
+    <select id="read" parameterType="long" resultType="User" resultMap="userResultMap">
+      select * from t_user where id = #{id}
+    </select>
+
+    <update id="update" parameterType="User">
+       update t_user set user_id = #{userID}, user_name = #{userName}, password = #{password}, role=#{role}
+       where id = #{id}
+     </update>
+
+    <delete id="delete" parameterType="long" >
+      delete from  t_user where id = #{id}
+     </delete>
+
+    <select id="queryAll" resultMap="userResultMap" >
+      select * from t_user
+    </select>
+</mapper>

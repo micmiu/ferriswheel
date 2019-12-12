@@ -16,15 +16,15 @@
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List"/>
-        from T_MENU
+        from T_SYS_MENU
         where ID = #{id,jdbcType=BIGINT}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from T_MENU
+    delete from T_SYS_MENU
     where ID = #{id,jdbcType=BIGINT}
   </delete>
     <insert id="insert" parameterType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Menu" useGeneratedKeys="true" keyProperty="id">
-    insert into T_MENU (ID, PARENT_ID, MENU_NAME, 
+    insert into T_SYS_MENU (ID, PARENT_ID, MENU_NAME,
       ALIAS_NAME, MENU_URL, MENU_TYPE, 
       ORDER_NUM)
     values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{menuName,jdbcType=VARCHAR}, 
@@ -32,7 +32,7 @@
       #{orderNum,jdbcType=INTEGER})
   </insert>
     <insert id="insertSelective" parameterType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Menu">
-        insert into T_MENU
+        insert into T_SYS_MENU
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 ID,
@@ -81,7 +81,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Menu">
-        update T_MENU
+        update T_SYS_MENU
         <set>
             <if test="parentId != null">
                 PARENT_ID = #{parentId,jdbcType=BIGINT},
@@ -105,7 +105,7 @@
         where ID = #{id,jdbcType=BIGINT}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Menu">
-    update T_MENU
+    update T_SYS_MENU
     set PARENT_ID = #{parentId,jdbcType=BIGINT},
       MENU_NAME = #{menuName,jdbcType=VARCHAR},
       ALIAS_NAME = #{aliasName,jdbcType=VARCHAR},
@@ -116,7 +116,7 @@
   </update>
 
     <select id="selectCountAll" resultType="java.lang.Integer">
-    select count(1) from T_MENU
+    select count(1) from T_SYS_MENU
   </select>
 
 </mapper>

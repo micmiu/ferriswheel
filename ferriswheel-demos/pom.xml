@@ -19,6 +19,7 @@
         <module>ferriswheel-demo-core-mybatis</module>
         <module>ferriswheel-demo-web</module>
         <module>ferriswheel-demo-web2</module>
+        <module>ferriswheel-demo-web3</module>
     </modules>
     <dependencies>
         <!-- LOGGING begin -->

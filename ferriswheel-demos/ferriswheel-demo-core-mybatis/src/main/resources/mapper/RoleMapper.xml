@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.micmiu.mvc.ferriswheel.examples.core.mybatis.mapper.RoleMapper" >
+  <resultMap id="BaseResultMap" type="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Role" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="BaseResultExtMap" type="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Role" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+    <collection  property="permissions"  ofType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Permission">
+      <id property="id" column="ID" />
+      <result column="ROLE_ID" property="roleId" jdbcType="BIGINT" />
+      <result column="MENU_ID" property="menuId" jdbcType="BIGINT" />
+      <result column="RES_NAME" property="resName" jdbcType="VARCHAR" />
+      <result column="RES_CN_NAME" property="resCnName" jdbcType="VARCHAR" />
+      <result column="OPERATION" property="operation" jdbcType="VARCHAR" />
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ROLE_NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_ROLE
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from T_SYS_ROLE
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Role" >
+    insert into T_SYS_ROLE (ID, ROLE_NAME)
+    values (#{id,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Role" >
+    insert into T_SYS_ROLE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="roleName != null" >
+        ROLE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="roleName != null" >
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Role" >
+    update T_SYS_ROLE
+    <set >
+      <if test="roleName != null" >
+        ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.micmiu.mvc.ferriswheel.examples.core.mybatis.entity.Role" >
+    update T_SYS_ROLE
+    set ROLE_NAME = #{roleName,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectOneExtById" resultMap="BaseResultExtMap" parameterType="java.lang.Long" >
+    select r.* FROM T_SYS_ROLE r
+    INNER JOIN t_SYS_r2p m  ON r.ID = m.ROLE_ID
+    INNER JOIN T_SYS_PERMISSION p  ON p.ID = m.PERM_ID
+    where r.ID = #{id,jdbcType=BIGINT}
+  </select>
+</mapper>

@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+.whitespace:before {
+    content: "\2122";
+    color: transparent !important;
+}
+
+/* datatables */
+tfoot input {
+    color: #444444;
+    width: 90%;
+}
+tfoot input.search_init {
+    color: #999999;
+}
