@@ -61,14 +61,14 @@
 
     <distributionManagement>
         <repository>
-            <id>edata-releases</id>
+            <id>zm-releases</id>
             <name>Nexus Release Repository</name>
-            <url>http://192.168.1.123:1984/nexus/content/repositories/releases/</url>
+            <url>http://dev.zmyy.com:8000/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
-            <id>edata-snapshots</id>
+            <id>zm-snapshots</id>
             <name>Nexus snapshots Repository</name>
-            <url>http://192.168.1.123:1984/nexus/content/repositories/snapshots/</url>
+            <url>http://dev.zmyy.com:8000/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>

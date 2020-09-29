@@ -15,11 +15,11 @@
     <url>http://micmiu.com</url>
 
     <dependencies>
-        <!--<dependency>
+        <dependency>
             <groupId>com.micmiu.mvc</groupId>
             <artifactId>ferriswheel-demo-core-common</artifactId>
             <version>${project.parent.version}</version>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>com.micmiu.mvc</groupId>
             <artifactId>ferriswheel-demo-core-mybatis</artifactId>
